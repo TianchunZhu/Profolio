@@ -540,11 +540,12 @@ footer{text-align:center;padding:24px;font-size:14px;color:var(--sub);border-top
       <img src="illus1.jpg" class="illus-port" alt="" onerror="this.style.display='none'"/>
       <div class="port-sidebar-label" id="po-label">Categories</div>
       <ul class="port-cat-list">
-        <li class="port-cat active" onclick="filterPort('all',this)"><span class="cat-dot"></span><span class="cat-name" id="cat-all">全部</span><span class="cat-count">7</span></li>
+        <li class="port-cat active" onclick="filterPort('all',this)"><span class="cat-dot"></span><span class="cat-name" id="cat-all">全部</span><span class="cat-count">8</span></li>
         <li class="port-cat" onclick="filterPort('school',this)"><span class="cat-dot"></span><span class="cat-name" id="cat-school">学校项目 &amp; 作业</span><span class="cat-count">4</span></li>
         <li class="port-cat" onclick="filterPort('internship',this)"><span class="cat-dot"></span><span class="cat-name" id="cat-intern">实习内容</span><span class="cat-count">2</span></li>
         <li class="port-cat" onclick="filterPort('analysis',this)"><span class="cat-dot"></span><span class="cat-name" id="cat-analysis">营销拆解</span><span class="cat-count">2</span></li>
         <li class="port-cat" onclick="filterPort('webapp',this)"><span class="cat-dot"></span><span class="cat-name" id="cat-webapp">Web App</span><span class="cat-count">1</span></li>
+        <li class="port-cat" onclick="filterPort('minicase',this)"><span class="cat-dot" style="background:var(--accent)"></span><span class="cat-name" id="cat-minicase">Mini Case</span><span class="cat-count">1</span></li>
       </ul>
     </aside>
     <div class="port-main">
@@ -576,6 +577,28 @@ footer{text-align:center;padding:24px;font-size:14px;color:var(--sub);border-top
         <div class="port-card" data-cat="internship analysis" onclick="openModal('m-oncehuman')" style="cursor:pointer">
           <div class="card-img" style="background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);padding:0;overflow:hidden"><span class="card-num">05</span><img src="oncehuman.png" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block"/></div>
           <div class="card-body"><div class="card-cat" id="c5-cat">营销案例拆解 · 网易互娱</div><div class="card-name" id="c5-name">《七日世界》手游版本上线营销拆解</div><p class="card-desc" id="c5-desc">从用户迁移战略、分层传播链路到 KOL 结构设计，深度复盘北美/欧美移动公测的完整营销方案：赢在用户洞察精准，卡在漏斗后段承接。</p><div class="card-btns"><button class="btn-sm btn-sm-dark" onclick="openModal('m-oncehuman')" id="c5-view">查看拆解</button><a class="btn-sm btn-sm-ghost" href="https://1drv.ms/w/c/bad556a6b4985de8/IQD0zk8eJLZbTIQq4LRD9UIjAaJZ4ONmjFtz6XJNJvcR5Go?e=Ak2ARS" target="_blank" id="c5-dl">下载</a><span class="card-arrow">→</span></div></div>
+        </div>
+        <div class="port-card" data-cat="minicase" onclick="openModal('m-deltaforce')" style="cursor:pointer;border:2px solid var(--border)">
+          <div class="card-img" style="background:#050707;padding:0;overflow:hidden;position:relative">
+            <span class="card-num">08</span>
+            <img src="delta force.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;opacity:.85"/>
+            <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(5,7,7,.55) 0%,transparent 60%);pointer-events:none"></div>
+            <div style="position:absolute;bottom:10px;left:11px;display:flex;gap:5px;z-index:2">
+              <span style="background:rgba(63,214,106,.18);border:1px solid rgba(63,214,106,.5);color:#3fd66a;font-size:9px;font-weight:700;padding:2px 7px;border-radius:3px;letter-spacing:.5px">GTM</span>
+              <span style="background:rgba(224,24,26,.15);border:1px solid rgba(224,24,26,.45);color:#e0181a;font-size:9px;font-weight:700;padding:2px 7px;border-radius:3px;letter-spacing:.5px">KOL</span>
+              <span style="background:rgba(90,246,198,.12);border:1px solid rgba(90,246,198,.35);color:#5af6c6;font-size:9px;font-weight:700;padding:2px 7px;border-radius:3px;letter-spacing:.5px">IRL OPS</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="card-cat">营销策划 · Mini Case · 腾讯</div>
+            <div class="card-name">三角洲行动 × 碟中谍：全球整合营销企划</div>
+            <p class="card-desc">以伦敦为中心的跨媒体 GTM 策划：5 阶段预热、5 类 KOL 矩阵（21位创作者）、Thames Relay IRL 城市活动、ARG 密码解谜链——将游戏发布做成一场真实谍战事件。</p>
+            <div class="card-btns">
+              <button class="btn-sm btn-sm-dark" onclick="openModal('m-deltaforce');event.stopPropagation()">查看企划</button>
+              <a class="btn-sm btn-sm-ghost" href="https://tianchunzhu.github.io/Delta-Force-Mission-Impossible/" target="_blank" onclick="event.stopPropagation()">访问网站</a>
+              <span class="card-arrow">→</span>
+            </div>
+          </div>
         </div>
         <div class="port-card" data-cat="webapp" onclick="openModal('m-ytinsights')" style="cursor:pointer">
           <div class="card-img" style="background:linear-gradient(135deg,#0d1117,#1a2332,#0f3460);padding:24px;overflow:hidden;flex-direction:column;align-items:center;justify-content:center">
@@ -977,6 +1000,105 @@ footer{text-align:center;padding:24px;font-size:14px;color:var(--sub);border-top
   </div>
 </div>
 
+<!-- ══ MODAL: Delta Force × Mission Impossible ══ -->
+<div class="modal-overlay" id="m-deltaforce">
+  <div class="modal-box" style="padding-top:0;border-radius:14px 38px;max-width:720px">
+    <button class="modal-close" onclick="closeModal('m-deltaforce')" style="top:10px;right:12px;background:rgba(5,7,7,.85);color:#e6ebe8;border:1px solid #232c2f">✕</button>
+    <div style="margin:0;border-radius:14px 38px 0 0;overflow:hidden;height:210px;position:relative">
+      <img src="delta force.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 35%"/>
+      <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(5,7,7,.72) 0%,rgba(5,7,7,.18) 60%,transparent 100%)"></div>
+      <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(5,7,7,.92))"></div>
+      <div style="position:absolute;bottom:14px;left:20px;right:20px;display:flex;justify-content:space-between;align-items:flex-end">
+        <div>
+          <div style="font-family:'Oswald',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;color:#3fd66a;text-transform:uppercase;margin-bottom:4px">Mini Case · 营销策划</div>
+          <div style="font-family:'Oswald',sans-serif;font-size:19px;font-weight:800;color:#e6ebe8;line-height:1.1;text-transform:uppercase;letter-spacing:.5px">三角洲行动 × 碟中谍</div>
+          <div style="font-size:11px;color:rgba(230,235,232,.65);letter-spacing:.5px;margin-top:3px">Global GTM · London Ops · KOL Matrix · ARG · 2025</div>
+        </div>
+        <div style="display:flex;gap:5px;flex-direction:column;align-items:flex-end">
+          <span style="background:rgba(63,214,106,.2);border:1px solid rgba(63,214,106,.55);color:#3fd66a;font-size:9px;font-weight:700;padding:2px 8px;border-radius:3px;letter-spacing:.8px">5 GTM PHASES</span>
+          <span style="background:rgba(224,24,26,.18);border:1px solid rgba(224,24,26,.5);color:#e0181a;font-size:9px;font-weight:700;padding:2px 8px;border-radius:3px;letter-spacing:.8px">21 KOL · 5 CATS</span>
+          <span style="background:rgba(90,246,198,.15);border:1px solid rgba(90,246,198,.4);color:#5af6c6;font-size:9px;font-weight:700;padding:2px 8px;border-radius:3px;letter-spacing:.8px">IRL LONDON OPS</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding:0 32px 28px">
+      <div class="m-head" style="margin-top:18px">
+        <img src="tencent.png" class="m-logo" style="border-radius:6px" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="m-logo-text" style="display:none;background:#0052d9;color:#fff;font-size:10px;font-weight:800;letter-spacing:.5px">Tencent</div>
+        <div>
+          <div class="m-org">腾讯三角洲行动 × 碟中谍 全球整合营销企划</div>
+          <div class="m-period-role">Tencent TiMi Studio · Mini Case · 2025 · <span>营销策划 / KOL 矩阵 / IRL 活动设计</span></div>
+        </div>
+      </div>
+
+      <div class="m-body">
+
+        <div class="m-sec">企划核心命题</div>
+        <p>《三角洲行动》是腾讯 TiMi 工作室出品的全平台战术射击游戏，在全球发行阶段面临核心难题：如何在 FPS 存量市场中找到破圈入口，同时维护硬核玩家社区的高门槛可信度？</p>
+        <p style="margin:10px 0;padding:10px 14px;background:#f5f0ea;border-left:3px solid var(--accent);border-radius:0 8px 8px 0;font-size:13px;line-height:1.7"><em>「与其做一次游戏发布，不如做一次真实谍战事件——让玩家、KOL 和路人，都在不知不觉中参与进来。」</em></p>
+        <p>以 <strong>Mission Impossible 联动</strong> 为叙事外壳，在伦敦落地一套 <strong>GTM + IRL 线下情报任务 + ARG 密码链 + 跨类型 KOL 矩阵</strong> 的整合方案，覆盖从破圈大众到核心撤离玩家的完整受众光谱。</p>
+
+        <div class="m-sec">企划规模 · Scale</div>
+        <div class="m-stats">
+          <div class="m-stat-box"><div class="m-stat-n">5</div><div class="m-stat-l">GTM 预热阶段</div></div>
+          <div class="m-stat-box"><div class="m-stat-n">21</div><div class="m-stat-l">KOL（5 类矩阵）</div></div>
+          <div class="m-stat-box"><div class="m-stat-n">3</div><div class="m-stat-l">策略支柱</div><div style="font-size:10px;color:var(--sub);margin-top:2px">GTM · IRL · KOL</div></div>
+          <div class="m-stat-box"><div class="m-stat-n">London</div><div class="m-stat-l">主战场城市</div><div style="font-size:10px;color:var(--sub);margin-top:2px">Thames Relay Hub</div></div>
+        </div>
+
+        <div class="m-sec">三大策略支柱</div>
+        <div class="m-layers">
+          <div class="m-layer">
+            <div class="m-layer-num" style="background:linear-gradient(135deg,#1f8a3d,#3fd66a);color:#050707;font-weight:900">GTM</div>
+            <div class="m-layer-body">
+              <div class="m-layer-title">全球 GTM 营销矩阵 · 5阶段预热</div>
+              <div class="m-layer-desc">GHOST SIGNAL 信号泄露（悬念）→ ROGUE ASSET 特工失联（身份建立）→ EXTRACTION PROTOCOL 任务激活（玩法揭示）→ FIELD OPS KOL 同步上线 → LONDON RELAY 城市主活动。每一阶段对应专属 KV、传播素材与社媒节奏。</div>
+            </div>
+          </div>
+          <div class="m-layer">
+            <div class="m-layer-num" style="background:linear-gradient(135deg,#7a0a0c,#e0181a);color:#fff;font-weight:900">IRL</div>
+            <div class="m-layer-body">
+              <div class="m-layer-title">Thames Relay · 伦敦线下情报任务</div>
+              <div class="m-layer-desc">将泰晤士河沿线设计为情报信号网络——Bridge Node（塔桥）→ Parliament Node → Monument Node → Greenwich Node。完成任务的玩家可在 Discord 提交证明获取限定挂件，KOL 直播推进城市节点解锁进度，线下行为直接联动游戏内产出。</div>
+            </div>
+          </div>
+          <div class="m-layer">
+            <div class="m-layer-num" style="background:linear-gradient(135deg,#1c8a72,#5af6c6);color:#050707;font-weight:900">ARG</div>
+            <div class="m-layer-body">
+              <div class="m-layer-title">Impossible Cipher · 跨平台 ARG 密码链</div>
+              <div class="m-layer-desc">隐藏在官网、Discord 频道、KOL 视频帧中的密码碎片，由社区合力拼凑完成解密链——最终解出游戏内 Easter Egg 坐标与隐藏剧情。MatPat、Wendigoon、Nexpo 等 ARG 专项 KOL 作为叙事节点，形成「官方植入→社区自发扩散」的情报闭环。</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="m-sec">KOL 矩阵设计 · 5 类 21 位</div>
+        <div class="m-kol-grid" style="grid-template-columns:1fr 1fr">
+          <div class="m-kol-card"><div class="m-kol-type" style="color:#c87b5e">CAT-01 · 破圈挑战</div><div class="m-kol-desc">MrBeast、Dude Perfect、Storror、Max Fosh——超越游戏圈层，触达主流娱乐受众，Thames Relay 城市挑战是他们的内容主场。</div></div>
+          <div class="m-kol-card"><div class="m-kol-type" style="color:#c87b5e">CAT-02 · FPS 直播</div><div class="m-kol-desc">shroud、TimTheTatman、DrLupo、StoneMountain64、Symfuhny——核心战斗玩家触达，Relay 防卫任务主力，直播节点与城市解锁直接挂钩。</div></div>
+          <div class="m-kol-card"><div class="m-kol-type" style="color:#c87b5e">CAT-03 · 撤离战术</div><div class="m-kol-desc">LVNDMARK、Pestily、OperatorDrewski、Glorious_E——硬核撤离圈层可信度背书，Physical Drive Hunt 实体情报围猎活动执行主力。</div></div>
+          <div class="m-kol-card"><div class="m-kol-type" style="color:#c87b5e">CAT-04 · 大战场解析</div><div class="m-kol-desc">Tdawgsmitty、jackfrags、Tomographic——Warfare 模式深度玩家触达，新手转化视频与战术路线图的主要输出方。</div></div>
+          <div class="m-kol-card" style="grid-column:1/-1"><div class="m-kol-type" style="color:#c87b5e">CAT-05 · Cipher / ARG / 解谜</div><div class="m-kol-desc">MatPat、Wendigoon、Nexpo、Discord KOL——叙事 ARG 理论与密码破译专项，负责 Impossible Cipher 事件的核心扩散节点，将社区解谜行为转化为游戏外围内容的持续热度。</div></div>
+        </div>
+
+        <div class="m-sec">可交付成果 · Deliverables</div>
+        <ul style="font-size:13px;line-height:2;color:var(--ink)">
+          <li><strong>GTM Overview 页</strong>：5 阶段策略地图、目标受众定义、渠道规划、资产清单</li>
+          <li><strong>Off-Game IRL Ops 页</strong>：Thames Relay 城市信号地图、Discord Relay Rewards 机制、ARG Cipher 设计、Drop 掉落系统</li>
+          <li><strong>Creator Field Ops 页</strong>：21 位 KOL 完整档案、5 类矩阵结构、任务分配与执行节奏</li>
+          <li><strong>交互式 Web 原型</strong>：基于 React + Tailwind 构建，含动态 HUD 界面、可筛选 KOL 卡片、动画信号地图</li>
+        </ul>
+
+        <div style="margin-top:22px;padding-top:16px;border-top:1.5px solid var(--border);display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+          <a href="https://tianchunzhu.github.io/Delta-Force-Mission-Impossible/" target="_blank" class="btn btn-dark" style="display:inline-flex;align-items:center;gap:8px;font-size:14px">🌐 访问完整策划网站</a>
+          <a href="https://github.com/TianchunZhu/Delta-Force-Mission-Impossible" target="_blank" class="btn" style="display:inline-flex;align-items:center;gap:8px;font-size:14px;border:2px solid var(--border)">⌥ GitHub 源码</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
 /* ── Language Data ── */
 const T={
@@ -1262,7 +1384,7 @@ function filterPort(cat,el){
   const cards=document.querySelectorAll('#port-grid .port-card');
   let count=0;
   cards.forEach(card=>{const show=cat==='all'||card.dataset.cat.split(' ').includes(cat);card.classList.toggle('hidden',!show);if(show)count++;});
-  const m={zh:{all:'作品集',school:'学校项目 & 作业',internship:'实习内容',analysis:'营销拆解',webapp:'Web App'},en:{all:'Portfolio',school:'Academic Projects',internship:'Internship Work',analysis:'Marketing Analysis',webapp:'Web App'}};
+  const m={zh:{all:'作品集',school:'学校项目 & 作业',internship:'实习内容',analysis:'营销拆解',webapp:'Web App',minicase:'Mini Case'},en:{all:'Portfolio',school:'Academic Projects',internship:'Internship Work',analysis:'Marketing Analysis',webapp:'Web App',minicase:'Mini Case'}};
   document.getElementById('po-title').textContent=m[lang][cat];
   document.getElementById('port-showing').textContent='('+count+')';
 }
