@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>朱天纯 | TIANCHUN ZHU</title>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -223,6 +223,28 @@ nav.scrolled{padding:12px 7%;box-shadow:0 4px 24px var(--shadow)}
 .file-name{font-size:13px;font-weight:700;color:var(--ink)}
 .file-meta{font-size:11px;color:var(--sub);margin-top:2px}
 
+/* Sites I built module */
+.sites-sec{margin-top:44px;padding-top:28px;border-top:1.5px solid var(--border)}
+.sites-head{font-size:19px;font-weight:800;margin-bottom:5px;color:var(--ink);font-family:var(--font-display);letter-spacing:-.3px}
+.sites-sub{font-size:12px;color:var(--sub);margin-bottom:16px}
+.sites-list{display:flex;flex-direction:column;gap:11px}
+.site-row{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;background:rgba(255,255,255,.6);border:1.5px solid var(--border);border-radius:13px;padding:16px 18px;transition:all .28s}
+.site-row:hover{border-color:var(--accent);transform:translateX(4px);box-shadow:5px 5px 0 var(--blue-l)}
+.site-left{display:flex;align-items:flex-start;gap:13px;min-width:0}
+.site-ico{width:42px;height:42px;border-radius:11px;background:var(--ink);color:var(--bg);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;border:2px solid var(--ink)}
+.site-ico.live{background:linear-gradient(135deg,var(--accent),var(--yellow));color:#fff}
+.site-name{font-size:14.5px;font-weight:800;color:var(--ink);display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-family:var(--font-display);letter-spacing:-.3px}
+.site-badge{font-size:9.5px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;padding:2px 8px;border-radius:20px;white-space:nowrap}
+.site-badge.wip{background:var(--pink-l);border:1px solid var(--pink);color:var(--accent)}
+.site-badge.up{background:var(--blue-l);border:1px solid var(--blue);color:var(--ink)}
+.site-desc{font-size:12px;color:var(--sub);line-height:1.65;margin-top:6px;max-width:560px}
+.site-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px}
+.site-go{flex-shrink:0;white-space:nowrap}
+@media(max-width:640px){
+  .site-row{flex-direction:column;align-items:stretch}
+  .site-go{align-self:flex-start}
+}
+
 /* Case Study Modal Stats */
 .m-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0}
 .m-stat-box{background:var(--blue-l);border:1.5px solid var(--blue);border-radius:10px;padding:12px 10px;text-align:center}
@@ -290,6 +312,258 @@ footer{text-align:center;padding:24px;font-size:14px;color:var(--sub);border-top
   .trait-visual{max-width:200px;aspect-ratio:1;margin:0 auto}
   .content-reveal{min-height:580px}
 }
+
+/* ════════════════════════════════════════════════════
+   ENHANCEMENT LAYER · Editorial Kinetic (v2)
+   ════════════════════════════════════════════════════ */
+:root{
+  --font-display:'Bricolage Grotesque','Nunito','PingFang SC',system-ui,sans-serif;
+  --font-serif:'Instrument Serif',Georgia,serif;
+  --ink2:#1A1206;
+}
+
+/* ── Type system upgrade ── */
+.sec-title{font-family:var(--font-display);letter-spacing:-2px;font-weight:800;line-height:.96}
+.sec-label{font-family:var(--font-serif);font-style:italic;font-weight:400;font-size:clamp(17px,2vw,21px);letter-spacing:0;text-transform:none;color:var(--accent);margin-bottom:4px}
+.col-title{font-family:var(--font-display);letter-spacing:-.5px}
+
+/* ── HERO rework ── */
+.hero{align-items:center;gap:clamp(28px,5vw,86px);padding-bottom:96px}
+#h-name{font-family:var(--font-display);font-size:clamp(54px,8.4vw,112px);line-height:.88;letter-spacing:-3.5px;font-weight:800;animation:nameReveal 1s cubic-bezier(.16,1,.3,1) .12s both}
+#h-name em{font-family:var(--font-serif);font-style:italic;font-weight:400;letter-spacing:.5px;font-size:.36em;color:var(--accent);margin-top:14px}
+.hero-pill{font-family:var(--font-display);animation:heroRise .85s cubic-bezier(.16,1,.3,1) both}
+.hero-sub{animation:heroRise .85s cubic-bezier(.16,1,.3,1) .34s both;font-size:clamp(15px,1.5vw,17px)}
+.hero-btns{animation:heroRise .85s cubic-bezier(.16,1,.3,1) .5s both}
+.hero-stats{animation:heroRise .85s cubic-bezier(.16,1,.3,1) .64s both;gap:0;flex-wrap:wrap}
+.hero-stat-n{font-family:var(--font-display);font-size:30px;letter-spacing:-1px}
+.hero-photo-col{animation:photoIn 1.15s cubic-bezier(.16,1,.3,1) .2s both}
+.btn{font-family:var(--font-display);letter-spacing:-.2px}
+.btn-dark{box-shadow:4px 4px 0 rgba(200,123,94,.28)}
+.btn-dark:hover{box-shadow:6px 6px 0 var(--accent);transform:translateY(-2px)}
+@keyframes nameReveal{from{opacity:0;clip-path:inset(0 0 105% 0);transform:translateY(18px)}to{opacity:1;clip-path:inset(0 0 -10% 0);transform:none}}
+@keyframes heroRise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes photoIn{from{opacity:0;transform:translateY(34px) scale(.93) rotate(-2.5deg)}to{opacity:1;transform:none}}
+
+/* Photo frame + interactive bits */
+.photo-frame{position:relative;will-change:transform;transition:transform .25s cubic-bezier(.16,1,.3,1)}
+.hero-photo{border-radius:24px 70px 24px 70px;border:3px solid var(--ink);box-shadow:12px 12px 0 var(--blue-l),20px 20px 0 rgba(154,191,201,.22)}
+.photo-badge{position:absolute;left:-50px;bottom:-34px;width:122px;height:122px;z-index:4;animation:spin 16s linear infinite;pointer-events:none}
+.photo-badge svg{width:100%;height:100%;overflow:visible}
+.photo-badge text{font-family:var(--font-display);font-size:11.4px;font-weight:700;letter-spacing:2.6px;fill:var(--ink)}
+.photo-badge-core{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:26px;color:var(--accent)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.float-chip{position:absolute;background:var(--card);border:2px solid var(--ink);border-radius:30px;padding:8px 15px;font-size:12.5px;font-weight:800;font-family:var(--font-display);box-shadow:3px 3px 0 var(--accent);white-space:nowrap;z-index:5;display:flex;align-items:center;gap:7px;letter-spacing:-.2px}
+.float-chip i{width:7px;height:7px;border-radius:50%;background:var(--accent);font-style:normal}
+.chip-1{top:-16px;right:-26px;animation:floaty 5s ease-in-out infinite}
+.chip-2{bottom:46px;right:-54px;animation:floaty 6.2s ease-in-out infinite .6s;box-shadow:3px 3px 0 var(--blue)}
+.chip-2 i{background:var(--blue)}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+/* Kinetic marquee strip under hero */
+.hero-marquee{position:relative;overflow:hidden;background:var(--ink);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);padding:13px 0;margin-top:0}
+.marquee-track{display:inline-flex;align-items:center;white-space:nowrap;will-change:transform;animation:marquee 26s linear infinite}
+.hero-marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-track span{font-family:var(--font-display);font-weight:700;font-size:15px;letter-spacing:.5px;color:var(--bg);padding:0 22px;display:inline-flex;align-items:center}
+.marquee-star{color:var(--accent);padding:0 4px;font-size:13px}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* ── IMPACT / data-viz band ── */
+.impact-sec{background:linear-gradient(180deg,var(--cream),var(--bg));position:relative;overflow:hidden;padding-top:74px;padding-bottom:74px}
+.impact-head{margin-bottom:38px}
+.impact-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;max-width:1180px}
+.imp-card{background:var(--card);border:2px solid var(--ink);border-radius:16px;padding:24px 26px;position:relative;overflow:hidden;transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s;display:flex;flex-direction:column;justify-content:space-between;min-height:160px}
+.imp-card:hover{transform:translateY(-5px);box-shadow:8px 8px 0 var(--accent)}
+.imp-card.a{grid-column:span 5}
+.imp-card.b{grid-column:span 3}
+.imp-card.c{grid-column:span 4}
+.imp-card.s{grid-column:span 4}
+.imp-card .imp-n{font-family:var(--font-display);font-weight:800;font-size:clamp(42px,5vw,62px);line-height:.92;letter-spacing:-2.5px;color:var(--ink);display:flex;align-items:flex-end;gap:3px}
+.imp-suf{color:var(--accent);font-size:.5em;font-weight:800;margin-bottom:.18em}
+.imp-label{font-size:13px;color:var(--sub);font-weight:700;margin-top:10px;line-height:1.45}
+.imp-tag{position:absolute;top:16px;right:18px;font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--accent);background:var(--pink-l);border:1.5px solid var(--pink);padding:3px 9px;border-radius:20px}
+.imp-track{height:9px;background:var(--blue-l);border-radius:6px;overflow:hidden;margin-top:16px;border:1px solid var(--border)}
+.imp-fill{height:100%;width:0%;border-radius:6px;background:linear-gradient(90deg,var(--blue),var(--accent));transition:width 1.5s cubic-bezier(.16,1,.3,1)}
+.imp-card.b{align-items:center;text-align:center}
+.ring-wrap{position:relative;width:128px;height:128px;margin:2px auto 0}
+.ring-wrap svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring-bg{fill:none;stroke:var(--blue-l);stroke-width:11}
+.ring-prog{fill:none;stroke:var(--accent);stroke-width:11;stroke-linecap:round;stroke-dasharray:327;stroke-dashoffset:327;transition:stroke-dashoffset 1.6s cubic-bezier(.16,1,.3,1)}
+.ring-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring-center .rn{font-family:var(--font-display);font-weight:800;font-size:30px;letter-spacing:-1.5px;color:var(--ink);line-height:1}
+.imp-seal{width:96px;height:96px;border-radius:50%;border:2.5px solid var(--ink);background:radial-gradient(circle at 35% 30%,var(--yellow),var(--accent));display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:40px;color:#fff;margin:4px auto 0;box-shadow:4px 4px 0 rgba(26,18,6,.18);letter-spacing:-2px}
+.imp-mini{grid-column:span 4}
+.imp-mini .imp-n{font-size:clamp(34px,4vw,46px)}
+.impact-logos{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px;align-items:center}
+.logo-chip{font-family:var(--font-display);font-weight:700;font-size:13px;color:var(--ink);border:1.5px solid var(--border);background:var(--card);padding:7px 15px;border-radius:24px;transition:all .25s;letter-spacing:-.2px}
+.logo-chip:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+.impact-logos-label{font-size:12px;font-weight:700;color:var(--sub);letter-spacing:1.5px;text-transform:uppercase;margin-right:4px}
+.imp-card,.impact-logos{opacity:0;transform:translateY(28px);transition:opacity .7s,transform .7s}
+.imp-card.vis,.impact-logos.vis{opacity:1;transform:none}
+.imp-card.d1{transition-delay:.08s}.imp-card.d2{transition-delay:.16s}.imp-card.d3{transition-delay:.24s}.imp-card.d4{transition-delay:.32s}.imp-card.d5{transition-delay:.4s}
+
+/* ── Timeline storytelling ── */
+.tl-wrap::before{background:var(--border);opacity:.35}
+.tl-progress{content:'';position:absolute;left:50%;top:0;width:3px;height:0;background:linear-gradient(to bottom,var(--accent),var(--blue));transform:translateX(-50%);border-radius:3px;z-index:0;transition:height .15s linear}
+.tl-dot{width:16px;height:16px;background:var(--card);border:3px solid var(--accent);transition:all .4s cubic-bezier(.16,1,.3,1)}
+.tl-item.vis .tl-dot{background:var(--accent);box-shadow:0 0 0 6px rgba(200,123,94,.16);transform:translateX(-50%) scale(1.12)}
+.tl-item:nth-child(odd){opacity:0;transform:translateX(-44px)}
+.tl-item:nth-child(even){opacity:0;transform:translateX(44px)}
+.tl-item.vis{opacity:1;transform:none}
+.tl-org{font-family:var(--font-display);letter-spacing:-.5px;font-size:19px}
+.tl-card{border:2px solid var(--ink)}
+.tl-card:hover{box-shadow:8px 8px 0 var(--accent);border-color:var(--ink)}
+
+/* ── PORTFOLIO (original layout preserved — no overrides) ── */
+
+/* ── Cursor VIEW label ── */
+#cursor-label{position:fixed;z-index:9997;pointer-events:none;transform:translate(-50%,-50%) scale(.4);background:var(--ink);color:var(--bg);font-family:var(--font-display);font-weight:700;font-size:12px;padding:7px 13px;border-radius:20px;opacity:0;transition:opacity .25s,transform .25s;white-space:nowrap;letter-spacing:.3px}
+body.cursor-view #cursor-label{opacity:1;transform:translate(-50%,-50%) scale(1)}
+body.cursor-view #cursor{opacity:0}
+body.cursor-view #cursor-ring{width:50px;height:50px;border-color:var(--accent);opacity:.35}
+
+/* Section header reveal for impact */
+.impact-head{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}
+.impact-head.vis{opacity:1;transform:none}
+
+@media(max-width:960px){
+  .impact-grid{grid-template-columns:repeat(2,1fr)}
+  .imp-card.a,.imp-card.b,.imp-card.c,.imp-card.s,.imp-mini{grid-column:span 1}
+}
+/* ════════════════════════════════════════════════════
+   CREATIVE VAULT · 创意库
+   ════════════════════════════════════════════════════ */
+.vault-sec{min-height:calc(100vh - 74px);padding-top:46px}
+.vault-head{display:flex;justify-content:space-between;align-items:flex-end;gap:26px;flex-wrap:wrap;margin-bottom:26px}
+.vault-sub{font-size:14px;color:var(--sub);line-height:1.75;margin-top:12px;max-width:540px}
+.vault-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.vault-search{display:flex;align-items:center;gap:9px;background:var(--card);border:2px solid var(--ink);border-radius:30px;padding:10px 17px;min-width:280px;box-shadow:3px 3px 0 var(--blue-l)}
+.vault-search input{border:none;background:none;outline:none;font-family:inherit;font-size:14px;color:var(--ink);width:100%}
+.vs-icon{font-size:15px;opacity:.7}
+.vault-toolbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;gap:10px}
+.vault-count{font-size:13px;color:var(--sub);font-weight:700;font-family:var(--font-display)}
+.vault-tidy{background:var(--card);border:1.5px solid var(--border);border-radius:20px;padding:7px 15px;font-family:var(--font-display);font-weight:700;font-size:13px;cursor:pointer;color:var(--ink);transition:all .2s}
+.vault-tidy:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+.vault-board{position:relative;min-height:64vh;border:2px dashed var(--border);border-radius:22px;background-color:rgba(255,253,248,.5);background-image:radial-gradient(circle at 2px 2px,rgba(200,123,94,.13) 2px,transparent 0);background-size:38px 38px;overflow:hidden}
+.vault-empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:var(--sub)}
+.ve-illus{font-size:54px;margin-bottom:12px;opacity:.5}
+.vault-empty p{font-size:14px;max-width:320px;line-height:1.7}
+
+/* Folder */
+.folder{position:absolute;width:130px;cursor:grab;user-select:none;touch-action:none;animation:folderPop .4s cubic-bezier(.16,1,.3,1) both}
+@keyframes folderPop{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:scale(1)}}
+.folder.dragging{z-index:60;cursor:grabbing}
+.folder.dragging .folder-shape{transform:scale(1.06) rotate(-2deg);filter:drop-shadow(8px 10px 0 rgba(26,18,6,.2))}
+.folder-shape{position:relative;width:130px;height:98px;transition:transform .15s;filter:drop-shadow(4px 5px 0 rgba(26,18,6,.16))}
+.folder-tab{position:absolute;top:0;left:10px;width:54px;height:18px;background:var(--fc);border:2.5px solid var(--ink);border-bottom:none;border-radius:9px 9px 0 0}
+.folder-body{position:absolute;top:13px;left:0;width:130px;height:85px;background:var(--fc);border:2.5px solid var(--ink);border-radius:5px 13px 13px 13px;display:flex;align-items:center;justify-content:center;color:var(--ic)}
+.folder-body svg{width:48px;height:48px}
+.folder:hover .folder-shape{transform:translateY(-3px)}
+.folder-count{position:absolute;top:6px;right:-7px;min-width:22px;height:22px;padding:0 5px;border-radius:11px;background:var(--ink);color:var(--bg);font-family:var(--font-display);font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;border:2px solid var(--bg);z-index:2}
+.folder-edit{position:absolute;top:15px;left:-6px;width:22px;height:22px;border-radius:50%;background:var(--card);border:2px solid var(--ink);font-size:13px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s;z-index:3;font-family:inherit;color:var(--ink);padding:0}
+.folder:hover .folder-edit{opacity:1}
+.folder-name{margin-top:11px;text-align:center;font-family:var(--font-display);font-weight:700;font-size:14px;color:var(--ink);letter-spacing:-.3px;line-height:1.2;word-break:break-word}
+
+/* Folder detail view */
+.vault-back{background:none;border:none;font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--sub);cursor:pointer;padding:6px 0;margin-bottom:14px;transition:color .2s}
+.vault-back:hover{color:var(--accent)}
+.folder-detail-head{display:flex;align-items:center;gap:16px;padding:18px 22px;border:2px solid var(--ink);border-radius:18px;background:var(--card);margin-bottom:20px;box-shadow:5px 5px 0 var(--blue-l);flex-wrap:wrap}
+.fdh-icon{width:62px;height:62px;border-radius:13px;background:var(--fc);border:2.5px solid var(--ink);display:flex;align-items:center;justify-content:center;color:var(--ic);flex-shrink:0}
+.fdh-icon svg{width:36px;height:36px}
+.fdh-name{font-family:var(--font-display);font-weight:800;font-size:25px;letter-spacing:-1px;color:var(--ink);line-height:1.1}
+.fdh-meta{font-size:13px;color:var(--sub);margin-top:3px}
+.fdh-spacer{flex:1}
+.btn-mini{background:var(--card);border:1.5px solid var(--border);border-radius:20px;padding:7px 14px;font-family:var(--font-display);font-weight:700;font-size:13px;cursor:pointer;color:var(--ink);transition:all .2s}
+.btn-mini:hover{border-color:var(--accent);color:var(--accent)}
+.btn-mini.danger:hover{border-color:#e0181a;color:#e0181a}
+
+.idea-composer{border:2px solid var(--ink);border-radius:18px;background:var(--card);padding:18px;margin-bottom:24px;box-shadow:5px 5px 0 var(--pink-l)}
+.idea-composer textarea{width:100%;min-height:86px;border:1.5px solid var(--border);border-radius:12px;padding:13px 15px;font-family:inherit;font-size:14.5px;line-height:1.6;color:var(--ink);resize:vertical;outline:none;background:var(--bg)}
+.idea-composer textarea:focus{border-color:var(--accent)}
+.ic-actions{display:flex;justify-content:space-between;align-items:center;margin-top:13px;gap:14px;flex-wrap:wrap}
+.ic-hint{font-size:12px;color:var(--sub)}
+.ic-actions .btn{padding:11px 22px;font-size:14px}
+.ic-actions .btn[disabled]{opacity:.6;cursor:wait}
+
+.idea-list{display:flex;flex-direction:column;gap:15px}
+.idea-empty{text-align:center;color:var(--sub);font-size:14px;padding:30px 0}
+.idea-card{border:2px solid var(--ink);border-radius:16px;background:var(--card);padding:19px 22px;animation:ideaIn .45s cubic-bezier(.16,1,.3,1) both}
+@keyframes ideaIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.idea-text{font-size:15px;line-height:1.7;color:var(--ink);font-weight:600;margin-bottom:14px}
+.idea-analysis{border-top:1.5px dashed var(--border);padding-top:14px}
+.ia-verdict{font-family:var(--font-serif);font-style:italic;font-size:18px;color:var(--accent);line-height:1.4;margin-bottom:12px}
+.ia-block{margin-bottom:10px}
+.ia-key{display:inline-flex;align-items:center;font-family:var(--font-display);font-weight:800;font-size:12px;letter-spacing:.5px;text-transform:uppercase;color:var(--sub);margin-bottom:5px}
+.ia-ul{list-style:none;display:flex;flex-direction:column;gap:5px}
+.ia-li{display:flex;gap:8px;font-size:13.5px;line-height:1.6;color:var(--ink)}
+.ia-sym{flex-shrink:0;font-weight:800;width:16px}
+.ia-sym.win{color:var(--sage)}.ia-sym.risk{color:#e0181a}.ia-sym.act{color:var(--accent)}
+.idea-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+.idea-tag{background:var(--blue-l);border:1px solid var(--blue);border-radius:12px;padding:3px 10px;font-size:11px;font-weight:700;color:var(--ink)}
+.ia-note,.ia-raw{font-size:13px;color:var(--sub);line-height:1.65;background:var(--warm);border-radius:10px;padding:11px 13px;white-space:pre-wrap}
+.idea-meta{display:flex;justify-content:space-between;align-items:center;margin-top:13px;font-size:11px;color:var(--sub)}
+.idea-del{background:none;border:none;color:var(--sub);cursor:pointer;font-size:11px;font-family:inherit;transition:color .2s}
+.idea-del:hover{color:#e0181a}
+.ai-badge{display:inline-flex;align-items:center;gap:5px;font-family:var(--font-display);font-weight:700;font-size:11px;color:var(--accent)}
+
+/* Search results */
+.vs-section-title{font-family:var(--font-display);font-weight:800;font-size:15px;letter-spacing:-.3px;color:var(--ink);margin:20px 0 12px;display:flex;align-items:center;gap:8px}
+.vs-section-title span{font-size:12px;color:var(--sub);font-weight:600}
+.vs-folder-grid{display:flex;flex-wrap:wrap;gap:12px}
+.vs-folder-chip{display:flex;align-items:center;gap:11px;border:2px solid var(--ink);border-radius:14px;background:var(--card);padding:11px 16px 11px 11px;cursor:pointer;transition:all .25s}
+.vs-folder-chip:hover{transform:translateY(-3px);box-shadow:5px 5px 0 var(--accent)}
+.vs-fc-icon{width:38px;height:38px;border-radius:9px;background:var(--fc);border:2px solid var(--ink);display:flex;align-items:center;justify-content:center;color:var(--ic)}
+.vs-fc-icon svg{width:22px;height:22px}
+.vs-fc-name{font-family:var(--font-display);font-weight:700;font-size:14px;color:var(--ink)}
+.vs-fc-meta{font-size:11px;color:var(--sub)}
+.vs-idea-card{border:1.5px solid var(--border);border-radius:13px;background:var(--card);padding:14px 17px;cursor:pointer;transition:all .22s;margin-bottom:10px}
+.vs-idea-card:hover{border-color:var(--accent);transform:translateX(4px)}
+.vs-idea-folder{font-size:11px;font-weight:700;color:var(--accent);margin-bottom:5px;font-family:var(--font-display)}
+.vs-idea-text{font-size:13.5px;color:var(--ink);line-height:1.6}
+.vs-noresult{text-align:center;color:var(--sub);font-size:14px;padding:50px 0}
+
+/* Vault modal pickers */
+.vault-modal{max-width:480px}
+.vm-title{font-family:var(--font-display);font-weight:800;font-size:23px;letter-spacing:-1px;margin-bottom:6px;color:var(--ink)}
+.vm-label{display:block;font-size:13px;font-weight:700;color:var(--ink);margin:18px 0 9px;font-family:var(--font-display)}
+.vm-input{width:100%;border:2px solid var(--ink);border-radius:12px;padding:12px 15px;font-family:inherit;font-size:15px;outline:none;color:var(--ink);background:var(--bg)}
+.vm-input:focus{border-color:var(--accent)}
+.icon-picker{display:grid;grid-template-columns:repeat(5,1fr);gap:9px}
+.ip-cell{aspect-ratio:1;border:2px solid var(--border);border-radius:13px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:all .16s;background:var(--card);color:var(--ink);gap:2px}
+.ip-cell svg{width:26px;height:26px}
+.ip-cell span{font-size:8.5px;font-weight:700;color:var(--sub)}
+.ip-cell:hover{border-color:var(--accent);transform:translateY(-2px)}
+.ip-cell.sel{border-color:var(--ink);background:var(--ink);color:#fff}
+.ip-cell.sel span{color:rgba(255,255,255,.7)}
+.color-picker{display:flex;gap:10px;flex-wrap:wrap}
+.cp-cell{width:36px;height:36px;border-radius:50%;border:2.5px solid var(--ink);cursor:pointer;transition:transform .15s}
+.cp-cell:hover{transform:scale(1.1)}
+.cp-cell.sel{box-shadow:0 0 0 3px var(--card),0 0 0 5px var(--ink);transform:scale(1.08)}
+.vm-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:24px}
+.vm-actions .btn{padding:11px 26px}
+/* Vault password lock */
+.vault-lock{min-height:calc(100vh - 74px);display:flex;align-items:center;justify-content:center;padding:40px 8%}
+.vl-card{background:var(--card);border:2px solid var(--ink);border-radius:22px;box-shadow:8px 8px 0 var(--blue-l);padding:46px 42px;max-width:384px;width:100%;text-align:center}
+.vl-icon{font-size:46px;margin-bottom:14px}
+.vl-title{font-family:var(--font-display);font-weight:800;font-size:27px;letter-spacing:-1px;color:var(--ink);line-height:1.1}
+.vl-sub{font-size:14px;color:var(--sub);margin:9px 0 24px}
+.vl-input{width:100%;border:2px solid var(--ink);border-radius:13px;padding:13px 15px;font-family:var(--font-display);font-size:18px;outline:none;text-align:center;letter-spacing:4px;margin-bottom:14px;background:var(--bg);color:var(--ink)}
+.vl-input:focus{border-color:var(--accent)}
+.vl-card .btn{width:100%}
+.vl-err{color:#e0181a;font-size:13px;font-weight:700;margin-top:13px;min-height:18px}
+.vl-card.shake{animation:vlShake .4s}
+@keyframes vlShake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-8px)}40%,80%{transform:translateX(8px)}}
+
+@media(max-width:768px){
+  .vault-board{min-height:auto;display:flex;flex-wrap:wrap;gap:18px;padding:22px;background-image:none}
+  .folder{position:static!important;animation:none}
+  .folder-edit{opacity:1}
+  .vault-head{align-items:flex-start}
+  .vault-search{min-width:0;flex:1}
+}
+@media(max-width:600px){
+  .impact-grid{grid-template-columns:1fr}
+  .float-chip{display:none}
+}
 </style>
 </head>
 <body>
@@ -297,6 +571,7 @@ footer{text-align:center;padding:24px;font-size:14px;color:var(--sub);border-top
 <div id="scroll-prog"></div>
 <div id="cursor"></div>
 <div id="cursor-ring"></div>
+<div id="cursor-label">查看案例</div>
 <div class="bg-decor"><div class="grid-layer"></div></div>
 
 <!-- NAV -->
@@ -306,6 +581,7 @@ footer{text-align:center;padding:24px;font-size:14px;color:var(--sub);border-top
     <li><a id="nl-home" onclick="go('home')" class="active">主页</a></li>
     <li><a id="nl-about" onclick="go('about')">关于</a></li>
     <li><a id="nl-portfolio" onclick="go('portfolio')">作品集</a></li>
+    <li><a id="nl-vault" onclick="go('vault')">创意库</a></li>
     <li><a id="nl-contact" onclick="go('contact')">联系</a></li>
     <li><button class="lang-btn" id="langBtn" onclick="switchLang()">EN</button></li>
   </ul>
@@ -332,10 +608,75 @@ footer{text-align:center;padding:24px;font-size:14px;color:var(--sub);border-top
       </div>
     </div>
     <div class="hero-photo-col">
-      <img src="photo.jpg" class="hero-photo" alt="朱天纯" onerror="this.style.display='none'"/>
+      <div class="photo-frame" id="photoFrame">
+        <img src="photo.jpg" class="hero-photo" alt="朱天纯" onerror="this.style.display='none'"/>
+        <div class="photo-badge">
+          <svg viewBox="0 0 122 122" aria-hidden="true">
+            <defs><path id="badgeCircle" d="M61,61 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs>
+            <text><textPath href="#badgeCircle" startOffset="0">OVERSEAS GAME MARKETING · 海外游戏营销 · </textPath></text>
+          </svg>
+          <span class="photo-badge-core">✦</span>
+        </div>
+        <span class="float-chip chip-1"><i></i>NetEase 网易互娱</span>
+        <span class="float-chip chip-2"><i></i>UCL · MSc Marketing</span>
+      </div>
       <img src="illus1.jpg" class="illus-hero" alt="" onerror="this.style.display='none'"/>
     </div>
     <div class="scroll-cue"><span id="h-scroll">向下滚动</span><div class="scroll-bar"></div></div>
+  </section>
+
+  <!-- KINETIC MARQUEE -->
+  <div class="hero-marquee" aria-hidden="true">
+    <div class="marquee-track" id="marqueeTrack"></div>
+  </div>
+
+  <!-- ══ IMPACT / DATA ══ -->
+  <section class="impact-sec section">
+    <div class="sec-header impact-head" style="margin-bottom:38px">
+      <span class="sec-label" id="im-label">战绩 · By the Numbers</span>
+      <h2 class="sec-title" id="im-title">用数据说话</h2>
+    </div>
+    <div class="impact-grid">
+      <div class="imp-card a d1">
+        <span class="imp-tag" id="im1-tag">Once Human 2.0 · PR</span>
+        <div class="imp-n"><span class="cu" data-to="1.4" data-dec="1">0</span><span class="imp-suf">B+</span></div>
+        <div>
+          <div class="imp-label" id="im1-l">年度版本 PR 稿全球媒体阅读量，综合传播评级 A 级</div>
+          <div class="imp-track"><div class="imp-fill" data-w="94%"></div></div>
+        </div>
+      </div>
+      <div class="imp-card b d2">
+        <div class="ring-wrap">
+          <svg viewBox="0 0 120 120"><circle class="ring-bg" cx="60" cy="60" r="52"/><circle class="ring-prog" cx="60" cy="60" r="52" data-pct="90"/></svg>
+          <div class="ring-center"><span class="rn"><span class="cu" data-to="352">0</span>%</span></div>
+        </div>
+        <div class="imp-label" id="im2-l">Discord 社区从 0 搭建<br>用户增长</div>
+      </div>
+      <div class="imp-card s d3">
+        <div class="imp-seal">A</div>
+        <div class="imp-label" id="im3-l" style="text-align:center">网易互娱 · 综合传播评级<br><strong style="color:var(--ink)">最高 A 级</strong></div>
+      </div>
+      <div class="imp-card imp-mini d3">
+        <span class="imp-tag" id="im4-tag">Social IMP</span>
+        <div class="imp-n"><span class="cu" data-to="100">0</span><span class="imp-suf">M+</span></div>
+        <div class="imp-label" id="im4-l">移动公测社媒总曝光量</div>
+      </div>
+      <div class="imp-card imp-mini d4">
+        <span class="imp-tag" id="im5-tag">Media</span>
+        <div class="imp-n"><span class="cu" data-to="627">0</span></div>
+        <div class="imp-label" id="im5-l">全球权威媒体刊例 · IGN/PC Gamer 等</div>
+      </div>
+    </div>
+    <div class="impact-logos">
+      <span class="impact-logos-label" id="im-logos-l">协作 · 媒体</span>
+      <span class="logo-chip">网易互娱</span>
+      <span class="logo-chip">网易雷火</span>
+      <span class="logo-chip">IGN</span>
+      <span class="logo-chip">PC Gamer</span>
+      <span class="logo-chip">GamesRadar+</span>
+      <span class="logo-chip">UCL</span>
+      <span class="logo-chip">CUHK</span>
+    </div>
   </section>
 
   <!-- PERSONALITY -->
@@ -400,8 +741,22 @@ footer{text-align:center;padding:24px;font-size:14px;color:var(--sub);border-top
     </div>
     <div class="tl-wrap">
 
-      <div class="tl-item" onclick="openModal('m-ucl')">
+      <div class="tl-item" onclick="openModal('m-leihuo2')">
         <div class="tl-spacer"></div><div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-card-header">
+            <div><span class="tl-badge" id="t0-badge">实习</span><div class="tl-period" id="t0-period">2026 – 至今</div></div>
+            <div class="tl-logo-wrap"><img src="logo-netease.png" class="tl-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="tl-logo-text" style="display:none">NetEase</div></div>
+          </div>
+          <div class="tl-org" id="t0-org">网易雷火 · 杭州</div>
+          <div class="tl-role" id="t0-role">《逆水寒》海外发行组</div>
+          <p class="tl-desc" id="t0-desc">面向海外市场，尤其港澳台相关区域，参与版本内容、宣发节奏、KOL 沟通与本地化传播相关工作。</p>
+          <div class="tl-tags"><span class="tag" id="t0-tag1">港澳台</span><span class="tag">KOL</span><span class="tag" id="t0-tag2">本地化</span><span class="tag" id="t0-tag3">宣发节奏</span></div>
+          <div class="tl-hint" id="t0-hint">✦ 点击查看详情</div>
+        </div>
+      </div>
+
+      <div class="tl-item" onclick="openModal('m-ucl')">
         <div class="tl-card">
           <div class="tl-card-header">
             <div><span class="tl-badge" id="t2-badge">教育</span><div class="tl-period">09/2025 – 12/2026</div></div>
@@ -413,9 +768,11 @@ footer{text-align:center;padding:24px;font-size:14px;color:var(--sub);border-top
           <div class="tl-tags"><span class="tag">London, UK</span><span class="tag" id="t2-tag">数据驱动营销</span></div>
           <div class="tl-hint" id="t2-hint">✦ 点击查看详情</div>
         </div>
+        <div class="tl-dot"></div><div class="tl-spacer"></div>
       </div>
 
       <div class="tl-item" onclick="openModal('m-netease1')">
+        <div class="tl-spacer"></div><div class="tl-dot"></div>
         <div class="tl-card">
           <div class="tl-card-header">
             <div><span class="tl-badge" id="t1-badge">实习</span><div class="tl-period">03/2025 – 08/2025</div></div>
@@ -427,11 +784,9 @@ footer{text-align:center;padding:24px;font-size:14px;color:var(--sub);border-top
           <div class="tl-tags"><span class="tag">PR</span><span class="tag">KOL</span><span class="tag">IGN / PC Gamer</span><span class="tag" id="t1-tag1">整合营销</span></div>
           <div class="tl-hint" id="t1-hint">✦ 点击查看详情</div>
         </div>
-        <div class="tl-dot"></div><div class="tl-spacer"></div>
       </div>
 
       <div class="tl-item" onclick="openModal('m-leihuo')">
-        <div class="tl-spacer"></div><div class="tl-dot"></div>
         <div class="tl-card">
           <div class="tl-card-header">
             <div><span class="tl-badge" id="t3-badge">实习</span><div class="tl-period">06/2024 – 09/2024</div></div>
@@ -443,9 +798,11 @@ footer{text-align:center;padding:24px;font-size:14px;color:var(--sub);border-top
           <div class="tl-tags"><span class="tag">Discord</span><span class="tag">Google Play</span><span class="tag">UGC / KOL</span><span class="tag">AIDA</span></div>
           <div class="tl-hint" id="t3-hint">✦ 点击查看详情</div>
         </div>
+        <div class="tl-dot"></div><div class="tl-spacer"></div>
       </div>
 
       <div class="tl-item" onclick="openModal('m-guotai')">
+        <div class="tl-spacer"></div><div class="tl-dot"></div>
         <div class="tl-card">
           <div class="tl-card-header">
             <div><span class="tl-badge" id="t4-badge">实习</span><div class="tl-period">05/2024 – 06/2024</div></div>
@@ -457,11 +814,9 @@ footer{text-align:center;padding:24px;font-size:14px;color:var(--sub);border-top
           <div class="tl-tags"><span class="tag">Bloomberg</span><span class="tag">CRM / KYC</span><span class="tag">SWOT/PESTEL</span></div>
           <div class="tl-hint" id="t4-hint">✦ 点击查看详情</div>
         </div>
-        <div class="tl-dot"></div><div class="tl-spacer"></div>
       </div>
 
       <div class="tl-item" onclick="openModal('m-cuhk')">
-        <div class="tl-spacer"></div><div class="tl-dot"></div>
         <div class="tl-card">
           <div class="tl-card-header">
             <div><span class="tl-badge" id="t5-badge">教育</span><div class="tl-period">09/2023 – 05/2024</div></div>
@@ -473,9 +828,11 @@ footer{text-align:center;padding:24px;font-size:14px;color:var(--sub);border-top
           <div class="tl-tags"><span class="tag">Hong Kong</span><span class="tag" id="t5-tag">整合营销策略</span><span class="tag">People's Choice Award</span></div>
           <div class="tl-hint" id="t5-hint">✦ 点击查看详情</div>
         </div>
+        <div class="tl-dot"></div><div class="tl-spacer"></div>
       </div>
 
       <div class="tl-item" onclick="openModal('m-apu')">
+        <div class="tl-spacer"></div><div class="tl-dot"></div>
         <div class="tl-card">
           <div class="tl-card-header">
             <div><span class="tl-badge" id="t6-badge">教育</span><div class="tl-period">10/2021 – 09/2025</div></div>
@@ -487,7 +844,6 @@ footer{text-align:center;padding:24px;font-size:14px;color:var(--sub);border-top
           <div class="tl-tags"><span class="tag">Japan</span><span class="tag">Beta Gamma Sigma</span><span class="tag" id="t6-tag">荣誉毕业</span></div>
           <div class="tl-hint" id="t6-hint">✦ 点击查看详情</div>
         </div>
-        <div class="tl-dot"></div><div class="tl-spacer"></div>
       </div>
 
     </div>
@@ -574,6 +930,7 @@ footer{text-align:center;padding:24px;font-size:14px;color:var(--sub);border-top
           <div class="card-img" style="background:#f5c842;padding:0;overflow:hidden"><span class="card-num">06</span><img src="shake-share.png" style="width:100%;height:100%;object-fit:cover;object-position:center center;display:block"/></div>
           <div class="card-body"><div class="card-cat" id="css-cat">数字营销 · CUHK MKTG3640</div><div class="card-name" id="css-name">Shake &amp; Share：DIY 鸡尾酒电商虚拟创业项目</div><p class="card-desc" id="css-desc">基于商业模式画布（BMC）框架，构建面向香港都市白领的 DIY 鸡尾酒套装电商平台，完成全套商业计划并搭建 Wix 品牌官网。</p><div class="card-btns"><button class="btn-sm btn-sm-dark" onclick="openModal('m-shakeshare')" id="css-view">查看项目</button><span class="card-arrow">→</span></div></div>
         </div>
+
         <div class="port-card" data-cat="internship analysis" onclick="openModal('m-oncehuman')" style="cursor:pointer">
           <div class="card-img" style="background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);padding:0;overflow:hidden"><span class="card-num">05</span><img src="oncehuman.png" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block"/></div>
           <div class="card-body"><div class="card-cat" id="c5-cat">营销案例拆解 · 网易互娱</div><div class="card-name" id="c5-name">《七日世界》手游版本上线营销拆解</div><p class="card-desc" id="c5-desc">从用户迁移战略、分层传播链路到 KOL 结构设计，深度复盘北美/欧美移动公测的完整营销方案：赢在用户洞察精准，卡在漏斗后段承接。</p><div class="card-btns"><button class="btn-sm btn-sm-dark" onclick="openModal('m-oncehuman')" id="c5-view">查看拆解</button><a class="btn-sm btn-sm-ghost" href="https://1drv.ms/w/c/bad556a6b4985de8/IQD0zk8eJLZbTIQq4LRD9UIjAaJZ4ONmjFtz6XJNJvcR5Go?e=Ak2ARS" target="_blank" id="c5-dl">下载</a><span class="card-arrow">→</span></div></div>
@@ -613,6 +970,45 @@ footer{text-align:center;padding:24px;font-size:14px;color:var(--sub);border-top
           <div class="card-body"><div class="card-cat" id="cyt-cat">Web App · 独立项目</div><div class="card-name" id="cyt-name">YouTube Insights</div><p class="card-desc" id="cyt-desc">AI 驱动的竞品视频分析工具，自然语言输入，5 分钟生成结构化竞品分析报告，替代 3–5 小时人工流程。</p><div class="card-btns"><button class="btn-sm btn-sm-dark" onclick="openModal('m-ytinsights');event.stopPropagation()" id="cyt-view">查看详情</button><a class="btn-sm btn-sm-ghost" href="https://web-production-2cc29.up.railway.app/" target="_blank" id="cyt-link" onclick="event.stopPropagation()">访问应用</a><span class="card-arrow">→</span></div></div>
         </div>
       </div>
+      <div class="sites-sec">
+        <div class="sites-head" id="ws-title">我搭建的网站</div>
+        <p class="sites-sub" id="ws-sub">个人站 + 在研 AI 游戏竞品分析工具</p>
+        <div class="sites-list">
+          <div class="site-row">
+            <div class="site-left">
+              <div class="site-ico live">🌐</div>
+              <div>
+                <div class="site-name"><span id="s0-name">个人站</span><span class="site-badge up" id="s0-badge">持续更新中</span></div>
+                <p class="site-desc" id="s0-desc">个人作品集主站，AI 游戏竞品分析助手等在研项目都已放上去，持续更新中。</p>
+                <div class="site-tags"><span class="tag">Portfolio</span><span class="tag">GitHub Pages</span></div>
+              </div>
+            </div>
+            <a class="btn-sm btn-sm-dark site-go" href="https://tianchunzhu.github.io/Profolio/" target="_blank" id="s0-btn">访问</a>
+          </div>
+          <div class="site-row">
+            <div class="site-left">
+              <div class="site-ico">🎬</div>
+              <div>
+                <div class="site-name"><span id="s1-name">YouTube Insight</span><span class="site-badge wip" id="s1-badge">在研</span></div>
+                <p class="site-desc" id="s1-desc">把「搜视频、看回放、翻评论、写总结」的半天工作压缩成 3 分钟自动化流程——提一个问题即生成深度竞品分析报告。底层用到自然语言理解、长文本总结、情感分析（embedding / tf-idf）与 AI 智能调度。</p>
+                <div class="site-tags"><span class="tag">Machine Learning</span><span class="tag">NLP</span><span class="tag" id="s1-tag3">情感分析</span><span class="tag" id="s1-tag4">AI 调度</span></div>
+              </div>
+            </div>
+            <a class="btn-sm btn-sm-dark site-go" href="https://web-production-2cc29.up.railway.app/" target="_blank" id="s1-btn">访问应用</a>
+          </div>
+          <div class="site-row">
+            <div class="site-left">
+              <div class="site-ico">🎮</div>
+              <div>
+                <div class="site-name"><span id="s2-name">GameVid Insight</span><span class="site-badge wip" id="s2-badge">在研</span></div>
+                <p class="site-desc" id="s2-desc">在 YouTube Insight 基础上加入视频画面分析：用 Claude API 解析 YouTube / TikTok 长短视频的画面内容、关键信息与传播亮点，并聚合全球游戏媒体资讯生成每日行业日报。</p>
+                <div class="site-tags"><span class="tag">Claude API</span><span class="tag" id="s2-tag2">视频画面分析</span><span class="tag" id="s2-tag3">行业日报</span></div>
+              </div>
+            </div>
+            <a class="btn-sm btn-sm-dark site-go" href="https://gamevid-insight-production.up.railway.app/" target="_blank" id="s2-btn">访问应用</a>
+          </div>
+        </div>
+      </div>
       <div class="files-sec">
         <div class="files-head" id="f-title">可下载文件</div>
         <p class="files-sub" id="f-sub">简历文件（PDF）</p>
@@ -621,6 +1017,63 @@ footer{text-align:center;padding:24px;font-size:14px;color:var(--sub);border-top
           <div class="file-row"><div class="file-left"><span class="file-icon">📄</span><div><div class="file-name" id="f2-name">TIANCHUN ZHU — Resume (EN)</div><div class="file-meta">PDF · Resume</div></div></div><a class="btn-sm btn-sm-dark" href="https://1drv.ms/b/c/bad556a6b4985de8/IQBrxcM5sD7LTKILn7AoHy6wAWJNxybJlxjtCUirlAHhft8?e=amgVi8" target="_blank" id="f2-btn">Download</a></div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CREATIVE VAULT ══ -->
+<div class="page" id="page-vault">
+  <div id="vaultLock" class="vault-lock">
+    <div class="vl-card">
+      <div class="vl-icon">🔒</div>
+      <div class="vl-title" id="vl-title">创意库已加密</div>
+      <div class="vl-sub" id="vl-sub">输入密码以进入</div>
+      <input id="vaultPwd" class="vl-input" type="password" inputmode="numeric" placeholder="密码" onkeydown="if(event.key==='Enter'){tryUnlock();}" autocomplete="off"/>
+      <button class="btn btn-dark" onclick="tryUnlock()" id="vl-btn">进入</button>
+      <div class="vl-err" id="vaultPwdErr"></div>
+    </div>
+  </div>
+  <section class="section vault-sec" id="vaultContent" style="display:none">
+    <div class="vault-head">
+      <div>
+        <span class="sec-label" id="vt-label">创意库 · Idea Vault</span>
+        <h2 class="sec-title" id="vt-title">即时创意收纳所</h2>
+        <p class="vault-sub" id="vt-sub">突然冒出的游戏营销点子，按游戏建个文件夹丢进去，AI 帮你即时拆解。文件夹随心情拖着摆。</p>
+      </div>
+      <div class="vault-actions">
+        <div class="vault-search"><span class="vs-icon">🔍</span><input id="vaultSearch" placeholder="搜索游戏 / 文件夹 / 创意…" oninput="vaultSearchInput(this.value)" autocomplete="off"/></div>
+        <button class="btn btn-dark magnet" onclick="openFolderModal()" id="vt-newfolder">＋ 新建文件夹</button>
+      </div>
+    </div>
+
+    <div id="vaultBoardView">
+      <div class="vault-toolbar">
+        <span class="vault-count" id="vaultFolderCount"></span>
+        <button class="vault-tidy" onclick="tidyFolders()" id="vt-tidy">⤴ 整理排列</button>
+      </div>
+      <div class="vault-board" id="vaultBoard">
+        <div class="vault-empty" id="vaultEmpty" style="display:none"><div class="ve-illus">🗂️</div><p id="vt-empty">还没有文件夹。点「＋ 新建文件夹」开始你的第一个创意收纳。</p></div>
+      </div>
+    </div>
+
+    <div id="vaultSearchView" style="display:none"></div>
+    <div id="vaultFolderView" style="display:none"></div>
+  </section>
+</div>
+
+<!-- VAULT: new/edit folder modal -->
+<div class="modal-overlay" id="folderModal">
+  <div class="modal-box vault-modal"><button class="modal-close" onclick="closeModal('folderModal')">✕</button>
+    <div class="vm-title" id="fm-title">新建文件夹</div>
+    <label class="vm-label" id="fm-name-l">文件夹名称（游戏 / 主题）</label>
+    <input class="vm-input" id="folderNameInput" placeholder="例如：三角洲行动" autocomplete="off"/>
+    <label class="vm-label" id="fm-icon-l">选择图案（游戏品类）</label>
+    <div class="icon-picker" id="iconPicker"></div>
+    <label class="vm-label" id="fm-color-l">选择颜色</label>
+    <div class="color-picker" id="colorPicker"></div>
+    <div class="vm-actions">
+      <button class="btn btn-ghost" onclick="closeModal('folderModal')" id="fm-cancel">取消</button>
+      <button class="btn btn-dark" onclick="saveFolder()" id="fm-save">创建</button>
     </div>
   </div>
 </div>
@@ -636,7 +1089,7 @@ footer{text-align:center;padding:24px;font-size:14px;color:var(--sub);border-top
         <p class="contact-tagline" id="ct-sub">如果你对我的经历感兴趣，或有合适的机会，欢迎随时联系！</p>
       </div>
       <div class="contact-grid fi d1">
-        <a class="c-card" href="mailto:zhutc2046698235@163.com"><span class="c-icon"><img src="logo-contact.png" style="width:36px;height:36px;object-fit:contain" onerror="this.outerHTML='✉️'"/></span><div class="c-label" id="ct1-l">电子邮件</div><div class="c-val">zhutc2046698235@163.com</div></a>
+        <a class="c-card" href="/cdn-cgi/l/email-protection#3c465449485f0e0c080a0a05040e0f097c0d0a0f125f5351"><span class="c-icon"><img src="logo-contact.png" style="width:36px;height:36px;object-fit:contain" onerror="this.outerHTML='✉️'"/></span><div class="c-label" id="ct1-l">电子邮件</div><div class="c-val"><span class="__cf_email__" data-cfemail="4a30223f3e29787a7e7c7c737278797f0a7b7c7964292527">[email&#160;protected]</span></div></a>
         <div class="c-card" onclick="copyWechat()"><span class="c-icon"><img src="logo-wechat.png" style="width:36px;height:36px;object-fit:contain" onerror="this.outerHTML='💬'"/></span><div class="c-label">WeChat</div><div class="c-val" id="wc-val">18058164493</div></div>
         <a class="c-card" href="https://www.linkedin.com/in/tianchun-zhu-7987423a1/" target="_blank"><span class="c-icon"><img src="logo-linkedin.png" style="width:36px;height:36px;object-fit:contain" onerror="this.outerHTML='💼'"/></span><div class="c-label">LinkedIn</div><div class="c-val" id="ct3-v">查看主页</div></a>
         <a class="c-card" href="https://xhslink.com/m/A2JiiPZd2Ay" target="_blank"><span class="c-icon"><img src="logo-xiaohongshu.png" style="width:36px;height:36px;object-fit:contain" onerror="this.outerHTML='📕'"/></span><div class="c-label" id="ct4-l">小红书</div><div class="c-val" id="ct4-v">查看主页</div></a>
@@ -686,6 +1139,17 @@ footer{text-align:center;padding:24px;font-size:14px;color:var(--sub);border-top
       <li><strong>营销活动：</strong>参与《Fishing Frenzy》和《Geometry Tower》在Google商店的营销策略；应用STP和SWOT模型，实现下载量增加89.9%，收入增加10.6%。</li>
       <li><strong>社区运营：</strong>从0.5到1建立并管理《Geometry Tower》Discord社区；结合KOL合作和UGC策略，用户增长352%，参与度增加212%。</li>
       <li><strong>广告创作：</strong>参与制作50多个针对海外市场的广告素材和脚本，应用AIDA模型，5个高表现广告实现3%转化率。</li>
+    </ul></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="m-leihuo2">
+  <div class="modal-box"><button class="modal-close" onclick="closeModal('m-leihuo2')">✕</button>
+    <div class="m-head"><img src="logo-netease.png" class="m-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="m-logo-text" style="display:none">NetEase</div><div><div class="m-org" id="ml2-org">网易雷火 · 杭州</div><div class="m-period-role" id="ml2-pr">2026 – 至今 · <span>《逆水寒》海外发行组</span></div></div></div>
+    <div class="m-body"><ul id="ml2-list">
+      <li id="ml2-li1"><strong>市场聚焦：</strong>主要面向海外市场，尤其港澳台相关区域，结合区域玩家偏好制定本地化发行策略。</li>
+      <li id="ml2-li2"><strong>版本内容：</strong>参与版本内容规划与宣发节奏排布，对齐研运与海外发行的传播时间线。</li>
+      <li id="ml2-li3"><strong>KOL 与传播：</strong>参与 KOL 沟通与本地化传播相关工作，推动内容在港澳台社媒与社区的落地。</li>
     </ul></div>
   </div>
 </div>
@@ -1129,7 +1593,7 @@ footer{text-align:center;padding:24px;font-size:14px;color:var(--sub);border-top
   </div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ── Language Data ── */
 const T={
   zh:{
@@ -1141,6 +1605,13 @@ const T={
     'per-label':'认识我','per-title':'点击了解我的核心特质',
     'kw-entj':'MBTI · ENTJ','kw-multi':'多文化背景','kw-stress':'抗压能力强','kw-voice':'Power of Voice','kw-extro':'外向开朗',
     'tl-label':'经历','tl-title':'教育 &amp; 实习',
+    't0-badge':'实习','t0-period':'2026 – 至今','t0-org':'网易雷火 · 杭州','t0-role':'《逆水寒》海外发行组',
+    't0-desc':'面向海外市场，尤其港澳台相关区域，参与版本内容、宣发节奏、KOL 沟通与本地化传播相关工作。',
+    't0-tag1':'港澳台','t0-tag2':'本地化','t0-tag3':'宣发节奏','t0-hint':'✦ 点击查看详情',
+    'ml2-org':'网易雷火 · 杭州','ml2-pr':'2026 – 至今 · <span>《逆水寒》海外发行组</span>',
+    'ml2-li1':'<strong>市场聚焦：</strong>主要面向海外市场，尤其港澳台相关区域，结合区域玩家偏好制定本地化发行策略。',
+    'ml2-li2':'<strong>版本内容：</strong>参与版本内容规划与宣发节奏排布，对齐研运与海外发行的传播时间线。',
+    'ml2-li3':'<strong>KOL 与传播：</strong>参与 KOL 沟通与本地化传播相关工作，推动内容在港澳台社媒与社区的落地。',
     't1-badge':'实习','t1-org':'网易互娱 · 杭州','t1-role':'产品营销 — 海外公关传播实习生',
     't1-desc':'参与《七日世界》手游公测整合营销，带动社媒 IMP 100M+，转化欧美玩家 114.5K。年度 2.0 版本 PR 稿实现全球媒体曝光 627 条，阅读量达 1.4B，综合传播评级 A 级。',
     't1-tag1':'整合营销','t1-hint':'✦ 点击查看详情',
@@ -1194,6 +1665,10 @@ const T={
     'c7-desc':'构建两级嵌套 Logit 需求模型，对比四种促销策略，将优化目标从兑换率重定义为增量利润，实现优惠券效率 1.55 增量单位/£，周利润较无差别折扣提升 +£220。','c7-view':'查看项目',
     'ps-body':'<div class="m-sec">项目概述</div><p>MSIN0306 经济学与营销策略课程小组作业（UCL 25/26 学年）。核心问题：传统优惠券策略要么无差别发放（浪费补贴于忠诚用户），要么用机器学习优化兑换率而非真实利润。PromoSci 以结构经济模型解决这一问题。</p><p style="font-size:12px;color:var(--sub);margin-top:4px">合作成员：Ahana Singh、Enze Liu、Hy Ly、Tianchun Zhu、Viktoria Luise Blanke</p><div class="m-sec">核心结果</div><div class="m-stats"><div class="m-stat-box"><div class="m-stat-n">+£220</div><div class="m-stat-l">vs. 无差别折扣 /周</div></div><div class="m-stat-box"><div class="m-stat-n">1.55</div><div class="m-stat-l">增量单位/£（效率最高）</div></div><div class="m-stat-box"><div class="m-stat-n">37.1%</div><div class="m-stat-l">渠道侵蚀率（最低）</div></div><div class="m-stat-box"><div class="m-stat-n">£27.93</div><div class="m-stat-l">每£优惠券花费的利润</div></div></div><div class="m-sec">方法核心：两级嵌套 Logit 需求模型</div><p>标准 Logit 存在 IIA 缺陷——可口可乐降价时，模型预测需求会从百事和麦片等比例流入，现实中并不成立。嵌套 Logit 引入"巢"结构（类别→品牌）：消费者先选类别，再选品牌，同类替代效应远强于跨类。</p><div class="m-code"><span class="cm"># σ ∈ (0,1] 控制巢内相关性 | σ→0：强替代 | σ=1：退化为标准 Logit (IIA)</span><br><span class="kw">for</span> cat, brands <span class="kw">in</span> categories.items():<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">for</span> brand, attrs <span class="kw">in</span> brands.items():<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V = loyalty * attrs[<span class="st">&quot;base_utility&quot;</span>] + alpha * effective_price<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># 下级：巢内品牌概率</span><br>&nbsp;&nbsp;&nbsp;&nbsp;exp_v = {b: np.exp((v - max_v) / sigma) <span class="kw">for</span> b, v <span class="kw">in</span> utilities.items()}<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># 上级：类别包含值（logsum）</span><br>&nbsp;&nbsp;&nbsp;&nbsp;nest_logsum[cat] = sigma * (np.log(sum_exp) + max_v / sigma)</div><div class="m-sec">囤货效应建模</div><p>深度折扣诱导消费者超前购买——将未来消费提前，并非真实增量。PromoSci 显式量化这一损失：囤货单位侵蚀未来全价销售利润。</p><div class="m-code"><span class="kw">def</span> <span class="fn">compute_stockpiling_effect</span>(discount_pct, stockpile_rate):<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># 囤货随折扣深度非线性增长</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> stockpile_rate * (1 - np.exp(-3 * discount_pct))<br><br>stockpile_loss = stockpiled * (base_price - cost)<br><span class="cm"># 中期利润 = 本期利润 - (未来损失 x 3.5周 / 4周规划期)</span><br>medium_term_profit = net_profit - (future_loss * 3.5 / 4)</div><div class="m-sec">四种策略对比</div><div class="m-layers"><div class="m-layer"><div class="m-layer-num" style="background:var(--ink)">①</div><div class="m-layer-body"><div class="m-layer-title">无优惠券（基准）£6,524/周</div><div class="m-layer-desc">建立反事实基准，所有策略均与此对比。</div></div></div><div class="m-layer"><div class="m-layer-num" style="background:#b55">②</div><div class="m-layer-body"><div class="m-layer-title">无差别折扣 £6,408/周 ↓</div><div class="m-layer-desc">所有用户统一 35p 折扣。比不发还差——补贴忠诚用户，触发大量囤货。</div></div></div><div class="m-layer"><div class="m-layer-num" style="background:#9333FF">③</div><div class="m-layer-body"><div class="m-layer-title">ML 精准投放 £6,507/周</div><div class="m-layer-desc">细分优化折扣，但目标函数是兑换率，无法量化渠道侵蚀与囤货损失。</div></div></div><div class="m-layer"><div class="m-layer-num" style="background:linear-gradient(135deg,#9333FF,#2e1a47)">④</div><div class="m-layer-body"><div class="m-layer-title">PromoSci 经济模型 £6,628/周 ✦</div><div class="m-layer-desc">结构模型 + 贪心搜索 + 坐标下降，£2,000 预算约束下最大化中期增量利润。</div></div></div></div><div class="m-sec">优化算法：贪心 + 坐标下降</div><div class="m-code"><span class="cm"># 第一轮：逐品牌贪心网格搜索最优折扣力度</span><br><span class="kw">for</span> brand <span class="kw">in</span> all_brands:<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">for</span> ps_disc <span class="kw">in</span> [0, 0.05, 0.10, 0.15, 0.20, 0.25, 0.30]:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">if</span> test_summary[<span class="st">&quot;coupon_cost&quot;</span>] &gt; MAX_PROMO_BUDGET: <span class="kw">continue</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">if</span> improvement &gt; best_improvement: best_disc = ...<br><br><span class="cm"># 第二轮：坐标下降修正跨品牌替代效应</span><br><span class="cm"># 固定其他品牌，对每个品牌 ±0.05 扰动，接受改进</span><br><span class="cm"># 结果：额外提升 £19.76/周（贪心因忽略跨品牌效应而低估最优解）</span></div><div class="m-verdict" style="margin-top:16px"><div class="m-verdict-box m-verdict-win"><div class="m-verdict-title">✅ 经济模型的核心优势</div><div class="m-verdict-item">✦ 捕捉因果结构，而非相关性</div><div class="m-verdict-item">✦ 显式建模囤货与渠道侵蚀</div><div class="m-verdict-item">✦ 反事实推断：若停止折扣会怎样？</div><div class="m-verdict-item">✦ 预算约束下最大化增量利润</div></div><div class="m-verdict-box m-verdict-lose"><div class="m-verdict-title">⚡ 模型局限性</div><div class="m-verdict-item">✦ 参数来自文献标定，非真实数据估计</div><div class="m-verdict-item">✦ 贪心搜索不保证全局最优</div><div class="m-verdict-item">✦ 价格内生性问题需工具变量解决</div><div class="m-verdict-item">✦ 生产部署需忠诚卡数据做 MLE 估计</div></div></div><div style="display:flex;gap:10px;margin-top:20px;padding-bottom:8px"><a href="https://1drv.ms/f/c/bad556a6b4985de8/IgCUzDjjVBvIRaFIvvx6sMsPAQWZSnbyAl252Xr4ee4gc4U?e=euNdof" target="_blank" class="btn-sm btn-sm-dark" style="text-decoration:none;flex:1;text-align:center;padding:10px 0">查看作业文件 ↗</a><a href="https://luxury-eclair-82496d.netlify.app/" target="_blank" class="btn-sm" style="text-decoration:none;flex:1;text-align:center;padding:10px 0;background:linear-gradient(135deg,#2e1a47,#9333FF);color:#fff;border:none">访问 PromoSci 官网 ↗</a></div>',
     'f-title':'可下载文件','f-sub':'简历文件（PDF）',
+    'ws-title':'我搭建的网站','ws-sub':'个人站 + 在研 AI 游戏竞品分析工具',
+    's0-name':'个人站','s0-badge':'持续更新中','s0-desc':'个人作品集主站，AI 游戏竞品分析助手等在研项目都已放上去，持续更新中。','s0-btn':'访问',
+    's1-name':'YouTube Insight','s1-badge':'在研','s1-desc':'把「搜视频、看回放、翻评论、写总结」的半天工作压缩成 3 分钟自动化流程——提一个问题即生成深度竞品分析报告。底层用到自然语言理解、长文本总结、情感分析（embedding / tf-idf）与 AI 智能调度。','s1-tag3':'情感分析','s1-tag4':'AI 调度','s1-btn':'访问应用',
+    's2-name':'GameVid Insight','s2-badge':'在研','s2-desc':'在 YouTube Insight 基础上加入视频画面分析：用 Claude API 解析 YouTube / TikTok 长短视频的画面内容、关键信息与传播亮点，并聚合全球游戏媒体资讯生成每日行业日报。','s2-tag2':'视频画面分析','s2-tag3':'行业日报','s2-btn':'访问应用',
     'f1-name':'朱天纯 — 简历（中文版）','f1-btn':'下载','f2-btn':'下载',
     'ct-label':'保持联系','ct-title':'联系我 ✦','ct-sub':'如果你对我的经历感兴趣，或有合适的机会，欢迎随时联系！',
     'ct1-l':'电子邮件','ct3-v':'查看主页','ct4-l':'小红书','ct4-v':'查看主页',
@@ -1219,6 +1694,13 @@ const T={
     'per-label':'Get to Know Me','per-title':'Click to explore my core traits',
     'kw-entj':'MBTI · ENTJ','kw-multi':'Multicultural','kw-stress':'Resilient','kw-voice':'Power of Voice','kw-extro':'Extroverted',
     'tl-label':'Experience','tl-title':'Education &amp; Internships',
+    't0-badge':'Internship','t0-period':'2026 – Present','t0-org':'NetEase Leihuo · Hangzhou','t0-role':'Justice Mobile Overseas Publishing',
+    't0-desc':'Focused on overseas markets — especially Greater China (HK / Macau / Taiwan) — working on version content, launch cadence, KOL communication and localized communications.',
+    't0-tag1':'Greater China','t0-tag2':'Localization','t0-tag3':'Launch Cadence','t0-hint':'✦ Click for details',
+    'ml2-org':'NetEase Leihuo · Hangzhou','ml2-pr':'2026 – Present · <span>Justice Mobile Overseas Publishing</span>',
+    'ml2-li1':'<strong>Market focus:</strong> Centered on overseas markets, especially Greater China (HK / Macau / Taiwan), shaping localized publishing strategy around regional player preferences.',
+    'ml2-li2':'<strong>Version content:</strong> Contributed to version content planning and launch cadence, aligning dev-ops and overseas publishing comms timelines.',
+    'ml2-li3':'<strong>KOL & comms:</strong> Supported KOL communication and localized communications, driving content rollout across Greater China social and community channels.',
     't1-badge':'Internship','t1-org':'NetEase Game · Hangzhou','t1-role':'Overseas PR & Communications Intern',
     't1-desc':'Contributed to "Once Human" mobile beta marketing, driving 100M+ social impressions and 114.5K converted NA/EU players. Annual 2.0 PR kit: 627 global media exposures, 1.4B+ readership, Grade-A rating.',
     't1-tag1':'Integrated Marketing','t1-hint':'✦ Click for details',
@@ -1274,6 +1756,10 @@ const T={
     'c7-desc':'Built a two-level nested Logit demand model and benchmarked four promotion strategies, reframing the objective from redemption rate to incremental profit — achieving coupon efficiency of 1.55 incremental units/£ and +£220 weekly profit vs. blanket discounting.','c7-view':'View Project',
     'ps-body':'<div class="m-sec">Project Overview</div><p>Group assignment for MSIN0306 Economics &amp; Marketing Strategy (UCL 25/26). Core problem: traditional coupon strategies either apply blanket discounts (wasting spend on loyal users) or use ML to optimise redemption rate — not actual profit. PromoSci addresses this with structural economic modelling.</p><p style="font-size:12px;color:var(--sub);margin-top:4px">Team: Ahana Singh, Enze Liu, Hy Ly, Tianchun Zhu, Viktoria Luise Blanke</p><div class="m-sec">Key Results</div><div class="m-stats"><div class="m-stat-box"><div class="m-stat-n">+£220</div><div class="m-stat-l">vs. blanket discount /week</div></div><div class="m-stat-box"><div class="m-stat-n">1.55</div><div class="m-stat-l">incremental units/£ (peak efficiency)</div></div><div class="m-stat-box"><div class="m-stat-n">37.1%</div><div class="m-stat-l">cannibalisation rate (lowest)</div></div><div class="m-stat-box"><div class="m-stat-n">£27.93</div><div class="m-stat-l">profit per £ of coupon spend</div></div></div><div class="m-sec">Core Method: Two-Level Nested Logit Demand Model</div><p>Standard Logit suffers from IIA — it predicts that a Coca-Cola price cut steals demand equally from Pepsi and cereal, which is unrealistic. Nested Logit adds a "nest" structure (category → brand): consumers first choose a category, then a brand, so within-category substitution is far stronger than cross-category.</p><div class="m-code"><span class="cm"># σ ∈ (0,1] controls within-nest correlation | σ→0: strong substitution | σ=1: collapses to standard Logit (IIA)</span><br><span class="kw">for</span> cat, brands <span class="kw">in</span> categories.items():<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">for</span> brand, attrs <span class="kw">in</span> brands.items():<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V = loyalty * attrs[<span class="st">"base_utility"</span>] + alpha * effective_price<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># Lower-level: within-nest brand probability</span><br>&nbsp;&nbsp;&nbsp;&nbsp;exp_v = {b: np.exp((v - max_v) / sigma) <span class="kw">for</span> b, v <span class="kw">in</span> utilities.items()}<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># Upper-level: nest inclusive value (logsum)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;nest_logsum[cat] = sigma * (np.log(sum_exp) + max_v / sigma)</div><div class="m-sec">Modelling Stockpiling</div><p>Deep discounts induce consumers to buy ahead — pulling forward future consumption rather than generating true incremental demand. PromoSci explicitly quantifies this loss: stockpiled units erode future full-price sales margins.</p><div class="m-code"><span class="kw">def</span> <span class="fn">compute_stockpiling_effect</span>(discount_pct, stockpile_rate):<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># Stockpiling grows non-linearly with discount depth</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> stockpile_rate * (1 - np.exp(-3 * discount_pct))<br><br>stockpile_loss = stockpiled * (base_price - cost)<br><span class="cm"># Medium-term profit = current profit − (future loss × 3.5 weeks / 4-week planning horizon)</span><br>medium_term_profit = net_profit - (future_loss * 3.5 / 4)</div><div class="m-sec">Four Strategy Comparison</div><div class="m-layers"><div class="m-layer"><div class="m-layer-num" style="background:var(--ink)">①</div><div class="m-layer-body"><div class="m-layer-title">No Coupon (Baseline) £6,524/week</div><div class="m-layer-desc">Establishes the counterfactual baseline; all strategies benchmarked against this.</div></div></div><div class="m-layer"><div class="m-layer-num" style="background:#b55">②</div><div class="m-layer-body"><div class="m-layer-title">Blanket Discount £6,408/week ↓</div><div class="m-layer-desc">Uniform 35p discount for all users. Performs worse than no coupon — subsidises loyal buyers and triggers heavy stockpiling.</div></div></div><div class="m-layer"><div class="m-layer-num" style="background:#9333FF">③</div><div class="m-layer-body"><div class="m-layer-title">ML Targeting £6,507/week</div><div class="m-layer-desc">Segment-optimised discounts, but the objective is redemption rate — cannot quantify cannibalisation or stockpiling losses.</div></div></div><div class="m-layer"><div class="m-layer-num" style="background:linear-gradient(135deg,#9333FF,#2e1a47)">④</div><div class="m-layer-body"><div class="m-layer-title">PromoSci Economic Model £6,628/week ✦</div><div class="m-layer-desc">Structural model + greedy search + coordinate descent, maximising medium-term incremental profit under a £2,000 budget constraint.</div></div></div></div><div class="m-sec">Optimisation Algorithm: Greedy + Coordinate Descent</div><div class="m-code"><span class="cm"># Round 1: greedy grid search for optimal discount per brand</span><br><span class="kw">for</span> brand <span class="kw">in</span> all_brands:<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">for</span> ps_disc <span class="kw">in</span> [0, 0.05, 0.10, 0.15, 0.20, 0.25, 0.30]:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">if</span> test_summary[<span class="st">"coupon_cost"</span>] > MAX_PROMO_BUDGET: <span class="kw">continue</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">if</span> improvement > best_improvement: best_disc = ...<br><br><span class="cm"># Round 2: coordinate descent to correct cross-brand substitution effects</span><br><span class="cm"># Hold other brands fixed; perturb each brand ±0.05; accept improvements</span><br><span class="cm"># Result: additional +£19.76/week (greedy underestimates optimum by ignoring cross-brand effects)</span></div><div class="m-verdict" style="margin-top:16px"><div class="m-verdict-box m-verdict-win"><div class="m-verdict-title">✅ Why Economic Modelling Wins</div><div class="m-verdict-item">✦ Captures causal structure, not just correlation</div><div class="m-verdict-item">✦ Explicitly models stockpiling &amp; cannibalisation</div><div class="m-verdict-item">✦ Counterfactual reasoning: "what if we stop discounting?"</div><div class="m-verdict-item">✦ Maximises incremental profit under budget constraint</div></div><div class="m-verdict-box m-verdict-lose"><div class="m-verdict-title">⚡ Model Limitations</div><div class="m-verdict-item">✦ Parameters calibrated from literature, not estimated from real data</div><div class="m-verdict-item">✦ Greedy search does not guarantee global optimum</div><div class="m-verdict-item">✦ Price endogeneity requires instrumental variables</div><div class="m-verdict-item">✦ Production deployment needs loyalty card data for MLE estimation</div></div></div><div style="display:flex;gap:10px;margin-top:20px;padding-bottom:8px"><a href="https://1drv.ms/f/c/bad556a6b4985de8/IgCUzDjjVBvIRaFIvvx6sMsPAQWZSnbyAl252Xr4ee4gc4U?e=euNdof" target="_blank" class="btn-sm btn-sm-dark" style="text-decoration:none;flex:1;text-align:center;padding:10px 0">View Assignment ↗</a><a href="https://luxury-eclair-82496d.netlify.app/" target="_blank" class="btn-sm" style="text-decoration:none;flex:1;text-align:center;padding:10px 0;background:linear-gradient(135deg,#2e1a47,#9333FF);color:#fff;border:none">Visit PromoSci Website ↗</a></div>',
     'f-title':'Downloadable Files','f-sub':'Resume files (PDF)',
+    'ws-title':'Sites I’ve Built','ws-sub':'Personal site + in-progress AI game-intel tools',
+    's0-name':'Personal Site','s0-badge':'Continuously Updated','s0-desc':'My personal portfolio hub — home to in-progress projects like the AI game-competitive-analysis tools. Continuously updated.','s0-btn':'Visit',
+    's1-name':'YouTube Insight','s1-badge':'In Progress','s1-desc':'Compresses the half-day grind of “search videos, rewatch, read comments, summarize” into a 3-minute automated flow — ask one question, get a deep competitive-analysis report. Powered by NLU, long-text summarization, sentiment analysis (embeddings / tf-idf) and AI orchestration.','s1-tag3':'Sentiment','s1-tag4':'AI Orchestration','s1-btn':'Visit App',
+    's2-name':'GameVid Insight','s2-badge':'In Progress','s2-desc':'Builds on YouTube Insight with on-screen visual analysis: uses the Claude API to parse the visuals, key info and viral highlights of YouTube / TikTok videos, and aggregates global game-media news into a daily industry digest.','s2-tag2':'Visual Analysis','s2-tag3':'Daily Digest','s2-btn':'Visit App',
     'f1-name':'朱天纯 — Resume (Chinese)','f1-btn':'Download','f2-btn':'Download',
     'ct-label':'Get in Touch','ct-title':'Contact Me ✦','ct-sub':'If you\'re interested in my background or have an exciting opportunity, feel free to reach out!',
     'ct1-l':'Email','ct3-v':'View Profile','ct4-l':'Xiaohongshu','ct4-v':'View Profile',
@@ -1494,7 +1980,7 @@ document.querySelectorAll('.port-card,.tl-card').forEach(card=>{
 
 /* ── Swipe Navigation (mobile) ── */
 let swipeX=0,swipeY=0;
-const pageOrder=['home','about','portfolio','contact'];
+const pageOrder=['home','about','portfolio','vault','contact'];
 document.addEventListener('touchstart',e=>{swipeX=e.touches[0].clientX;swipeY=e.touches[0].clientY;},{passive:true});
 document.addEventListener('touchend',e=>{
   const dx=e.changedTouches[0].clientX-swipeX;
@@ -1518,6 +2004,411 @@ function animateBars(){
 
 observe();
 animateBars();
+
+/* ════════ ENHANCEMENT JS · Editorial Kinetic ════════ */
+/* New i18n strings (merged without touching the big dict) */
+Object.assign(T.zh,{
+  'im-label':'战绩 · By the Numbers','im-title':'用数据说话',
+  'im1-tag':'Once Human 2.0 · PR','im1-l':'年度版本 PR 稿全球媒体阅读量，综合传播评级 A 级',
+  'im2-l':'Discord 社区从 0 搭建<br>用户增长',
+  'im3-l':'网易互娱 · 综合传播评级<br><strong style="color:var(--ink)">最高 A 级</strong>',
+  'im4-tag':'Social IMP','im4-l':'移动公测社媒总曝光量',
+  'im5-tag':'Media','im5-l':'全球权威媒体刊例 · IGN/PC Gamer 等',
+  'im6-tag':'Conversion','im6-l':'欧美玩家精准转化',
+  'im-logos-l':'协作 · 媒体'
+});
+Object.assign(T.en,{
+  'im-label':'Track Record · By the Numbers','im-title':'Let the numbers talk',
+  'im1-tag':'Once Human 2.0 · PR','im1-l':'Global media readership for the annual PR kit — Grade-A communications rating',
+  'im2-l':'Discord community built<br>from scratch · growth',
+  'im3-l':'NetEase · Communications rating<br><strong style="color:var(--ink)">Grade A (highest)</strong>',
+  'im4-tag':'Social IMP','im4-l':'Total social impressions, mobile beta',
+  'im5-tag':'Media','im5-l':'Global media placements · IGN / PC Gamer etc.',
+  'im6-tag':'Conversion','im6-l':'Converted NA / EU players',
+  'im-logos-l':'Worked with · Media'
+});
+
+/* Kinetic marquee */
+(function(){
+  const items=['1.4B+ 媒体阅读量','627 全球媒体刊例','100M+ 社媒曝光','352% 社区增长','A 级 传播评级','UCL · MSc Marketing Science','网易互娱 · 《七日世界》','网易雷火 · 《逆水寒》','IGN · PC Gamer · GamesRadar+'];
+  const grp=items.map(t=>`<span>${t}<span class="marquee-star">✦</span></span>`).join('');
+  const tr=document.getElementById('marqueeTrack');
+  if(tr)tr.innerHTML=grp+grp;
+})();
+
+/* Hero photo 3D parallax */
+(function(){
+  const pf=document.getElementById('photoFrame');
+  if(!pf)return;
+  let raf;
+  document.addEventListener('mousemove',e=>{
+    if(window.innerWidth<960)return;
+    cancelAnimationFrame(raf);
+    raf=requestAnimationFrame(()=>{
+      const dx=(e.clientX-innerWidth/2)/(innerWidth/2);
+      const dy=(e.clientY-innerHeight/2)/(innerHeight/2);
+      pf.style.transform=`perspective(900px) rotateY(${dx*6}deg) rotateX(${-dy*6}deg) translate(${dx*9}px,${dy*9}px)`;
+    });
+  });
+})();
+
+/* Count-up + bar + ring reveal */
+function runCount(el){
+  const to=parseFloat(el.dataset.to),dec=+(el.dataset.dec||0),dur=1600,t0=performance.now();
+  (function tick(now){
+    const p=Math.min((now-t0)/dur,1),e=1-Math.pow(1-p,3);
+    el.textContent=(to*e).toFixed(dec);
+    if(p<1)requestAnimationFrame(tick);
+  })(t0);
+}
+const vObs=new IntersectionObserver(es=>{
+  es.forEach(e=>{
+    if(!e.isIntersecting)return;
+    const el=e.target;el.classList.add('vis');
+    el.querySelectorAll&&el.querySelectorAll('.cu').forEach(runCount);
+    el.querySelectorAll&&el.querySelectorAll('.imp-fill').forEach(f=>{if(f.dataset.w)f.style.width=f.dataset.w;});
+    el.querySelectorAll&&el.querySelectorAll('.ring-prog').forEach(r=>{const pct=+r.dataset.pct;r.style.strokeDashoffset=327*(1-pct/100);});
+    vObs.unobserve(el);
+  });
+},{threshold:.3});
+document.querySelectorAll('.imp-card,.impact-logos,.impact-head').forEach(el=>vObs.observe(el));
+
+/* Timeline central progress line */
+(function(){
+  const wrap=document.querySelector('.tl-wrap');
+  if(!wrap)return;
+  const prog=document.createElement('div');prog.className='tl-progress';wrap.prepend(prog);
+  function upd(){
+    const r=wrap.getBoundingClientRect();
+    const fill=Math.min(Math.max(innerHeight*0.55-r.top,0),r.height);
+    prog.style.height=fill+'px';
+  }
+  window.addEventListener('scroll',upd,{passive:true});
+  window.addEventListener('resize',upd);
+  upd();
+})();
+
+/* Cursor VIEW label */
+(function(){
+  const label=document.getElementById('cursor-label');
+  if(!label)return;
+  document.addEventListener('mousemove',e=>{label.style.left=e.clientX+'px';label.style.top=(e.clientY)+'px';},{passive:true});
+  function bind(sel,zh,en){
+    document.querySelectorAll(sel).forEach(el=>{
+      el.addEventListener('mouseenter',()=>{document.body.classList.add('cursor-view');label.textContent=lang==='en'?en:zh;});
+      el.addEventListener('mouseleave',()=>document.body.classList.remove('cursor-view'));
+    });
+  }
+  bind('.tl-card','查看详情 →','DETAILS →');
+})();
+
+/* Inject hover CTA chips on portfolio cards — removed to preserve original portfolio */
+
+/* Portfolio filtering uses the original filterPort defined above (preserved). */
+
+/* ════════════════════════════════════════════════════
+   CREATIVE VAULT · 创意库  (localStorage "database" + Claude AI)
+   ════════════════════════════════════════════════════ */
+Object.assign(T.zh,{
+  'nl-vault':'创意库',
+  'vt-label':'创意库 · Idea Vault','vt-title':'即时创意收纳所',
+  'vt-sub':'突然冒出的游戏营销点子，按游戏建个文件夹丢进去，AI 帮你即时拆解。文件夹随心情拖着摆。',
+  'vt-newfolder':'＋ 新建文件夹','vt-tidy':'⤴ 整理排列',
+  'vt-empty':'还没有文件夹。点「＋ 新建文件夹」开始你的第一个创意收纳。',
+  'fm-name-l':'文件夹名称（游戏 / 主题）','fm-icon-l':'选择图案（游戏品类）','fm-color-l':'选择颜色','fm-cancel':'取消'
+});
+Object.assign(T.en,{
+  'nl-vault':'Idea Vault',
+  'vt-label':'Idea Vault','vt-title':'Instant Idea Stash',
+  'vt-sub':'Spontaneous game-marketing ideas — make a folder per game, drop them in, and let AI break them down. Drag folders around however you like.',
+  'vt-newfolder':'＋ New Folder','vt-tidy':'⤴ Tidy Up',
+  'vt-empty':'No folders yet. Hit “＋ New Folder” to start your first idea stash.',
+  'fm-name-l':'Folder name (game / theme)','fm-icon-l':'Pick a pattern (genre)','fm-color-l':'Pick a color','fm-cancel':'Cancel'
+});
+
+const VL={
+  zh:{newFolder:'新建文件夹',editFolder:'编辑文件夹',create:'创建',save:'保存',untitled:'未命名',
+    back:'← 返回创意库',ideasUnit:'条创意',edit:'编辑',del:'删除文件夹',
+    composerPh:'写下你突然冒出的创意…（写完点 AI 分析）',hint:'AI 会给出 点评 · 亮点 · 风险 · 可执行动作 · 标签',
+    analyze:'✦ AI 分析并保存',analyzing:'✦ 分析中…',justSave:'仅保存',
+    verdict:'点评',highlights:'亮点',risks:'风险 / 注意',actions:'可执行动作',
+    noIdea:'这个文件夹还没有创意，写下第一条吧 ✦',delIdea:'删除',
+    aiOff:'当前环境暂不支持 AI 分析（需在 Claude 中运行），创意已保存。',
+    aiErr:'AI 分析未能解析，创意已保存。稍后可重试。',aiBadge:'AI 分析',
+    searchPh:'搜索游戏 / 文件夹 / 创意…',foldersUnit:'个文件夹',
+    foldersHit:'匹配的文件夹',ideasHit:'匹配的创意',nores:'没有找到相关的游戏或创意',
+    confirmDelF:'确定删除整个文件夹和里面的创意吗？',confirmDelI:'删除这条创意？'},
+  en:{newFolder:'New Folder',editFolder:'Edit Folder',create:'Create',save:'Save',untitled:'Untitled',
+    back:'← Back to Vault',ideasUnit:'ideas',edit:'Edit',del:'Delete folder',
+    composerPh:'Jot down the idea that just struck you… (then hit AI analyze)',hint:'AI returns: verdict · highlights · risks · actions · tags',
+    analyze:'✦ AI Analyze & Save',analyzing:'✦ Analyzing…',justSave:'Save only',
+    verdict:'Verdict',highlights:'Highlights',risks:'Risks / Watch',actions:'Action Items',
+    noIdea:'No ideas here yet — write your first one ✦',delIdea:'Delete',
+    aiOff:'AI analysis isn’t available in this environment (run inside Claude). Idea saved.',
+    aiErr:'Couldn’t parse the AI analysis — idea saved. You can retry later.',aiBadge:'AI analysis',
+    searchPh:'Search games / folders / ideas…',foldersUnit:'folders',
+    foldersHit:'Matching folders',ideasHit:'Matching ideas',nores:'No matching games or ideas found',
+    confirmDelF:'Delete this whole folder and its ideas?',confirmDelI:'Delete this idea?'}
+};
+
+const VAULT_ICONS=[
+  {n:{zh:'射击',en:'FPS'},svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7.5"/><line x1="12" y1="1.5" x2="12" y2="5.5"/><line x1="12" y1="18.5" x2="12" y2="22.5"/><line x1="1.5" y1="12" x2="5.5" y2="12"/><line x1="18.5" y1="12" x2="22.5" y2="12"/><circle cx="12" cy="12" r="1.7" fill="currentColor" stroke="none"/></svg>'},
+  {n:{zh:'角色扮演',en:'RPG'},svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="18" x2="14.5" y2="9.5"/><path d="M14.5 9.5L20 4V2h-2l-5.5 5.5z" fill="currentColor" stroke="none"/><line x1="4.5" y1="19.5" x2="7.5" y2="16.5"/><line x1="11.3" y1="10.7" x2="13.3" y2="12.7"/></svg>'},
+  {n:{zh:'对战 MOBA',en:'MOBA'},svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5.5" y1="5.5" x2="17" y2="17"/><line x1="18.5" y1="5.5" x2="7" y2="17"/><path d="M3.5 6.5l2-2 2 2"/><path d="M20.5 6.5l-2-2-2 2"/><line x1="15" y1="18.5" x2="19" y2="18.5"/><line x1="5" y1="18.5" x2="9" y2="18.5"/></svg>'},
+  {n:{zh:'开放世界',en:'Open World'},svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 6l2.2 6L12 13.6 9.8 12z" fill="currentColor" stroke="none"/><path d="M12 18l-2.2-6L12 13.6 14.2 12z"/></svg>'},
+  {n:{zh:'卡牌',en:'Cards'},svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="7" width="8" height="11" rx="1.5" transform="rotate(-10 9.5 12.5)"/><rect x="10.5" y="6" width="8" height="11" rx="1.5" transform="rotate(10 14.5 11.5)"/></svg>'},
+  {n:{zh:'策略',en:'Strategy'},svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="3" x2="6" y2="21"/><path d="M6 4h12l-3 3.5L18 11H6z" fill="currentColor" stroke="none"/></svg>'},
+  {n:{zh:'二次元',en:'Anime'},svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5l2 6.8 6.8 2-6.8 2-2 6.8-2-6.8-6.8-2 6.8-2z" fill="currentColor" stroke="none"/></svg>'},
+  {n:{zh:'竞速',en:'Racing'},svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="3" x2="5" y2="21"/><path d="M5 4.5h14v9.5H5z"/><path d="M5 4.5h4.6v3.2H5zM9.6 7.7h4.7v3.2H9.6zM14.3 4.5H19v3.2h-4.7zM5 10.9h4.6v3.1H5zM14.3 10.9H19v3.1h-4.7z" fill="currentColor" stroke="none"/></svg>'},
+  {n:{zh:'沙盒',en:'Sandbox'},svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5l8.5 4.8v9.4L12 21.5 3.5 16.7V7.3z"/><path d="M3.5 7.3L12 12l8.5-4.7"/><line x1="12" y1="12" x2="12" y2="21.5"/></svg>'},
+  {n:{zh:'生存',en:'Survival'},svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20.5V11a7 7 0 0 1 14 0v9.5l-2.3-2-2.3 2-2.4-2-2.3 2-2.4-2z"/><circle cx="9.5" cy="11" r="1.1" fill="currentColor" stroke="none"/><circle cx="14.5" cy="11" r="1.1" fill="currentColor" stroke="none"/></svg>'}
+];
+const VAULT_COLORS=['#C87B5E','#9ABFC9','#E8B4A8','#8EC27B','#F2C855','#6C5CE7','#E0181A','#2A1F12','#3FB6A8','#D98A3D'];
+const VAULT_KEY='tz_vault_v1';
+
+function uid(){return Math.random().toString(36).slice(2,9);}
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));}
+function isLight(hex){const c=hex.replace('#','');const r=parseInt(c.slice(0,2),16),g=parseInt(c.slice(2,4),16),b=parseInt(c.slice(4,6),16);return (0.299*r+0.587*g+0.114*b)>150;}
+function ic(hex){return isLight(hex)?'#1A1206':'#FFFDF8';}
+function iconSVG(i){return (VAULT_ICONS[i]||VAULT_ICONS[0]).svg;}
+
+let vault={folders:[]},editingFolderId=null,openFolderId=null,pickIcon=0,pickColor=0;
+
+function vaultLoad(){
+  try{const d=JSON.parse(localStorage.getItem(VAULT_KEY));if(d&&Array.isArray(d.folders))vault=d;}catch(e){}
+  if(!vault.folders.length)seedVault();
+}
+function vaultSave(){try{localStorage.setItem(VAULT_KEY,JSON.stringify(vault));}catch(e){}}
+function getFolder(id){return vault.folders.find(f=>f.id===id);}
+function seedVault(){
+  vault={folders:[
+    {id:uid(),name:'三角洲行动',icon:0,color:'#3FB6A8',x:34,y:26,ideas:[
+      {id:uid(),text:'用真实退伍特种兵做「装备真实度拆解」系列短视频，把游戏里的枪械、战术和现实对照，引流硬核军事迷。',createdAt:Date.now()-86400000,analysis:{verdict:'硬核真实感是三角洲的核心卖点，这条精准踩中',highlights:['真实军事背书强化拟真度认知','军事迷是高价值的硬核种子用户'],risks:['退伍军人合作的合规与言论风险需提前把控'],actions:['先做 1 条样片测试军事 KOL 的转发率','联动枪械数据库做可交互对照 H5'],tags:['达人营销','硬核向','内容种草']}}
+    ]},
+    {id:uid(),name:'七日世界',icon:9,color:'#C87B5E',x:300,y:118,ideas:[]},
+    {id:uid(),name:'灵感杂货铺',icon:6,color:'#9ABFC9',x:560,y:44,ideas:[]}
+  ]};
+  vaultSave();
+}
+
+/* ── Board ── */
+function renderBoard(){
+  const board=document.getElementById('vaultBoard');if(!board)return;
+  [...board.querySelectorAll('.folder')].forEach(n=>n.remove());
+  vault.folders.forEach((f,idx)=>{
+    if(f.x==null){f.x=24+(idx%4)*150;f.y=24+Math.floor(idx/4)*150;}
+    const el=document.createElement('div');
+    el.className='folder';el.style.left=f.x+'px';el.style.top=f.y+'px';
+    el.style.setProperty('--fc',f.color);el.style.setProperty('--ic',ic(f.color));
+    el.innerHTML='<button class="folder-edit" title="'+VL[lang].edit+'">⋯</button>'+
+      '<div class="folder-shape"><div class="folder-tab"></div><div class="folder-body">'+iconSVG(f.icon)+'</div><span class="folder-count">'+f.ideas.length+'</span></div>'+
+      '<div class="folder-name">'+esc(f.name)+'</div>';
+    board.appendChild(el);
+    el.querySelector('.folder-edit').addEventListener('click',ev=>{ev.stopPropagation();editFolder(f.id);});
+    makeDraggable(el,f);
+  });
+  document.getElementById('vaultEmpty').style.display=vault.folders.length?'none':'flex';
+  const cnt=document.getElementById('vaultFolderCount');
+  if(cnt)cnt.textContent=vault.folders.length+' '+VL[lang].foldersUnit;
+}
+function makeDraggable(el,f){
+  let sx,sy,ox,oy,moved=false,active=false;
+  const move=e=>{
+    if(!active)return;
+    const dx=e.clientX-sx,dy=e.clientY-sy;
+    if(Math.abs(dx)+Math.abs(dy)>4)moved=true;
+    const board=document.getElementById('vaultBoard');
+    let nx=Math.max(0,Math.min(ox+dx,board.clientWidth-el.offsetWidth));
+    let ny=Math.max(0,Math.min(oy+dy,board.clientHeight-el.offsetHeight));
+    f.x=nx;f.y=ny;el.style.left=nx+'px';el.style.top=ny+'px';
+  };
+  const up=()=>{
+    if(!active)return;active=false;el.classList.remove('dragging');
+    document.removeEventListener('pointermove',move);document.removeEventListener('pointerup',up);
+    if(moved)vaultSave();else openFolder(f.id);
+  };
+  el.addEventListener('pointerdown',e=>{
+    if(e.target.closest('.folder-edit'))return;
+    if(window.innerWidth<=768){openFolder(f.id);return;}
+    active=true;moved=false;sx=e.clientX;sy=e.clientY;ox=f.x;oy=f.y;
+    el.classList.add('dragging');
+    document.addEventListener('pointermove',move);document.addEventListener('pointerup',up);
+  });
+}
+function tidyFolders(){
+  const board=document.getElementById('vaultBoard');const cols=Math.max(1,Math.floor((board.clientWidth-24)/156));
+  vault.folders.forEach((f,i)=>{f.x=24+(i%cols)*156;f.y=24+Math.floor(i/cols)*156;});
+  vaultSave();renderBoard();
+}
+
+/* ── Folder detail ── */
+function showVaultView(which){
+  document.getElementById('vaultBoardView').style.display=which==='board'?'block':'none';
+  document.getElementById('vaultSearchView').style.display=which==='search'?'block':'none';
+  document.getElementById('vaultFolderView').style.display=which==='folder'?'block':'none';
+}
+function openFolder(id){
+  const f=getFolder(id);if(!f)return;openFolderId=id;
+  const v=document.getElementById('vaultFolderView');
+  v.innerHTML='<button class="vault-back" onclick="closeFolder()">'+VL[lang].back+'</button>'+
+    '<div class="folder-detail-head" style="--fc:'+f.color+';--ic:'+ic(f.color)+'">'+
+      '<div class="fdh-icon">'+iconSVG(f.icon)+'</div>'+
+      '<div><div class="fdh-name">'+esc(f.name)+'</div><div class="fdh-meta"><span id="fdhCount">'+f.ideas.length+'</span> '+VL[lang].ideasUnit+'</div></div>'+
+      '<div class="fdh-spacer"></div>'+
+      '<button class="btn-mini" onclick="editFolder(\''+id+'\')">'+VL[lang].edit+'</button>'+
+      '<button class="btn-mini danger" onclick="deleteFolder(\''+id+'\')">'+VL[lang].del+'</button>'+
+    '</div>'+
+    '<div class="idea-composer"><textarea id="ideaInput" placeholder="'+esc(VL[lang].composerPh)+'"></textarea>'+
+      '<div class="ic-actions"><span class="ic-hint">'+VL[lang].hint+'</span><button class="btn btn-dark" id="analyzeBtn" onclick="analyzeIdea()">'+VL[lang].analyze+'</button></div></div>'+
+    '<div class="idea-list" id="ideaList"></div>';
+  renderIdeas(f);showVaultView('folder');
+}
+function closeFolder(){openFolderId=null;renderBoard();showVaultView('board');}
+function renderIdeas(f){
+  const list=document.getElementById('ideaList');if(!list)return;
+  if(!f.ideas.length){list.innerHTML='<div class="idea-empty">'+VL[lang].noIdea+'</div>';return;}
+  list.innerHTML=f.ideas.map(i=>
+    '<div class="idea-card"><div class="idea-text">'+esc(i.text)+'</div>'+analysisHTML(i.analysis)+
+    '<div class="idea-meta"><span class="ai-badge">✦ '+VL[lang].aiBadge+'</span><button class="idea-del" onclick="deleteIdea(\''+f.id+'\',\''+i.id+'\')">'+VL[lang].delIdea+'</button></div></div>'
+  ).join('');
+}
+function analysisHTML(a){
+  if(!a)return '';
+  if(a.note)return '<div class="idea-analysis"><div class="ia-note">'+esc(a.note)+'</div></div>';
+  if(a.error)return '<div class="idea-analysis"><div class="ia-note">'+VL[lang].aiErr+'</div></div>';
+  if(a.raw)return '<div class="idea-analysis"><div class="ia-raw">'+esc(a.raw)+'</div></div>';
+  let h='<div class="idea-analysis">';
+  if(a.verdict)h+='<div class="ia-verdict">“'+esc(a.verdict)+'”</div>';
+  const blk=(label,items,cls,sym)=>{if(!items||!items.length)return '';return '<div class="ia-block"><span class="ia-key">'+label+'</span><ul class="ia-ul">'+items.map(t=>'<li class="ia-li"><span class="ia-sym '+cls+'">'+sym+'</span><span>'+esc(t)+'</span></li>').join('')+'</ul></div>';};
+  h+=blk(VL[lang].highlights,a.highlights,'win','✓');
+  h+=blk(VL[lang].risks,a.risks,'risk','!');
+  h+=blk(VL[lang].actions,a.actions,'act','→');
+  if(a.tags&&a.tags.length)h+='<div class="idea-tags">'+a.tags.map(t=>'<span class="idea-tag">#'+esc(t)+'</span>').join('')+'</div>';
+  return h+'</div>';
+}
+function parseAnalysis(raw){
+  if(!raw)return{error:true};
+  try{const s=raw.indexOf('{'),e=raw.lastIndexOf('}');if(s>=0&&e>s){const o=JSON.parse(raw.slice(s,e+1));if(o&&(o.verdict||o.highlights||o.actions))return o;}}catch(err){}
+  return {raw:String(raw).trim()};
+}
+async function analyzeIdea(){
+  const f=getFolder(openFolderId);if(!f)return;
+  const ta=document.getElementById('ideaInput');const text=(ta.value||'').trim();if(!text)return;
+  const btn=document.getElementById('analyzeBtn');btn.disabled=true;btn.textContent=VL[lang].analyzing;
+  let analysis;
+  if(window.claude&&window.claude.complete){
+    try{
+      const prompt='你是资深游戏营销策划。针对「'+f.name+'」这款游戏/主题的以下即时创意，用'+(lang==='en'?'英文':'中文')+'做简短犀利的分析。仅输出 JSON，不要任何多余文字或解释：{"verdict":"一句话点评(不超过30字)","highlights":["亮点1","亮点2"],"risks":["风险或注意点1"],"actions":["可执行动作1","可执行动作2"],"tags":["标签1","标签2","标签3"]}\n\n创意：'+text;
+      const raw=await window.claude.complete(prompt);
+      analysis=parseAnalysis(raw);
+    }catch(e){analysis={error:true};}
+  }else{
+    analysis={note:VL[lang].aiOff};
+  }
+  f.ideas.unshift({id:uid(),text:text,createdAt:Date.now(),analysis:analysis});
+  vaultSave();
+  ta.value='';btn.disabled=false;btn.textContent=VL[lang].analyze;
+  renderIdeas(f);
+  const c=document.getElementById('fdhCount');if(c)c.textContent=f.ideas.length;
+}
+function deleteIdea(fid,iid){
+  if(!confirm(VL[lang].confirmDelI))return;
+  const f=getFolder(fid);if(!f)return;f.ideas=f.ideas.filter(i=>i.id!==iid);vaultSave();
+  renderIdeas(f);const c=document.getElementById('fdhCount');if(c)c.textContent=f.ideas.length;
+}
+function deleteFolder(id){
+  if(!confirm(VL[lang].confirmDelF))return;
+  vault.folders=vault.folders.filter(f=>f.id!==id);vaultSave();closeFolder();
+}
+
+/* ── New / edit folder modal ── */
+function openFolderModal(){
+  editingFolderId=null;pickIcon=0;pickColor=0;
+  document.getElementById('folderNameInput').value='';
+  document.getElementById('fm-title').textContent=VL[lang].newFolder;
+  document.getElementById('fm-save').textContent=VL[lang].create;
+  renderPickers();openModal('folderModal');
+}
+function editFolder(id){
+  const f=getFolder(id);if(!f)return;editingFolderId=id;pickIcon=f.icon;
+  pickColor=Math.max(0,VAULT_COLORS.indexOf(f.color));
+  document.getElementById('folderNameInput').value=f.name;
+  document.getElementById('fm-title').textContent=VL[lang].editFolder;
+  document.getElementById('fm-save').textContent=VL[lang].save;
+  renderPickers();openModal('folderModal');
+}
+function renderPickers(){
+  const ip=document.getElementById('iconPicker');ip.innerHTML='';
+  VAULT_ICONS.forEach((it,i)=>{const c=document.createElement('div');c.className='ip-cell'+(i===pickIcon?' sel':'');c.innerHTML=it.svg+'<span>'+it.n[lang]+'</span>';c.onclick=()=>{pickIcon=i;renderPickers();};ip.appendChild(c);});
+  const cp=document.getElementById('colorPicker');cp.innerHTML='';
+  VAULT_COLORS.forEach((col,i)=>{const c=document.createElement('div');c.className='cp-cell'+(i===pickColor?' sel':'');c.style.background=col;c.onclick=()=>{pickColor=i;renderPickers();};cp.appendChild(c);});
+}
+function saveFolder(){
+  const name=(document.getElementById('folderNameInput').value||'').trim()||VL[lang].untitled;
+  const color=VAULT_COLORS[pickColor];
+  if(editingFolderId){const f=getFolder(editingFolderId);f.name=name;f.icon=pickIcon;f.color=color;}
+  else{vault.folders.push({id:uid(),name:name,icon:pickIcon,color:color,x:30+(vault.folders.length%4)*150,y:26+Math.floor(vault.folders.length/4)*150,ideas:[]});}
+  vaultSave();closeModal('folderModal');
+  if(editingFolderId&&openFolderId===editingFolderId)openFolder(openFolderId);else{closeFolder();}
+  editingFolderId=null;
+}
+
+/* ── Search ── */
+function vaultSearchInput(q){
+  q=(q||'').trim().toLowerCase();
+  if(!q){showVaultView(openFolderId?'folder':'board');if(!openFolderId)renderBoard();return;}
+  const fHits=vault.folders.filter(f=>f.name.toLowerCase().includes(q));
+  const iHits=[];
+  vault.folders.forEach(f=>f.ideas.forEach(i=>{const tags=(i.analysis&&i.analysis.tags?i.analysis.tags.join(' '):'');if((i.text+' '+tags).toLowerCase().includes(q))iHits.push({f:f,i:i});}));
+  const sv=document.getElementById('vaultSearchView');
+  let h='';
+  if(!fHits.length&&!iHits.length){h='<div class="vs-noresult">'+VL[lang].nores+'</div>';}
+  if(fHits.length){h+='<div class="vs-section-title">'+VL[lang].foldersHit+' <span>'+fHits.length+'</span></div><div class="vs-folder-grid">'+
+    fHits.map(f=>'<div class="vs-folder-chip" onclick="closeFolder();document.getElementById(\'vaultSearch\').value=\'\';vaultSearchInput(\'\');openFolder(\''+f.id+'\')" style="--fc:'+f.color+';--ic:'+ic(f.color)+'"><div class="vs-fc-icon">'+iconSVG(f.icon)+'</div><div><div class="vs-fc-name">'+esc(f.name)+'</div><div class="vs-fc-meta">'+f.ideas.length+' '+VL[lang].ideasUnit+'</div></div></div>').join('')+'</div>';}
+  if(iHits.length){h+='<div class="vs-section-title">'+VL[lang].ideasHit+' <span>'+iHits.length+'</span></div>'+
+    iHits.map(x=>'<div class="vs-idea-card" onclick="document.getElementById(\'vaultSearch\').value=\'\';vaultSearchInput(\'\');openFolder(\''+x.f.id+'\')"><div class="vs-idea-folder">'+iconSVG(x.f.icon).replace('<svg','<svg style=\'width:13px;height:13px;vertical-align:-2px;display:inline-block\'')+' '+esc(x.f.name)+'</div><div class="vs-idea-text">'+esc(x.i.text)+'</div></div>').join('');}
+  sv.innerHTML=h;showVaultView('search');
+}
+
+/* Re-localize vault on language switch */
+function vaultRelabel(){
+  const s=document.getElementById('vaultSearch');if(s)s.placeholder=VL[lang].searchPh;
+  const p=document.getElementById('vaultPwd');if(p&&VL[lang].pwdPh)p.placeholder=VL[lang].pwdPh;
+  if(typeof renderBoard==='function'){
+    const q=s?s.value.trim():'';
+    if(q){vaultSearchInput(q);}
+    else if(openFolderId&&document.getElementById('vaultFolderView').style.display!=='none'){openFolder(openFolderId);}
+    else{renderBoard();}
+  }
+}
+const _applyLang_orig=applyLang;
+applyLang=function(){_applyLang_orig();try{vaultRelabel();}catch(e){}};
+
+/* ── Vault password lock ── */
+Object.assign(T.zh,{'vl-title':'创意库已加密','vl-sub':'输入密码以进入','vl-btn':'进入'});
+Object.assign(T.en,{'vl-title':'Vault is locked','vl-sub':'Enter the password to continue','vl-btn':'Enter'});
+VL.zh.wrongPwd='密码不对，再试一次';VL.zh.pwdPh='密码';
+VL.en.wrongPwd='Wrong password, try again';VL.en.pwdPh='Password';
+const VAULT_PWD='2046698235';
+function vaultUnlocked(){try{return sessionStorage.getItem('tz_vault_unlocked')==='1';}catch(e){return false;}}
+function applyVaultLock(){
+  const locked=!vaultUnlocked();
+  const lock=document.getElementById('vaultLock'),content=document.getElementById('vaultContent');
+  if(lock)lock.style.display=locked?'flex':'none';
+  if(content)content.style.display=locked?'none':'block';
+  if(locked){const p=document.getElementById('vaultPwd');if(p)setTimeout(()=>p.focus(),60);}else{renderBoard();}
+}
+function tryUnlock(){
+  const inp=document.getElementById('vaultPwd'),err=document.getElementById('vaultPwdErr');
+  if(inp.value===VAULT_PWD){try{sessionStorage.setItem('tz_vault_unlocked','1');}catch(e){}inp.value='';if(err)err.textContent='';applyVaultLock();}
+  else{if(err)err.textContent=VL[lang].wrongPwd;const c=document.querySelector('#vaultLock .vl-card');if(c){c.classList.remove('shake');void c.offsetWidth;c.classList.add('shake');}inp.select();}
+}
+const _go_orig=go;
+go=function(p){_go_orig(p);if(p==='vault')applyVaultLock();};
+
+/* init */
+vaultLoad();applyVaultLock();
+(function(){const s=document.getElementById('vaultSearch');if(s)s.placeholder=VL[lang].searchPh;})();
 </script>
 </body>
 </html>
