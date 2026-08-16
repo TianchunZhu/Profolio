@@ -15,14 +15,8 @@
   --warm:#EDE5D5; --yellow:#F2C855; --sage:#8EC27B;
 }
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font-family:'Nunito','PingFang SC','Microsoft YaHei','Hiragino Sans GB',system-ui,sans-serif;overflow-x:hidden;cursor:none}
+body{background:var(--bg);color:var(--ink);font-family:'Nunito','PingFang SC','Microsoft YaHei','Hiragino Sans GB',system-ui,sans-serif;overflow-x:hidden}
 a{text-decoration:none;color:inherit}
-
-/* Cursor */
-#cursor{width:12px;height:12px;border-radius:50%;background:var(--accent);position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:multiply;transition:width .2s,height .2s}
-#cursor-ring{width:34px;height:34px;border-radius:50%;border:2px solid var(--blue);position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:.7}
-.cursor-grow #cursor{width:44px;height:44px;background:var(--pink);opacity:.5}
-.cursor-grow #cursor-ring{opacity:0}
 
 /* Scroll Progress */
 #scroll-prog{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(to right,var(--blue),var(--accent),var(--yellow));z-index:9999;border-radius:0 2px 2px 0;pointer-events:none;transition:width .08s linear}
@@ -415,12 +409,6 @@ footer{text-align:center;padding:24px;font-size:14px;color:var(--sub);border-top
 
 /* ── PORTFOLIO (original layout preserved — no overrides) ── */
 
-/* ── Cursor VIEW label ── */
-#cursor-label{position:fixed;z-index:9997;pointer-events:none;transform:translate(-50%,-50%) scale(.4);background:var(--ink);color:var(--bg);font-family:var(--font-display);font-weight:700;font-size:12px;padding:7px 13px;border-radius:20px;opacity:0;transition:opacity .25s,transform .25s;white-space:nowrap;letter-spacing:.3px}
-body.cursor-view #cursor-label{opacity:1;transform:translate(-50%,-50%) scale(1)}
-body.cursor-view #cursor{opacity:0}
-body.cursor-view #cursor-ring{width:50px;height:50px;border-color:var(--accent);opacity:.35}
-
 /* Section header reveal for impact */
 .impact-head{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}
 .impact-head.vis{opacity:1;transform:none}
@@ -564,14 +552,175 @@ body.cursor-view #cursor-ring{width:50px;height:50px;border-color:var(--accent);
   .impact-grid{grid-template-columns:1fr}
   .float-chip{display:none}
 }
+
+/* 2026 portfolio refresh — light campaign-operations editorial */
+#langBtn{display:none}
+body{cursor:auto!important}
+a,button,[onclick],.port-card,.tl-card,.c-card{cursor:pointer!important}
+body{background-color:var(--bg);background-image:linear-gradient(rgba(42,31,18,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(42,31,18,.035) 1px,transparent 1px);background-size:52px 52px}
+.bg-decor::after{content:'MKT / PLAYER INSIGHT / CREATIVE SYSTEM';position:fixed;right:-148px;top:54%;transform:rotate(90deg);font:700 10px/1 var(--font-display);letter-spacing:4px;color:rgba(42,31,18,.18)}
+nav{border-bottom:1px solid rgba(42,31,18,.12);backdrop-filter:blur(18px);background:rgba(250,248,240,.84)}
+.nav-links a{letter-spacing:.04em;text-transform:uppercase}
+.hero{isolation:isolate}
+.hero::before{content:'01 — PROFILE';position:absolute;left:5.5%;top:112px;font:700 10px/1 var(--font-display);letter-spacing:3px;color:var(--accent)}
+.hero::after{content:'';position:absolute;width:310px;height:310px;border:1px solid rgba(154,191,201,.55);border-radius:50%;right:2%;bottom:7%;z-index:-1;box-shadow:0 0 0 38px rgba(154,191,201,.07),0 0 0 76px rgba(232,180,168,.05)}
+.hero-pill,.tag,.skill-pill{border-radius:4px}
+.btn,.btn-sm{border-radius:4px}
+.port-layout{max-width:1440px;margin:0 auto}
+.port-sidebar{border-right:1px solid rgba(42,31,18,.12)}
+.port-cat{border-radius:4px}
+.port-card{position:relative;border-radius:6px;overflow:hidden;background:rgba(255,253,246,.94);box-shadow:0 10px 32px rgba(42,31,18,.06);transition:opacity .28s,transform .28s,box-shadow .28s}
+.port-card::before{content:'';position:absolute;inset:0;background:radial-gradient(420px circle at var(--mx,50%) var(--my,20%),rgba(154,191,201,.22),transparent 48%);opacity:0;transition:opacity .25s;pointer-events:none;z-index:2}
+.port-card:hover::before{opacity:1}
+.card-img{border-radius:0!important}
+.card-num{font-family:var(--font-display);letter-spacing:.08em}
+.project-code{position:absolute;top:12px;right:13px;z-index:3;background:rgba(250,248,240,.9);border:1px solid rgba(42,31,18,.22);padding:4px 7px;font:700 9px/1 var(--font-display);letter-spacing:1.2px;color:var(--ink)}
+.card-capabilities{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 2px}
+.card-capabilities span{border:1px solid rgba(42,31,18,.18);padding:4px 7px;font-size:10px;letter-spacing:.04em;color:var(--sub);background:rgba(250,248,240,.7)}
+.ai-art,.clash-art,.jojo-art,.bg-art{height:100%;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:18px;color:#fff}
+.ai-art{background:linear-gradient(135deg,#18232d,#29485d)}
+.ai-art::before{content:'';position:absolute;inset:-40%;background:repeating-radial-gradient(circle at 65% 35%,transparent 0 22px,rgba(154,191,201,.22) 23px 24px)}
+.ai-art strong,.clash-art strong,.jojo-art strong,.bg-art strong{position:relative;font:800 23px/1.05 var(--font-display);letter-spacing:-.04em;max-width:82%}
+.jojo-art{background:linear-gradient(125deg,#b98b2f,#65417d 54%,#1b513b)}
+.jojo-art::after{content:'POSE / MATCH / INVITE';position:absolute;right:-44px;top:45%;transform:rotate(90deg);font:700 9px/1 var(--font-display);letter-spacing:2px}
+.bg-art{background:linear-gradient(135deg,#243a5a,#6f8faf)}
+.bg-art::before{content:'91';position:absolute;right:14px;top:2px;font:900 92px/1 var(--font-display);color:rgba(255,255,255,.12)}
+.clash-art{background:linear-gradient(135deg,#2768aa,#69b7dc)}
+.clash-art::before{content:'♛';position:absolute;right:12px;top:-18px;font-size:118px;color:rgba(255,215,92,.7);transform:rotate(8deg)}
+.portfolio-intro{padding:34px 0 20px;border-bottom:1px solid rgba(42,31,18,.12);margin-bottom:28px;display:flex;justify-content:space-between;gap:30px;align-items:flex-end}
+.portfolio-intro p{max-width:650px;color:var(--sub);line-height:1.8;font-size:14px}
+.portfolio-index{font:700 11px/1 var(--font-display);letter-spacing:3px;color:var(--accent);white-space:nowrap}
+.game-lab{margin-top:76px;padding-top:54px;border-top:1px solid rgba(42,31,18,.15)}
+.game-feature{display:grid;grid-template-columns:1.1fr .9fr;background:var(--ink);color:var(--cream);border-radius:8px;overflow:hidden;margin:30px 0 26px;box-shadow:14px 14px 0 var(--blue-l)}
+.game-feature-copy{padding:38px}
+.game-eyebrow{font:700 10px/1 var(--font-display);letter-spacing:2.5px;color:var(--pink)}
+.game-feature h3{font:800 clamp(34px,5vw,64px)/.95 var(--font-display);margin:14px 0}
+.game-feature p{color:rgba(255,255,255,.68);line-height:1.75}
+.game-feature-meta{display:grid;grid-template-columns:repeat(2,1fr);border-left:1px solid rgba(255,255,255,.15)}
+.game-feature-meta div{padding:25px;border:1px solid rgba(255,255,255,.1);font-size:12px;color:rgba(255,255,255,.65)}
+.game-feature-meta strong{display:block;font:800 24px/1 var(--font-display);color:#fff;margin-bottom:7px}
+.game-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.game-tab{border:1px solid rgba(42,31,18,.25);background:rgba(255,253,246,.8);padding:10px 13px;font:700 12px/1 var(--font-display);color:var(--sub);cursor:pointer}
+.game-tab.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.game-panel{display:none;grid-template-columns:repeat(3,1fr);gap:12px}
+.game-panel.active{display:grid}
+.game-item{background:rgba(255,253,246,.92);border:1px solid rgba(42,31,18,.14);padding:18px;min-height:105px;position:relative}
+.game-item strong{display:block;font:800 17px/1.2 var(--font-display);margin-bottom:8px}
+.game-item span{font-size:12px;color:var(--sub)}
+.game-item em{position:absolute;right:12px;bottom:10px;font:700 10px/1 var(--font-display);color:var(--accent);font-style:normal}
+.work-hero{padding:88px 8% 38px;max-width:1280px;margin:auto}
+.work-lead{display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:end;padding-bottom:34px;border-bottom:1px solid rgba(42,31,18,.16)}
+.work-lead p{color:var(--sub);line-height:1.85}
+.work-grid{max-width:1280px;margin:0 auto;padding:24px 8% 90px;display:grid;grid-template-columns:1fr;gap:14px}
+.work-module{background:rgba(255,253,246,.93);border:1px solid rgba(42,31,18,.16)}
+.work-module>button{width:100%;border:0;background:transparent;text-align:left;padding:14px;display:grid;grid-template-columns:116px 1fr auto;gap:20px;align-items:center;color:var(--ink);cursor:pointer!important}
+.work-no{font:800 12px/1 var(--font-display);color:var(--accent);letter-spacing:1px}
+.work-title{font:800 18px/1.2 var(--font-display)}
+.work-state{font:700 10px/1 var(--font-display);letter-spacing:1px;color:var(--sub)}
+.work-preview{height:76px;position:relative;overflow:hidden;background:var(--blue-l);border:1px solid rgba(42,31,18,.14)}
+.work-preview img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.8)}
+.work-preview b{position:absolute;left:8px;top:8px;background:rgba(250,248,240,.9);border:1px solid rgba(42,31,18,.18);padding:4px 6px;font:800 9px/1 var(--font-display);letter-spacing:1px;color:var(--ink)}
+.work-copy{display:grid;gap:7px}
+.work-copy small{font-size:12px;color:var(--sub);line-height:1.5}
+.work-detail{max-height:0;overflow:hidden;transition:max-height .45s ease;padding:0 18px;color:var(--sub);font-size:13px;line-height:1.8;border-top:0 solid rgba(42,31,18,.12)}
+.work-module.open .work-detail{max-height:520px;padding:18px;border-top-width:1px}
+.work-module.open .work-state{color:var(--accent)}
+.asset-carousel{position:relative}
+.asset-viewport{overflow:hidden}
+.asset-track{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding:2px}
+.asset-track::-webkit-scrollbar{display:none}
+.asset-card{flex:0 0 min(310px,78vw);scroll-snap-align:start;border:1px solid rgba(42,31,18,.15);background:var(--cream);color:var(--ink);text-decoration:none;display:block;transition:transform .2s,box-shadow .2s;position:relative}
+.asset-card:hover{transform:translateY(-3px);box-shadow:6px 6px 0 var(--blue-l)}
+.asset-card img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;background:var(--blue-l)}
+.asset-card-body{padding:12px}
+.asset-card strong{display:block;font:800 14px/1.3 var(--font-display);margin-bottom:5px}
+.asset-card span{font-size:11px;color:var(--sub)}
+.asset-card.is-placeholder::after{content:'LINK 待补充';position:absolute;right:8px;top:8px;background:rgba(42,31,18,.86);color:#fff;padding:4px 7px;font:700 8px/1 var(--font-display);letter-spacing:1px}
+.asset-nav{display:flex;justify-content:flex-end;gap:8px;margin-top:12px}
+.asset-nav button{width:38px;height:34px;border:1px solid rgba(42,31,18,.25);background:var(--cream);font-size:18px;color:var(--ink);cursor:pointer!important}
+.asset-nav button:hover{background:var(--ink);color:#fff}
+.contact-in-about{margin-top:76px;padding-top:54px;border-top:1px solid rgba(42,31,18,.15);position:relative}
+.contact-in-about .contact-wrap{max-width:none}
+.case-hero{padding:26px;background:linear-gradient(135deg,var(--ink),#35505b);color:#fff}
+.case-hero small{font:700 10px/1 var(--font-display);letter-spacing:2px;color:var(--pink)}
+.case-hero h3{font:800 30px/1.05 var(--font-display);margin:12px 0}
+.case-hero p{font-size:13px;color:rgba(255,255,255,.68);line-height:1.7}
+.case-flow{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin:14px 0}
+.case-flow span{padding:10px 7px;background:var(--blue-l);font-size:11px;text-align:center;border:1px solid rgba(42,31,18,.12)}
+.project-modal{max-width:680px!important;padding:0!important;border-radius:12px 34px!important;overflow-x:hidden}
+.pm-cover{height:clamp(190px,28vw,230px);position:relative;overflow:hidden;background:#111}
+.pm-cover img{width:100%;height:100%;object-fit:cover;display:block}
+.pm-cover::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 45%,rgba(11,16,24,.78))}
+.pm-cover-label{position:absolute;left:24px;bottom:20px;z-index:1;color:#fff;font:800 10px/1 var(--font-display);letter-spacing:2px}
+.pm-content{padding:24px 28px 30px}
+.pm-kicker{font:800 10px/1 var(--font-display);letter-spacing:2px;color:var(--accent);margin-bottom:10px}
+.pm-title{font:800 clamp(24px,3vw,34px)/1.05 var(--font-display);letter-spacing:-.04em;margin-bottom:10px}
+.pm-lead{font-size:13px;line-height:1.75;color:var(--sub);max-width:620px}
+.case-panel{display:block;margin-top:23px;padding-top:21px;border-top:1px solid rgba(42,31,18,.16);animation:casePanelIn .35s ease}
+.scroll-section-label{display:flex;align-items:center;gap:11px;margin-bottom:15px;font:900 12px/1 var(--font-display);letter-spacing:1.2px;text-transform:uppercase}
+.scroll-section-label b{display:grid;place-items:center;width:30px;height:30px;background:var(--ink);color:#fff;font-size:10px;flex:0 0 auto}
+@keyframes casePanelIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.case-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.case-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.case-box{border:1px solid rgba(42,31,18,.15);padding:14px;background:rgba(255,253,246,.78)}
+.case-box strong{display:block;font:800 15px/1.25 var(--font-display);margin-bottom:7px}
+.case-box p{font-size:12px;line-height:1.65;color:var(--sub)}
+.case-chip{display:inline-block;font:800 9px/1 var(--font-display);letter-spacing:1px;color:var(--accent);margin-bottom:10px}
+.ai-modal{background:#f4f7ff}.ai-modal .pm-content{background:radial-gradient(circle at 90% 0,rgba(99,120,255,.12),transparent 32%)}
+.ai-pipeline{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;margin:16px 0}
+.ai-pipeline span{padding:12px 7px;background:#13213d;color:#dfe9ff;text-align:center;font:700 10px/1.35 var(--font-display)}
+.tool-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px}.tool-column{padding:20px;border:1px solid rgba(42,31,18,.15);background:#fff}.tool-column h4{font:800 20px/1.1 var(--font-display);margin-bottom:12px}.tool-column li{font-size:12px;line-height:1.65;color:var(--sub);margin-left:16px;margin-bottom:5px}
+.jojo-campaign{background:#fffaf0;color:var(--ink)}.jojo-campaign .pm-content{background:linear-gradient(145deg,#fffdf8 0%,#faf3ff 55%,#edf8ff 100%)}.jojo-campaign .pm-lead,.jojo-campaign .case-box p{color:#685f72}.jojo-campaign .case-box{background:rgba(255,255,255,.8);border-color:rgba(103,72,133,.18)}.jojo-campaign .case-panel{border-top-color:rgba(103,72,133,.2)}.jojo-campaign .scroll-section-label b{background:#6d468a}.jojo-campaign .pm-kicker,.jojo-campaign .case-chip,.jojo-campaign .scroll-section-label{color:#6d468a}.jojo-campaign .case-flow span{background:#fff3c9;border-color:#dfbd52;color:#503b60}.jojo-campaign .m-sec{color:#6d468a}.operator-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.operator{border-top:3px solid #d9ae34;background:#fff;padding:12px;border-radius:0 0 8px 8px;box-shadow:0 5px 14px rgba(87,57,108,.07)}.operator b{display:block;font:800 13px/1.25 var(--font-display);color:#33263c}.operator span{font-size:10px;color:#7a4a94}.operator small{display:block;color:#6c6272;line-height:1.45;margin-top:6px}.campaign-thesis{border-left:4px solid #d9ae34;background:#fff7d8;padding:15px 17px;font:800 14px/1.6 var(--font-display);color:#473651;margin-top:14px}.campaign-goals{display:flex;flex-wrap:wrap;gap:7px;margin-top:11px}.campaign-goals span{padding:7px 10px;border:1px solid rgba(109,70,138,.24);background:#fff;color:#6d468a;font:800 10px/1 var(--font-display);letter-spacing:.4px}.campaign-metrics{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px}.campaign-metrics span{padding:7px 9px;background:#6d468a;color:#fff;font-size:10px;border-radius:20px}
+.h5-modal{background:#fff8cf}.h5-modal .pm-content{background:linear-gradient(135deg,#fff8cf,#f7dfff)}.h5-demo-panel{display:block;border:2px solid #35124e;background:rgba(255,255,255,.72);padding:20px;margin-top:14px;animation:casePanelIn .35s}.h5-demo-panel .scroll-section-label b{background:#e43b9b}.reward-row{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-top:14px}.reward-row span{background:#35124e;color:#fff;padding:10px 6px;text-align:center;font-size:10px}.reward-row span:last-child{background:#e43b9b}
+.bg-modal{background:#eef4fb}.bg-modal .pm-content{background:linear-gradient(180deg,#f6f9fd,#e9f1fa)}.evidence-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:18px 0}.evidence-stat{background:#fff;border-top:3px solid #7355a4;padding:15px}.evidence-stat b{display:block;font:900 24px/1 var(--font-display);color:#17345b}.evidence-stat span{font-size:10px;color:#5e6d82}.hypothesis-row{display:grid;grid-template-columns:45px 1fr auto;gap:12px;align-items:center;padding:11px 0;border-bottom:1px solid rgba(23,52,91,.13)}.hypothesis-row b{font:800 12px/1 var(--font-display);color:#7355a4}.hypothesis-row p{font-size:12px;color:#53647a}.hypothesis-row span{font:800 9px/1 var(--font-display);padding:5px 7px;background:#dfeadd;color:#31593c}.prototype-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.prototype{background:#17345b;color:#fff;padding:18px}.prototype b{display:block;font:800 17px/1.2 var(--font-display);margin-bottom:8px}.prototype p{font-size:11px;line-height:1.6;color:rgba(255,255,255,.68)}
+.clash-modal{background:#edf8ff}.clash-modal .pm-content{background:linear-gradient(180deg,#f8fcff,#dff1fb)}.barrier-equation{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;margin:22px 0}.barrier-side{padding:18px;border:2px solid #2a65a1;background:#fff}.barrier-side b{display:block;font:900 19px/1.1 var(--font-display);color:#1a4f82;margin-bottom:7px}.barrier-side p{font-size:12px;color:var(--sub);line-height:1.6}.barrier-arrow{font:900 24px/1 var(--font-display);color:#d8a41a}.clash-funnel{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;margin:16px 0}.clash-funnel span{padding:12px 6px;background:#1d5f9d;color:#fff;text-align:center;font-size:10px}.clash-funnel span:nth-child(4){background:#d7a519}.clash-funnel span:nth-child(5){background:#4f922e}.learning-note{border-left:5px solid #d7a519;background:#fff7d2;padding:17px;font:800 15px/1.55 var(--font-display);color:#26384a}
+@media(max-width:700px){.pm-cover{height:205px}.pm-content{padding:22px 20px 28px}.case-grid-2,.case-grid-3,.tool-compare{grid-template-columns:1fr}.ai-pipeline,.clash-funnel{grid-template-columns:1fr}.operator-grid,.evidence-strip,.reward-row{grid-template-columns:repeat(2,1fr)}.prototype-grid{grid-template-columns:1fr}.barrier-equation{grid-template-columns:1fr}.barrier-arrow{transform:rotate(90deg);text-align:center}}
+.page.active{animation:pageReveal .48s cubic-bezier(.22,.8,.28,1)}
+@keyframes pageReveal{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.advantages-sec{position:relative;overflow:hidden}
+.advantages-sec::after{content:'CORE ADVANTAGE / 06';position:absolute;right:-22px;top:42px;font:800 9px/1 var(--font-display);letter-spacing:3px;color:rgba(42,31,18,.2);transform:rotate(90deg)}
+.adv-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
+.adv-card{grid-column:span 3;min-height:210px;background:rgba(255,253,246,.94);border:1px solid rgba(42,31,18,.18);padding:22px;position:relative;overflow:hidden;transition:transform .32s,box-shadow .32s,border-color .32s;isolation:isolate}
+.adv-card:nth-child(1),.adv-card:nth-child(2){grid-column:span 6}
+.adv-card::before{content:'';position:absolute;width:190px;height:190px;border-radius:50%;right:-90px;top:-90px;background:var(--adv-color,var(--blue-l));opacity:.7;transition:transform .45s;z-index:-1}
+.adv-card:hover,.adv-card.active{transform:translateY(-5px);box-shadow:9px 9px 0 var(--adv-shadow,var(--blue-l));border-color:var(--ink)}
+.adv-card:hover::before,.adv-card.active::before{transform:scale(1.35)}
+.adv-card-head{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}
+.adv-index{font:800 10px/1 var(--font-display);letter-spacing:1.8px;color:var(--accent)}
+.adv-mark{font:800 clamp(26px,4vw,45px)/.9 var(--font-display);letter-spacing:-.05em;color:var(--ink);text-align:right}
+.adv-card h3{font:800 21px/1.15 var(--font-display);margin:30px 0 8px;max-width:85%}
+.adv-card>p{font-size:13px;line-height:1.65;color:var(--sub);max-width:92%}
+.adv-expand{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease;margin-top:0}
+.adv-expand>div{overflow:hidden}
+.adv-card.active .adv-expand{grid-template-rows:1fr;margin-top:16px}
+.adv-expand p{padding-top:14px;border-top:1px solid rgba(42,31,18,.14);font-size:12px;line-height:1.7;color:var(--sub)}
+.adv-hint{position:absolute;right:16px;bottom:14px;font:700 9px/1 var(--font-display);letter-spacing:1px;color:var(--accent)}
+.tl-media{position:relative;aspect-ratio:16/9;overflow:hidden;border:1px solid rgba(42,31,18,.16);background:#fff;box-shadow:6px 6px 0 rgba(154,191,201,.24);align-self:center}
+.tl-media img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .65s cubic-bezier(.2,.8,.2,1),filter .45s;filter:saturate(.82) contrast(.98)}
+.tl-media::after{content:attr(data-label);position:absolute;left:10px;bottom:10px;background:rgba(250,248,240,.9);border:1px solid rgba(42,31,18,.2);padding:5px 8px;font:800 9px/1 var(--font-display);letter-spacing:1px;color:var(--ink)}
+.tl-item:hover .tl-media img{transform:scale(1.015);filter:saturate(1) contrast(1)}
+.tl-item:hover .tl-media{box-shadow:10px 10px 0 var(--pink-l)}
+.tl-wrap{max-width:940px}
+.tl-item,.tl-item:nth-child(even){display:grid;grid-template-columns:minmax(0,1fr) 44px minmax(0,1fr);align-items:center;transform:translateY(24px);margin-bottom:36px}
+.tl-item:nth-child(odd),.tl-item:nth-child(even){flex-direction:unset}
+.tl-dot{position:relative;left:auto;top:auto;grid-column:2;grid-row:1;justify-self:center;transform:none}
+.tl-card{width:100%;grid-row:1;padding:16px 18px;border-radius:10px 26px}
+.tl-card-header{margin-bottom:7px}.tl-logo-wrap{width:34px;height:34px}.tl-org{font-size:16px}.tl-role{margin-bottom:7px}.tl-desc{font-size:11px;line-height:1.58;margin-bottom:8px}.tl-hint{font-size:10px;margin-top:7px}
+.tl-media{grid-row:1}
+.port-card.filter-enter{animation:cardFilterIn .42s cubic-bezier(.2,.8,.2,1) both}
+@keyframes cardFilterIn{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:none}}
+.game-panel.active .game-item{animation:gameChipIn .38s both}
+.game-panel.active .game-item:nth-child(2){animation-delay:.05s}.game-panel.active .game-item:nth-child(3){animation-delay:.1s}.game-panel.active .game-item:nth-child(4){animation-delay:.15s}.game-panel.active .game-item:nth-child(5){animation-delay:.2s}
+@keyframes gameChipIn{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:none}}
+@media(max-width:900px){.game-feature,.work-lead{grid-template-columns:1fr}.game-feature-meta{border-left:0}.game-panel{grid-template-columns:repeat(2,1fr)}.work-grid{grid-template-columns:1fr}.portfolio-intro{align-items:flex-start;flex-direction:column}.bg-decor::after{display:none}}
+@media(max-width:900px){.adv-card,.adv-card:nth-child(1),.adv-card:nth-child(2){grid-column:span 6}.tl-media{aspect-ratio:16/9}}
+@media(max-width:768px){.tl-wrap::before{left:11px}.tl-item,.tl-item:nth-child(even){display:grid;grid-template-columns:24px minmax(0,1fr);grid-template-rows:auto auto;gap:12px;padding-left:0}.tl-dot{grid-column:1;grid-row:1 / span 2;left:auto}.tl-card{grid-column:2;grid-row:1}.tl-media{grid-column:2;grid-row:2}}
+@media(max-width:600px){.game-panel{grid-template-columns:1fr}.game-feature-meta{grid-template-columns:1fr}.game-feature-copy{padding:26px}.work-module>button{grid-template-columns:84px 1fr}.work-preview{height:64px}.work-state{display:none}.hero::before{display:none}.asset-card{flex-basis:86vw}.adv-card,.adv-card:nth-child(1),.adv-card:nth-child(2){grid-column:1/-1}.tl-media{aspect-ratio:16/9}}
 </style>
 </head>
 <body>
 
 <div id="scroll-prog"></div>
-<div id="cursor"></div>
-<div id="cursor-ring"></div>
-<div id="cursor-label">查看案例</div>
 <div class="bg-decor"><div class="grid-layer"></div></div>
 
 <!-- NAV -->
@@ -579,10 +728,9 @@ body.cursor-view #cursor-ring{width:50px;height:50px;border-color:var(--accent);
   <div class="logo" onclick="go('home')">TIANCHUN ZHU ✦</div>
   <ul class="nav-links">
     <li><a id="nl-home" onclick="go('home')" class="active">主页</a></li>
-    <li><a id="nl-about" onclick="go('about')">关于</a></li>
     <li><a id="nl-portfolio" onclick="go('portfolio')">作品集</a></li>
-    <li><a id="nl-vault" onclick="go('vault')">创意库</a></li>
-    <li><a id="nl-contact" onclick="go('contact')">联系</a></li>
+    <li><a id="nl-work" onclick="go('work')">实战作品</a></li>
+    <li><a id="nl-about" onclick="go('about')">关于</a></li>
     <li><button class="lang-btn" id="langBtn" onclick="switchLang()">EN</button></li>
   </ul>
 </nav>
@@ -592,19 +740,19 @@ body.cursor-view #cursor-ring{width:50px;height:50px;border-color:var(--accent);
 
   <section class="hero">
     <div class="hero-text">
-      <div class="hero-pill"><span class="pulse-dot"></span><span id="h-pill">海外游戏营销 · 市场营销科学</span></div>
+      <div class="hero-pill"><span class="pulse-dot"></span><span id="h-pill">海外游戏营销 · AI 驱动洞察</span></div>
       <h1 id="h-name">朱天纯<em>TIANCHUN ZHU</em></h1>
-      <p class="hero-sub" id="h-sub">UCL管理学院市场营销科学硕士在读，专注于海外游戏营销与发行。曾参与网易互娱《七日世界》全球传播，实现1.4B+媒体曝光量。</p>
+      <p class="hero-sub" id="h-sub">UCL 管理学院市场营销科学硕士在读，现于网易雷火负责《逆水寒》海外市场营销。经历覆盖 KOL、PR、H5 增长与社区运营，也独立开发 AI 工具，把玩家洞察转化为更快、更能落地的营销动作。</p>
       <div class="hero-btns">
         <button class="btn btn-dark magnet" id="h-btn1" onclick="go('portfolio')">查看作品集</button>
-        <button class="btn btn-ghost magnet" id="h-btn2" onclick="go('contact')">联系我</button>
+        <button class="btn btn-ghost magnet" id="h-btn2" onclick="goToContact()">联系我</button>
       </div>
       <div class="hero-stats">
-        <div class="hero-stat"><div class="hero-stat-n" data-count="1.4" data-sfx="B+">1.4B+</div><div class="hero-stat-l">媒体曝光量</div></div>
+        <div class="hero-stat"><div class="hero-stat-n">20M+</div><div class="hero-stat-l">Creator 内容播放</div></div>
         <div class="hero-stat-sep">·</div>
-        <div class="hero-stat"><div class="hero-stat-n" id="h-stat2-n">300W+</div><div class="hero-stat-l" id="h-stat2-l">视频播放量</div></div>
+        <div class="hero-stat"><div class="hero-stat-n" id="h-stat2-n">297%</div><div class="hero-stat-l" id="h-stat2-l">直播目标达成率</div></div>
         <div class="hero-stat-sep">·</div>
-        <div class="hero-stat"><div class="hero-stat-n">A级</div><div class="hero-stat-l">传播综合评级</div></div>
+        <div class="hero-stat"><div class="hero-stat-n">3.5×</div><div class="hero-stat-l">H5 首日 UV</div></div>
       </div>
     </div>
     <div class="hero-photo-col">
@@ -630,52 +778,166 @@ body.cursor-view #cursor-ring{width:50px;height:50px;border-color:var(--accent);
     <div class="marquee-track" id="marqueeTrack"></div>
   </div>
 
-  <!-- ══ IMPACT / DATA ══ -->
-  <section class="impact-sec section">
+  <!-- ══ CORE ADVANTAGES ══ -->
+  <section class="advantages-sec section">
     <div class="sec-header impact-head" style="margin-bottom:38px">
-      <span class="sec-label" id="im-label">战绩 · By the Numbers</span>
-      <h2 class="sec-title" id="im-title">用数据说话</h2>
+      <span class="sec-label" id="im-label">PROFILE SYSTEM · 06</span>
+      <h2 class="sec-title" id="im-title">我的核心优势</h2>
     </div>
-    <div class="impact-grid">
-      <div class="imp-card a d1">
-        <span class="imp-tag" id="im1-tag">Once Human 2.0 · PR</span>
-        <div class="imp-n"><span class="cu" data-to="1.4" data-dec="1">0</span><span class="imp-suf">B+</span></div>
-        <div>
-          <div class="imp-label" id="im1-l">年度版本 PR 稿全球媒体阅读量，综合传播评级 A 级</div>
-          <div class="imp-track"><div class="imp-fill" data-w="94%"></div></div>
+    <div class="adv-grid">
+      <article class="adv-card active" tabindex="0" role="button" aria-expanded="true" onclick="activateAdv(this)" style="--adv-color:#eaf4f7;--adv-shadow:#d5e9ee">
+        <div class="adv-card-head"><span class="adv-index">01 / EDUCATION</span><span class="adv-mark">UCL<br>SoM</span></div>
+        <h3>市场营销科学训练</h3>
+        <p>UCL 管理学院 MSc Marketing Science，将营销问题拆成可研究、可验证的决策。</p>
+        <div class="adv-expand"><div><p>课程与项目覆盖营销分析、统计建模、数据管理、市场情报与实验思维，为策略提供量化基础。</p></div></div><span class="adv-hint">CLICK TO EXPAND</span>
+      </article>
+      <article class="adv-card" tabindex="0" role="button" aria-expanded="false" onclick="activateAdv(this)" style="--adv-color:#f9edea;--adv-shadow:#f3d9d2">
+        <div class="adv-card-head"><span class="adv-index">02 / INDUSTRY</span><span class="adv-mark">3×<br>NETEASE</span></div>
+        <h3>三段网易海外游戏营销实习</h3>
+        <p>覆盖海外运营、产品营销、公关传播、KOL、Media Buy、H5 增长与社区运营。</p>
+        <div class="adv-expand"><div><p>从 2024 雷火海外运营，到 2025 互娱《七日世界》，再到 2026 雷火《逆水寒》，形成连续的海外游戏营销实践链路。</p></div></div><span class="adv-hint">CLICK TO EXPAND</span>
+      </article>
+      <article class="adv-card" tabindex="0" role="button" aria-expanded="false" onclick="activateAdv(this)" style="--adv-color:#eee8f5;--adv-shadow:#ded2eb">
+        <div class="adv-card-head"><span class="adv-index">03 / BUILD</span><span class="adv-mark">AI<br>CODING</span></div>
+        <h3>把痛点直接做成产品</h3>
+        <p>独立开发竞品分析助手、互动 H5 与营销 Demo，让洞察不只停留在报告。</p>
+        <div class="adv-expand"><div><p>结合 NLP、情感分析、多模态理解与轻量前后端开发，把数小时研究流程压缩到分钟级。</p></div></div><span class="adv-hint">CLICK TO EXPAND</span>
+      </article>
+      <article class="adv-card" tabindex="0" role="button" aria-expanded="false" onclick="activateAdv(this)" style="--adv-color:#e8eef4;--adv-shadow:#d7e2ed">
+        <div class="adv-card-head"><span class="adv-index">04 / COLLAB</span><span class="adv-mark">BG ×<br>UCL</span></div>
+        <h3>Baillie Gifford 合作项目</h3>
+        <p>与长期主义、研究驱动的英国独立投资管理机构合作，研究 Gen Z 投资进入路径。</p>
+        <div class="adv-expand"><div><p>基于 91 位受访者和多源分析，构建 Finfluencer、平台广告与互动产品探索器串联的三段式营销 Demo。</p></div></div><span class="adv-hint">CLICK TO EXPAND</span>
+      </article>
+      <article class="adv-card" tabindex="0" role="button" aria-expanded="false" onclick="activateAdv(this)" style="--adv-color:#fff3cf;--adv-shadow:#f4df9c">
+        <div class="adv-card-head"><span class="adv-index">05 / LANGUAGE</span><span class="adv-mark">IELTS<br>7.5</span></div>
+        <h3>跨文化沟通与英文工作能力</h3>
+        <p>能够完成英文访谈、海外 KOL 沟通、PR 内容与跨市场协作。</p>
+        <div class="adv-expand"><div><p>中国、香港、日本与英国的学习生活经历，让我能在不同文化语境中快速切换表达方式。</p></div></div><span class="adv-hint">CLICK TO EXPAND</span>
+      </article>
+      <article class="adv-card" tabindex="0" role="button" aria-expanded="false" onclick="activateAdv(this)" style="--adv-color:#e8f2e3;--adv-shadow:#d5e7cb">
+        <div class="adv-card-head"><span class="adv-index">06 / ANALYTICS</span><span class="adv-mark">DATA<br>STACK</span></div>
+        <h3>数据分析能力</h3>
+        <p>Python、R、SQL、STATA、Tableau 与 Power BI，支持从数据清理到决策表达。</p>
+        <div class="adv-expand"><div><p>可处理用户细分、预测建模、营销效果分析与可视化，把数据结论转换为清晰的商业建议。</p></div></div><span class="adv-hint">CLICK TO EXPAND</span>
+      </article>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="section" style="background:rgba(255,253,248,.65);position:relative;overflow:hidden">
+    <img src="illus4.jpg" class="illus-tl" alt="" onerror="this.style.display='none'"/>
+    <div class="sec-header fi">
+      <span class="sec-label" id="tl-label">经历</span>
+      <h2 class="sec-title" id="tl-title">教育 &amp; 实习</h2>
+    </div>
+    <div class="tl-wrap">
+
+      <div class="tl-item" onclick="openModal('m-leihuo2')">
+        <div class="tl-media" data-label="JUSTICE ONLINE / NETEASE"><img src="首页pic/SOJ Netease.png" alt="网易雷火《逆水寒》海外市场营销"></div><div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-card-header">
+            <div><span class="tl-badge" id="t0-badge">实习</span><div class="tl-period" id="t0-period">05/2026 – 至今</div></div>
+            <div class="tl-logo-wrap"><img src="logo-netease.png" class="tl-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="tl-logo-text" style="display:none">NetEase</div></div>
+          </div>
+          <div class="tl-org" id="t0-org">网易雷火 · 杭州</div>
+          <div class="tl-role" id="t0-role">《逆水寒》海外市场营销实习生</div>
+          <p class="tl-desc" id="t0-desc">负责港澳台与东南亚 KOL、PR / Media Buy、H5 用户召回及 Discord 社交增长。版本直播目标达成率 297%，H5 首日 UV 达基线 3.5×。</p>
+          <div class="tl-tags"><span class="tag" id="t0-tag1">HMT &amp; SEA</span><span class="tag">KOL</span><span class="tag" id="t0-tag2">PR / Media Buy</span><span class="tag" id="t0-tag3">H5 增长</span></div>
+          <div class="tl-hint" id="t0-hint">✦ 点击查看详情</div>
         </div>
       </div>
-      <div class="imp-card b d2">
-        <div class="ring-wrap">
-          <svg viewBox="0 0 120 120"><circle class="ring-bg" cx="60" cy="60" r="52"/><circle class="ring-prog" cx="60" cy="60" r="52" data-pct="90"/></svg>
-          <div class="ring-center"><span class="rn"><span class="cu" data-to="352">0</span>%</span></div>
+
+      <div class="tl-item" onclick="openModal('m-ucl')">
+        <div class="tl-card">
+          <div class="tl-card-header">
+            <div><span class="tl-badge" id="t2-badge">教育</span><div class="tl-period">09/2025 – 12/2026</div></div>
+            <div class="tl-logo-wrap"><img src="logo-ucl.png" class="tl-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="tl-logo-text" style="display:none">UCL</div></div>
+          </div>
+          <div class="tl-org" id="t2-org">UCL — 管理学院</div>
+          <div class="tl-role" id="t2-role">市场营销科学 硕士（MSc Marketing Science）</div>
+          <p class="tl-desc" id="t2-desc">核心课程：市场营销分析、数据分析编程、统计建模、数据管理、市场情报。</p>
+          <div class="tl-tags"><span class="tag">London, UK</span><span class="tag" id="t2-tag">数据驱动营销</span></div>
+          <div class="tl-hint" id="t2-hint">✦ 点击查看详情</div>
         </div>
-        <div class="imp-label" id="im2-l">Discord 社区从 0 搭建<br>用户增长</div>
+        <div class="tl-dot"></div><div class="tl-media" data-label="UCL SCHOOL OF MANAGEMENT"><img src="首页pic/ucl som.png" alt="UCL 管理学院"></div>
       </div>
-      <div class="imp-card s d3">
-        <div class="imp-seal">A</div>
-        <div class="imp-label" id="im3-l" style="text-align:center">网易互娱 · 综合传播评级<br><strong style="color:var(--ink)">最高 A 级</strong></div>
+
+      <div class="tl-item" onclick="openModal('m-netease1')">
+        <div class="tl-media" data-label="ONCE HUMAN / NETEASE GAMES"><img src="首页pic/once human kv.png" alt="网易互娱《七日世界》"></div><div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-card-header">
+            <div><span class="tl-badge" id="t1-badge">实习</span><div class="tl-period">03/2025 – 08/2025</div></div>
+            <div class="tl-logo-wrap"><img src="logo-netease.png" class="tl-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="tl-logo-text" style="display:none">NetEase</div></div>
+          </div>
+          <div class="tl-org" id="t1-org">网易互娱 · 杭州</div>
+          <div class="tl-role" id="t1-role">产品营销 — 海外公关传播实习生</div>
+          <p class="tl-desc" id="t1-desc">参与《七日世界》手游公测整合营销，带动社媒 IMP 100M+，转化欧美玩家 114.5K。年度 2.0 版本 PR 稿实现全球媒体曝光 627 条，阅读量达 1.4B，综合传播评级 A 级。</p>
+          <div class="tl-tags"><span class="tag">PR</span><span class="tag">KOL</span><span class="tag">IGN / PC Gamer</span><span class="tag" id="t1-tag1">整合营销</span></div>
+          <div class="tl-hint" id="t1-hint">✦ 点击查看详情</div>
+        </div>
       </div>
-      <div class="imp-card imp-mini d3">
-        <span class="imp-tag" id="im4-tag">Social IMP</span>
-        <div class="imp-n"><span class="cu" data-to="100">0</span><span class="imp-suf">M+</span></div>
-        <div class="imp-label" id="im4-l">移动公测社媒总曝光量</div>
+
+      <div class="tl-item" onclick="openModal('m-leihuo')">
+        <div class="tl-card">
+          <div class="tl-card-header">
+            <div><span class="tl-badge" id="t3-badge">实习</span><div class="tl-period">06/2024 – 09/2024</div></div>
+            <div class="tl-logo-wrap"><img src="logo-netease.png" class="tl-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="tl-logo-text" style="display:none">NetEase</div></div>
+          </div>
+          <div class="tl-org" id="t3-org">网易雷火 · 杭州</div>
+          <div class="tl-role" id="t3-role">海外游戏运营实习生</div>
+          <p class="tl-desc" id="t3-desc">参与《Geometry Tower》Google Play 营销策略，应用 STP/SWOT 模型，实现下载量增长 89.9%、收入增长 10.6%。从零搭建 Discord 社区，用户增长 352%。</p>
+          <div class="tl-tags"><span class="tag">Discord</span><span class="tag">Google Play</span><span class="tag">UGC / KOL</span><span class="tag">AIDA</span></div>
+          <div class="tl-hint" id="t3-hint">✦ 点击查看详情</div>
+        </div>
+        <div class="tl-dot"></div><div class="tl-media" data-label="NETEASE THUNDERFIRE / 2024"><img src="首页pic/netease thunder kv.png" alt="网易雷火海外游戏运营实习"></div>
       </div>
-      <div class="imp-card imp-mini d4">
-        <span class="imp-tag" id="im5-tag">Media</span>
-        <div class="imp-n"><span class="cu" data-to="627">0</span></div>
-        <div class="imp-label" id="im5-l">全球权威媒体刊例 · IGN/PC Gamer 等</div>
+
+      <div class="tl-item" onclick="openModal('m-guotai')">
+        <div class="tl-media" data-label="GUOTAI JUNAN SECURITIES"><img src="首页pic/guotaijunan kv.png" alt="国泰君安证券实习"></div><div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-card-header">
+            <div><span class="tl-badge" id="t4-badge">实习</span><div class="tl-period">05/2024 – 06/2024</div></div>
+            <div class="tl-logo-wrap"><img src="logo-guotai.png" class="tl-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="tl-logo-text" style="display:none">国泰君安</div></div>
+          </div>
+          <div class="tl-org" id="t4-org">国泰君安证券 · 杭州</div>
+          <div class="tl-role" id="t4-role">市场部实习生</div>
+          <p class="tl-desc" id="t4-desc">运用 Wind、Bloomberg 进行行业研究与 SWOT/PESTEL 分析，结合 KYC/CRM 对 100+ 客户进行画像，提升客户转化率 20%。</p>
+          <div class="tl-tags"><span class="tag">Bloomberg</span><span class="tag">CRM / KYC</span><span class="tag">SWOT/PESTEL</span></div>
+          <div class="tl-hint" id="t4-hint">✦ 点击查看详情</div>
+        </div>
       </div>
-    </div>
-    <div class="impact-logos">
-      <span class="impact-logos-label" id="im-logos-l">协作 · 媒体</span>
-      <span class="logo-chip">网易互娱</span>
-      <span class="logo-chip">网易雷火</span>
-      <span class="logo-chip">IGN</span>
-      <span class="logo-chip">PC Gamer</span>
-      <span class="logo-chip">GamesRadar+</span>
-      <span class="logo-chip">UCL</span>
-      <span class="logo-chip">CUHK</span>
+
+      <div class="tl-item" onclick="openModal('m-cuhk')">
+        <div class="tl-card">
+          <div class="tl-card-header">
+            <div><span class="tl-badge" id="t5-badge">教育</span><div class="tl-period">09/2023 – 05/2024</div></div>
+            <div class="tl-logo-wrap"><img src="logo-cuhk.png" class="tl-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="tl-logo-text" style="display:none">CUHK</div></div>
+          </div>
+          <div class="tl-org" id="t5-org">香港中文大学（CUHK）</div>
+          <div class="tl-role" id="t5-role">市场营销 · 交换项目（GPA 3.33/4）</div>
+          <p class="tl-desc" id="t5-desc">荣获 People's Choice Award（China Business）。完成盒马鲜生业务分析与战略规划项目，基于 40+ 位客户访谈提出区域仓库模式创新方案。</p>
+          <div class="tl-tags"><span class="tag">Hong Kong</span><span class="tag" id="t5-tag">整合营销策略</span><span class="tag">People's Choice Award</span></div>
+          <div class="tl-hint" id="t5-hint">✦ 点击查看详情</div>
+        </div>
+        <div class="tl-dot"></div><div class="tl-media" data-label="CUHK / EXCHANGE"><img src="首页pic/cuhk kv.png" alt="香港中文大学交换经历"></div>
+      </div>
+
+      <div class="tl-item" onclick="openModal('m-apu')">
+        <div class="tl-media" data-label="RITSUMEIKAN APU"><img src="首页pic/apu kv.png" alt="立命馆亚洲太平洋大学"></div><div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-card-header">
+            <div><span class="tl-badge" id="t6-badge">教育</span><div class="tl-period">10/2021 – 09/2025</div></div>
+            <div class="tl-logo-wrap"><img src="logo-apu.png" class="tl-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="tl-logo-text" style="display:none">APU</div></div>
+          </div>
+          <div class="tl-org" id="t6-org">立命馆亚洲太平洋大学（APU）</div>
+          <div class="tl-role" id="t6-role">市场营销 · 学士（GPA 3.85/4，全系前 3%）</div>
+          <p class="tl-desc" id="t6-desc">荣誉毕业，获 30% 学费减免奖学金。Beta Gamma Sigma 国际荣誉商学会成员。</p>
+          <div class="tl-tags"><span class="tag">Japan</span><span class="tag">Beta Gamma Sigma</span><span class="tag" id="t6-tag">荣誉毕业</span></div>
+          <div class="tl-hint" id="t6-hint">✦ 点击查看详情</div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -731,125 +993,7 @@ body.cursor-view #cursor-ring{width:50px;height:50px;border-color:var(--accent);
       </div>
     </div>
   </section>
-
-  <!-- TIMELINE -->
-  <section class="section" style="background:rgba(255,253,248,.65);position:relative;overflow:hidden">
-    <img src="illus4.jpg" class="illus-tl" alt="" onerror="this.style.display='none'"/>
-    <div class="sec-header fi">
-      <span class="sec-label" id="tl-label">经历</span>
-      <h2 class="sec-title" id="tl-title">教育 &amp; 实习</h2>
-    </div>
-    <div class="tl-wrap">
-
-      <div class="tl-item" onclick="openModal('m-leihuo2')">
-        <div class="tl-spacer"></div><div class="tl-dot"></div>
-        <div class="tl-card">
-          <div class="tl-card-header">
-            <div><span class="tl-badge" id="t0-badge">实习</span><div class="tl-period" id="t0-period">2026 – 至今</div></div>
-            <div class="tl-logo-wrap"><img src="logo-netease.png" class="tl-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="tl-logo-text" style="display:none">NetEase</div></div>
-          </div>
-          <div class="tl-org" id="t0-org">网易雷火 · 杭州</div>
-          <div class="tl-role" id="t0-role">《逆水寒》海外发行组</div>
-          <p class="tl-desc" id="t0-desc">面向海外市场，尤其港澳台相关区域，参与版本内容、宣发节奏、KOL 沟通与本地化传播相关工作。</p>
-          <div class="tl-tags"><span class="tag" id="t0-tag1">港澳台</span><span class="tag">KOL</span><span class="tag" id="t0-tag2">本地化</span><span class="tag" id="t0-tag3">宣发节奏</span></div>
-          <div class="tl-hint" id="t0-hint">✦ 点击查看详情</div>
-        </div>
-      </div>
-
-      <div class="tl-item" onclick="openModal('m-ucl')">
-        <div class="tl-card">
-          <div class="tl-card-header">
-            <div><span class="tl-badge" id="t2-badge">教育</span><div class="tl-period">09/2025 – 12/2026</div></div>
-            <div class="tl-logo-wrap"><img src="logo-ucl.png" class="tl-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="tl-logo-text" style="display:none">UCL</div></div>
-          </div>
-          <div class="tl-org" id="t2-org">UCL — 管理学院</div>
-          <div class="tl-role" id="t2-role">市场营销科学 硕士（MSc Marketing Science）</div>
-          <p class="tl-desc" id="t2-desc">核心课程：市场营销分析、数据分析编程、统计建模、数据管理、市场情报。</p>
-          <div class="tl-tags"><span class="tag">London, UK</span><span class="tag" id="t2-tag">数据驱动营销</span></div>
-          <div class="tl-hint" id="t2-hint">✦ 点击查看详情</div>
-        </div>
-        <div class="tl-dot"></div><div class="tl-spacer"></div>
-      </div>
-
-      <div class="tl-item" onclick="openModal('m-netease1')">
-        <div class="tl-spacer"></div><div class="tl-dot"></div>
-        <div class="tl-card">
-          <div class="tl-card-header">
-            <div><span class="tl-badge" id="t1-badge">实习</span><div class="tl-period">03/2025 – 08/2025</div></div>
-            <div class="tl-logo-wrap"><img src="logo-netease.png" class="tl-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="tl-logo-text" style="display:none">NetEase</div></div>
-          </div>
-          <div class="tl-org" id="t1-org">网易互娱 · 杭州</div>
-          <div class="tl-role" id="t1-role">产品营销 — 海外公关传播实习生</div>
-          <p class="tl-desc" id="t1-desc">参与《七日世界》手游公测整合营销，带动社媒 IMP 100M+，转化欧美玩家 114.5K。年度 2.0 版本 PR 稿实现全球媒体曝光 627 条，阅读量达 1.4B，综合传播评级 A 级。</p>
-          <div class="tl-tags"><span class="tag">PR</span><span class="tag">KOL</span><span class="tag">IGN / PC Gamer</span><span class="tag" id="t1-tag1">整合营销</span></div>
-          <div class="tl-hint" id="t1-hint">✦ 点击查看详情</div>
-        </div>
-      </div>
-
-      <div class="tl-item" onclick="openModal('m-leihuo')">
-        <div class="tl-card">
-          <div class="tl-card-header">
-            <div><span class="tl-badge" id="t3-badge">实习</span><div class="tl-period">06/2024 – 09/2024</div></div>
-            <div class="tl-logo-wrap"><img src="logo-netease.png" class="tl-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="tl-logo-text" style="display:none">NetEase</div></div>
-          </div>
-          <div class="tl-org" id="t3-org">网易雷火 · 杭州</div>
-          <div class="tl-role" id="t3-role">海外游戏运营实习生</div>
-          <p class="tl-desc" id="t3-desc">参与《Geometry Tower》Google Play 营销策略，应用 STP/SWOT 模型，实现下载量增长 89.9%、收入增长 10.6%。从零搭建 Discord 社区，用户增长 352%。</p>
-          <div class="tl-tags"><span class="tag">Discord</span><span class="tag">Google Play</span><span class="tag">UGC / KOL</span><span class="tag">AIDA</span></div>
-          <div class="tl-hint" id="t3-hint">✦ 点击查看详情</div>
-        </div>
-        <div class="tl-dot"></div><div class="tl-spacer"></div>
-      </div>
-
-      <div class="tl-item" onclick="openModal('m-guotai')">
-        <div class="tl-spacer"></div><div class="tl-dot"></div>
-        <div class="tl-card">
-          <div class="tl-card-header">
-            <div><span class="tl-badge" id="t4-badge">实习</span><div class="tl-period">05/2024 – 06/2024</div></div>
-            <div class="tl-logo-wrap"><img src="logo-guotai.png" class="tl-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="tl-logo-text" style="display:none">国泰君安</div></div>
-          </div>
-          <div class="tl-org" id="t4-org">国泰君安证券 · 杭州</div>
-          <div class="tl-role" id="t4-role">市场部实习生</div>
-          <p class="tl-desc" id="t4-desc">运用 Wind、Bloomberg 进行行业研究与 SWOT/PESTEL 分析，结合 KYC/CRM 对 100+ 客户进行画像，提升客户转化率 20%。</p>
-          <div class="tl-tags"><span class="tag">Bloomberg</span><span class="tag">CRM / KYC</span><span class="tag">SWOT/PESTEL</span></div>
-          <div class="tl-hint" id="t4-hint">✦ 点击查看详情</div>
-        </div>
-      </div>
-
-      <div class="tl-item" onclick="openModal('m-cuhk')">
-        <div class="tl-card">
-          <div class="tl-card-header">
-            <div><span class="tl-badge" id="t5-badge">教育</span><div class="tl-period">09/2023 – 05/2024</div></div>
-            <div class="tl-logo-wrap"><img src="logo-cuhk.png" class="tl-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="tl-logo-text" style="display:none">CUHK</div></div>
-          </div>
-          <div class="tl-org" id="t5-org">香港中文大学（CUHK）</div>
-          <div class="tl-role" id="t5-role">市场营销 · 交换项目（GPA 3.33/4）</div>
-          <p class="tl-desc" id="t5-desc">荣获 People's Choice Award（China Business）。完成盒马鲜生业务分析与战略规划项目，基于 40+ 位客户访谈提出区域仓库模式创新方案。</p>
-          <div class="tl-tags"><span class="tag">Hong Kong</span><span class="tag" id="t5-tag">整合营销策略</span><span class="tag">People's Choice Award</span></div>
-          <div class="tl-hint" id="t5-hint">✦ 点击查看详情</div>
-        </div>
-        <div class="tl-dot"></div><div class="tl-spacer"></div>
-      </div>
-
-      <div class="tl-item" onclick="openModal('m-apu')">
-        <div class="tl-spacer"></div><div class="tl-dot"></div>
-        <div class="tl-card">
-          <div class="tl-card-header">
-            <div><span class="tl-badge" id="t6-badge">教育</span><div class="tl-period">10/2021 – 09/2025</div></div>
-            <div class="tl-logo-wrap"><img src="logo-apu.png" class="tl-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="tl-logo-text" style="display:none">APU</div></div>
-          </div>
-          <div class="tl-org" id="t6-org">立命馆亚洲太平洋大学（APU）</div>
-          <div class="tl-role" id="t6-role">市场营销 · 学士（GPA 3.85/4，全系前 3%）</div>
-          <p class="tl-desc" id="t6-desc">荣誉毕业，获 30% 学费减免奖学金。Beta Gamma Sigma 国际荣誉商学会成员。</p>
-          <div class="tl-tags"><span class="tag">Japan</span><span class="tag">Beta Gamma Sigma</span><span class="tag" id="t6-tag">荣誉毕业</span></div>
-          <div class="tl-hint" id="t6-hint">✦ 点击查看详情</div>
-        </div>
-      </div>
-
-    </div>
-  </section>
 </div>
-
 <!-- ══ ABOUT ══ -->
 <div class="page" id="page-about">
   <section class="section" style="position:relative;overflow:hidden">
@@ -860,12 +1004,12 @@ body.cursor-view #cursor-ring{width:50px;height:50px;border-color:var(--accent);
     </div>
     <div class="about-grid">
       <div>
-        <p class="about-bio fi" id="ab-bio">我是一名<strong>游戏营销人</strong>，UCL 市场营销科学硕士在读，专注于<strong>海外游戏营销与发行</strong>。我相信好的营销不只是曝光，而是真正理解用户并用创意打动他们。<br><br>曾参与网易互娱《七日世界》全球传播，积累了从 PR 策略、媒体合作到用户洞察的完整经验链路；同时具备 Python、R、SQL 等数据分析能力，擅长将数据洞察转化为可落地的营销决策。</p>
+        <p class="about-bio fi" id="ab-bio">我是一名<strong>游戏营销人</strong>，UCL 市场营销科学硕士在读，目前在网易雷火参与《逆水寒》海外市场营销。我的工作横跨<strong>玩家洞察、整合传播、KOL、PR、H5 增长与社区运营</strong>。<br><br>我也会把重复、耗时的调研流程产品化：用 AI 工具处理视频、评论与媒体资讯，让洞察更快进入策略和创意，而不是停在报告里。</p>
         <div class="strength-grid">
-          <div class="s-card fi d1"><div class="s-icon">📣</div><div class="s-title" id="s1-t">整合营销传播</div><p class="s-desc" id="s1-d">策略制定到落地执行，覆盖多平台全链路传播矩阵</p></div>
-          <div class="s-card fi d2"><div class="s-icon">🎮</div><div class="s-title" id="s2-t">游戏行业洞察</div><p class="s-desc" id="s2-d">深度理解欧美游戏市场、玩家社区与竞品生态</p></div>
-          <div class="s-card fi d3"><div class="s-icon">📊</div><div class="s-title" id="s3-t">数据驱动决策</div><p class="s-desc" id="s3-d">运用 Python、R、SQL 进行市场分析与用户洞察</p></div>
-          <div class="s-card fi d4"><div class="s-icon">✍️</div><div class="s-title" id="s4-t">跨文化内容创作</div><p class="s-desc" id="s4-d">中英双语 PR 稿件与创意文案，兼顾本地化与全球视野</p></div>
+          <div class="s-card fi d1"><div class="s-icon">01</div><div class="s-title" id="s1-t">整合营销传播</div><p class="s-desc" id="s1-d">策略制定到落地执行，覆盖多平台全链路传播矩阵</p></div>
+          <div class="s-card fi d2"><div class="s-icon">02</div><div class="s-title" id="s2-t">游戏行业洞察</div><p class="s-desc" id="s2-d">深度理解欧美游戏市场、玩家社区与竞品生态</p></div>
+          <div class="s-card fi d3"><div class="s-icon">03</div><div class="s-title" id="s3-t">数据驱动决策</div><p class="s-desc" id="s3-d">运用 Python、R、SQL 进行市场分析与用户洞察</p></div>
+          <div class="s-card fi d4"><div class="s-icon">04</div><div class="s-title" id="s4-t">跨文化内容创作</div><p class="s-desc" id="s4-d">中英双语 PR 稿件与创意文案，兼顾本地化与全球视野</p></div>
         </div>
       </div>
       <div class="fi d1">
@@ -886,6 +1030,74 @@ body.cursor-view #cursor-ring{width:50px;height:50px;border-color:var(--accent);
         </div>
       </div>
     </div>
+
+    <div class="game-lab fi">
+      <span class="sec-label">PLAYER PROFILE · 游戏经历</span>
+      <h2 class="sec-title">不只是玩过，也持续观察玩家为什么留下</h2>
+      <div class="game-feature">
+        <div class="game-feature-copy">
+          <div class="game-eyebrow">MOST PLAYED / LONG-TERM PLAYER</div>
+          <h3>第五人格</h3>
+          <p>长期沉浸在非对称竞技、角色养成与社区内容生态中。对版本迭代、玩家分层、IP 联动及长线付费动力有持续的第一手感受。</p>
+        </div>
+        <div class="game-feature-meta">
+          <div><strong>2100h+</strong>累计游玩</div>
+          <div><strong>深度付费玩家</strong>消费画像</div>
+          <div><strong>长线社区</strong>内容与讨论观察</div>
+          <div><strong>非对称竞技</strong>核心品类</div>
+        </div>
+      </div>
+      <div class="game-tabs" role="tablist">
+        <button class="game-tab active" onclick="showGames('live',this)">长线运营与竞技</button>
+        <button class="game-tab" onclick="showGames('female',this)">女性向与内容消费</button>
+        <button class="game-tab" onclick="showGames('survival',this)">射击 / 生存 / MMO</button>
+        <button class="game-tab" onclick="showGames('console',this)">主机叙事与动作</button>
+        <button class="game-tab" onclick="showGames('indie',this)">合作 / 独立 / 休闲</button>
+      </div>
+      <div class="game-panel active" data-games="live">
+        <div class="game-item"><strong>《崩坏3》</strong><span>动作角色扮演 · 长线内容</span><em>400h+</em></div>
+        <div class="game-item"><strong>Splatoon 3</strong><span>团队射击 · 竞技社区</span><em>100h+</em></div>
+      </div>
+      <div class="game-panel" data-games="female">
+        <div class="game-item"><strong>《恋与深空》</strong><span>女性向 · 角色内容与情感消费</span><em>200h+</em></div>
+      </div>
+      <div class="game-panel" data-games="survival">
+        <div class="game-item"><strong>《七日世界》</strong><span>开放世界生存 · 全球发行</span><em>200h+</em></div>
+        <div class="game-item"><strong>《燕云十六声》</strong><span>开放世界武侠</span><em>150h+</em></div>
+        <div class="game-item"><strong>《逆水寒》手游</strong><span>MMO · 社交与长线运营</span><em>4个月</em></div>
+        <div class="game-item"><strong>《遗忘之海》</strong><span>海洋冒险 · 测试体验</span><em>1个月</em></div>
+        <div class="game-item"><strong>《洛克王国：世界》</strong><span>开放世界 · IP 用户体验</span><em>3个月</em></div>
+      </div>
+      <div class="game-panel" data-games="console">
+        <div class="game-item"><strong>Mario 系列</strong><span>平台动作 · 10+ 部作品</span><em>200h+</em></div>
+        <div class="game-item"><strong>《霍格沃茨之遗》</strong><span>IP 开放世界 · 叙事探索</span><em>70h+</em></div>
+        <div class="game-item"><strong>《最终幻想 VII》</strong><span>JRPG · 角色叙事</span><em>50h+</em></div>
+        <div class="game-item"><strong>《死亡搁浅》</strong><span>动作冒险 · 独特社交机制</span><em>50h+</em></div>
+      </div>
+      <div class="game-panel" data-games="indie">
+        <div class="game-item"><strong>《双人成行》</strong><span>合作玩法 · 3 次通关</span><em>70h+</em></div>
+        <div class="game-item"><strong>《潜水员戴夫》</strong><span>独立经营冒险</span><em>50h+</em></div>
+        <div class="game-item"><strong>Gorogoa</strong><span>视觉解谜 · 2 次通关</span><em>10h</em></div>
+        <div class="game-item"><strong>《开心消消乐》</strong><span>休闲关卡 · 长线留存</span><em>1000+关</em></div>
+        <div class="game-item"><strong>《元气骑士》</strong><span>Roguelike · 移动端</span><em>2年</em></div>
+      </div>
+    </div>
+
+    <div class="contact-in-about fi" id="about-contact">
+      <img src="illus5.jpg" class="illus-contact" alt="" onerror="this.style.display='none'"/>
+      <div class="contact-wrap">
+        <span class="sec-label" id="ct-label">保持联系</span>
+        <h2 class="sec-title" id="ct-title">一起聊聊游戏、创意与增长</h2>
+        <p class="contact-tagline" id="ct-sub">如果你对我的经历、项目或实战作品感兴趣，欢迎通过以下方式联系我。</p>
+        <div class="contact-grid fi d1">
+          <a class="c-card" href="/cdn-cgi/l/email-protection#3c465449485f0e0c080a0a05040e0f097c0d0a0f125f5351"><span class="c-icon"><img src="logo-contact.png" style="width:36px;height:36px;object-fit:contain" alt="Email"/></span><div class="c-label" id="ct1-l">电子邮件</div><div class="c-val"><span class="__cf_email__" data-cfemail="4a30223f3e29787a7e7c7c737278797f0a7b7c7964292527">[email&#160;protected]</span></div></a>
+          <div class="c-card" onclick="copyWechat()"><span class="c-icon"><img src="logo-wechat.png" style="width:36px;height:36px;object-fit:contain" alt="WeChat"/></span><div class="c-label">WeChat</div><div class="c-val" id="wc-val">18058164493</div></div>
+          <a class="c-card" href="https://www.linkedin.com/in/tianchun-zhu-7987423a1/" target="_blank"><span class="c-icon"><img src="logo-linkedin.png" style="width:36px;height:36px;object-fit:contain" alt="LinkedIn"/></span><div class="c-label">LinkedIn</div><div class="c-val" id="ct3-v">查看主页</div></a>
+          <a class="c-card" href="https://xhslink.com/m/A2JiiPZd2Ay" target="_blank"><span class="c-icon"><img src="logo-xiaohongshu.png" style="width:36px;height:36px;object-fit:contain" alt="小红书"/></span><div class="c-label" id="ct4-l">小红书</div><div class="c-val" id="ct4-v">查看主页</div></a>
+        </div>
+      </div>
+      <footer id="footer-text">© 2026 朱天纯 · Tianchun Zhu</footer>
+    </div>
   </section>
 </div>
 
@@ -893,131 +1105,123 @@ body.cursor-view #cursor-ring{width:50px;height:50px;border-color:var(--accent);
 <div class="page" id="page-portfolio">
   <div class="port-layout">
     <aside class="port-sidebar">
-      <img src="illus1.jpg" class="illus-port" alt="" onerror="this.style.display='none'"/>
-      <div class="port-sidebar-label" id="po-label">Categories</div>
+      <div class="port-sidebar-label">CAPABILITY INDEX</div>
       <ul class="port-cat-list">
-        <li class="port-cat active" onclick="filterPort('all',this)"><span class="cat-dot"></span><span class="cat-name" id="cat-all">全部</span><span class="cat-count">8</span></li>
-        <li class="port-cat" onclick="filterPort('school',this)"><span class="cat-dot"></span><span class="cat-name" id="cat-school">学校项目 &amp; 作业</span><span class="cat-count">4</span></li>
-        <li class="port-cat" onclick="filterPort('internship',this)"><span class="cat-dot"></span><span class="cat-name" id="cat-intern">实习内容</span><span class="cat-count">2</span></li>
-        <li class="port-cat" onclick="filterPort('analysis',this)"><span class="cat-dot"></span><span class="cat-name" id="cat-analysis">营销拆解</span><span class="cat-count">2</span></li>
-        <li class="port-cat" onclick="filterPort('webapp',this)"><span class="cat-dot"></span><span class="cat-name" id="cat-webapp">Web App</span><span class="cat-count">1</span></li>
-        <li class="port-cat" onclick="filterPort('minicase',this)"><span class="cat-dot" style="background:var(--accent)"></span><span class="cat-name" id="cat-minicase">Mini Case</span><span class="cat-count">1</span></li>
+        <li class="port-cat active" onclick="filterPort('all',this)"><span class="cat-dot"></span><span class="cat-name">全部作品</span><span class="cat-count">12</span></li>
+        <li class="port-cat" onclick="filterPort('campaign',this)"><span class="cat-dot"></span><span class="cat-name">营销策划</span><span class="cat-count">3</span></li>
+        <li class="port-cat" onclick="filterPort('research',this)"><span class="cat-dot"></span><span class="cat-name">市场研究与洞察</span><span class="cat-count">3</span></li>
+        <li class="port-cat" onclick="filterPort('ai',this)"><span class="cat-dot"></span><span class="cat-name">AI 产品与互动工具</span><span class="cat-count">4</span></li>
+        <li class="port-cat" onclick="filterPort('data',this)"><span class="cat-dot"></span><span class="cat-name">数据与商业分析</span><span class="cat-count">2</span></li>
       </ul>
     </aside>
-    <div class="port-main">
+    <main class="port-main">
+      <div class="portfolio-intro">
+        <div><span class="sec-label">SELECTED WORK / 2024—2026</span><p>从玩家问题出发，把研究、策略、内容与产品串成可执行的营销系统。分类按核心能力组织，项目来源与状态放进标签，不再把“课程 / 实习 / 工具”混在同一层级。</p></div>
+        <div class="portfolio-index">INSIGHT → IDEA → ACTION</div>
+      </div>
       <div class="port-main-header">
-        <span class="port-main-title" id="po-title">作品集</span>
-        <span class="port-main-count" id="port-showing">(4)</span>
+        <span class="port-main-title" id="po-title">全部作品</span>
+        <span class="port-main-count" id="port-showing">(12)</span>
       </div>
       <div class="port-grid" id="port-grid">
-<div class="port-card" data-cat="school" onclick="openModal('m-hema')" style="cursor:pointer">
-          <div class="card-img" style="background:#c8102e;padding:0;overflow:hidden"><span class="card-num">01</span><img src="hema.png" style="width:100%;height:100%;object-fit:cover;object-position:center center;display:block"/></div>
-          <div class="card-body"><div class="card-cat" id="c3-cat">商业分析 · CUHK 项目</div><div class="card-name" id="c3-name">盒马鲜生业务分析与战略规划</div><p class="card-desc" id="c3-desc">基于 40+ 位客户访谈，运用三重底线理论与 Stata/R，提出区域仓库模式创新方案，荣获 People's Choice Award。</p><div class="card-btns"><button class="btn-sm btn-sm-dark" onclick="openModal('m-hema')" id="c3-view">查看报告</button><span class="card-arrow">→</span></div></div>
-        </div>
-<div class="port-card" data-cat="internship analysis" onclick="openModal('m-hd2')" style="cursor:pointer">
-          <div class="card-img" style="background:#1a0a0a;padding:0;overflow:hidden"><span class="card-num">02</span><img src="helldivers2.png" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block"/></div>
-          <div class="card-body"><div class="card-cat" id="c8-cat">营销调研 · 网易互娱</div><div class="card-name" id="c8-name">《地狱潜兵2·民主之心》版本营销调研</div><p class="card-desc" id="c8-desc">针对 Arrowhead《地狱潜兵2》"民主之心"版本的全链路营销拆解：悬念分层预热、KOL 七种内容打法、社区 UGC 裂变与官方叙事运营，版本上线 30 天内在线玩家增长 233.7%。</p><div class="card-btns"><button class="btn-sm btn-sm-dark" onclick="openModal('m-hd2')" id="c8-view">查看报告</button><span class="card-arrow">→</span></div></div>
-        </div>
-        <div class="port-card" data-cat="school" onclick="openModal('m-promosci')" style="cursor:pointer">
-          <div class="card-img" style="background:#2e1a47;padding:0;overflow:hidden"><span class="card-num">03</span><img src="promosci.png" style="width:100%;height:100%;object-fit:cover;object-position:center center;display:block"/></div>
-          <div class="card-body"><div class="card-cat" id="c7-cat">经济学建模 · UCL MSIN0306</div><div class="card-name" id="c7-name">PromoSci：经济学驱动的优惠券优化引擎</div><p class="card-desc" id="c7-desc">构建两级嵌套 Logit 需求模型，对比四种促销策略，将优化目标从兑换率重定义为增量利润，实现优惠券效率 1.55 增量单位/£，周利润较无差别折扣提升 +£220。</p><div class="card-btns"><button class="btn-sm btn-sm-dark" onclick="openModal('m-promosci')" id="c7-view">查看项目</button><span class="card-arrow">→</span></div></div>
-        </div>
-        <div class="port-card" data-cat="school" onclick="openModal('m-mlgroup')" style="cursor:pointer">
-          <div class="card-img" style="background:#1a1a2e;padding:0;overflow:hidden"><span class="card-num">04</span><img src="ML.png" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block"/></div>
-          <div class="card-body"><div class="card-cat" id="c6-cat">机器学习 · UCL MSIN0307</div><div class="card-name" id="c6-name">商业软件销售机会预测与客户分群</div><p class="card-desc" id="c6-desc">基于 9,743 条 CRM 记录，运用随机森林、梯度提升等 5 种监督学习模型及 K-Means 聚类，预测销售成交率并识别 4 类客户群体，AUC 最高达 0.6782。</p><div class="card-btns"><button class="btn-sm btn-sm-dark" onclick="openModal('m-mlgroup')" id="c6-view">查看报告</button><a class="btn-sm btn-sm-ghost" href="https://1drv.ms/f/c/bad556a6b4985de8/IgBMMq0TG5hHQoJTZniIHMnJAZfizP83sf4NT6JqcoKCEmg?e=941V16" target="_blank">下载</a><span class="card-arrow">→</span></div></div>
-        </div>
-        <div class="port-card" data-cat="school" onclick="openModal('m-shakeshare')" style="cursor:pointer">
-          <div class="card-img" style="background:#f5c842;padding:0;overflow:hidden"><span class="card-num">06</span><img src="shake-share.png" style="width:100%;height:100%;object-fit:cover;object-position:center center;display:block"/></div>
-          <div class="card-body"><div class="card-cat" id="css-cat">数字营销 · CUHK MKTG3640</div><div class="card-name" id="css-name">Shake &amp; Share：DIY 鸡尾酒电商虚拟创业项目</div><p class="card-desc" id="css-desc">基于商业模式画布（BMC）框架，构建面向香港都市白领的 DIY 鸡尾酒套装电商平台，完成全套商业计划并搭建 Wix 品牌官网。</p><div class="card-btns"><button class="btn-sm btn-sm-dark" onclick="openModal('m-shakeshare')" id="css-view">查看项目</button><span class="card-arrow">→</span></div></div>
-        </div>
-
-        <div class="port-card" data-cat="internship analysis" onclick="openModal('m-oncehuman')" style="cursor:pointer">
-          <div class="card-img" style="background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);padding:0;overflow:hidden"><span class="card-num">05</span><img src="oncehuman.png" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block"/></div>
-          <div class="card-body"><div class="card-cat" id="c5-cat">营销案例拆解 · 网易互娱</div><div class="card-name" id="c5-name">《七日世界》手游版本上线营销拆解</div><p class="card-desc" id="c5-desc">从用户迁移战略、分层传播链路到 KOL 结构设计，深度复盘北美/欧美移动公测的完整营销方案：赢在用户洞察精准，卡在漏斗后段承接。</p><div class="card-btns"><button class="btn-sm btn-sm-dark" onclick="openModal('m-oncehuman')" id="c5-view">查看拆解</button><a class="btn-sm btn-sm-ghost" href="https://1drv.ms/w/c/bad556a6b4985de8/IQD0zk8eJLZbTIQq4LRD9UIjAaJZ4ONmjFtz6XJNJvcR5Go?e=Ak2ARS" target="_blank" id="c5-dl">下载</a><span class="card-arrow">→</span></div></div>
-        </div>
-        <div class="port-card" data-cat="minicase" onclick="openModal('m-deltaforce')" style="cursor:pointer;border:2px solid var(--border)">
-          <div class="card-img" style="background:#050707;padding:0;overflow:hidden;position:relative">
-            <span class="card-num">08</span>
-            <img src="delta force.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;opacity:.85"/>
-            <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(5,7,7,.55) 0%,transparent 60%);pointer-events:none"></div>
-            <div style="position:absolute;bottom:10px;left:11px;display:flex;gap:5px;z-index:2">
-              <span style="background:rgba(63,214,106,.18);border:1px solid rgba(63,214,106,.5);color:#3fd66a;font-size:9px;font-weight:700;padding:2px 7px;border-radius:3px;letter-spacing:.5px">CAMPAIGN</span>
-              <span style="background:rgba(224,24,26,.15);border:1px solid rgba(224,24,26,.45);color:#e0181a;font-size:9px;font-weight:700;padding:2px 7px;border-radius:3px;letter-spacing:.5px">6 WKS</span>
-              <span style="background:rgba(90,246,198,.12);border:1px solid rgba(90,246,198,.35);color:#5af6c6;font-size:9px;font-weight:700;padding:2px 7px;border-radius:3px;letter-spacing:.5px">M:I COLLAB</span>
-            </div>
-          </div>
-          <div class="card-body">
-            <div class="card-cat">营销策划 · Mini Case · 腾讯</div>
-            <div class="card-name">三角洲行动 × 碟中谍：Operation Rogue Signal Campaign Plan</div>
-            <p class="card-desc">完整 Campaign 策略文件：市场定位、IP 筛选逻辑、创意平台（ONE SQUAD. ONE MISSION. NO BACKUP.）、PLAY / CONNECT / AMPLIFY 三条策略线、游戏内×游戏外闭环架构、6周传播节奏地图。</p>
-            <div class="card-btns">
-              <button class="btn-sm btn-sm-dark" onclick="openModal('m-deltaforce');event.stopPropagation()">查看企划</button>
-              <a class="btn-sm btn-sm-ghost" href="https://tianchunzhu.github.io/Delta-Force-Mission-Impossible/" target="_blank" onclick="event.stopPropagation()">访问网站</a>
-              <span class="card-arrow">→</span>
-            </div>
-          </div>
-        </div>
-        <div class="port-card" data-cat="webapp" onclick="openModal('m-ytinsights')" style="cursor:pointer">
-          <div class="card-img" style="background:#0d1117;padding:0;overflow:hidden;position:relative">
-            <span class="card-num">07</span>
-            <img src="youtube.png" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block"/>
-            <div style="position:absolute;bottom:10px;left:11px;display:flex;gap:5px;z-index:2">
-              <span style="background:rgba(255,78,69,.2);border:1px solid rgba(255,78,69,.5);color:#ff6b63;font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px">AI</span>
-              <span style="background:rgba(100,181,246,.15);border:1px solid rgba(100,181,246,.4);color:#64b5f6;font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px">FastAPI</span>
-              <span style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.65);font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px">Claude</span>
-            </div>
-          </div>
-          <div class="card-body"><div class="card-cat" id="cyt-cat">Web App · 独立项目</div><div class="card-name" id="cyt-name">YouTube Insights</div><p class="card-desc" id="cyt-desc">AI 驱动的竞品视频分析工具，自然语言输入，5 分钟生成结构化竞品分析报告，替代 3–5 小时人工流程。</p><div class="card-btns"><button class="btn-sm btn-sm-dark" onclick="openModal('m-ytinsights');event.stopPropagation()" id="cyt-view">查看详情</button><a class="btn-sm btn-sm-ghost" href="https://web-production-2cc29.up.railway.app/" target="_blank" id="cyt-link" onclick="event.stopPropagation()">访问应用</a><span class="card-arrow">→</span></div></div>
-        </div>
-      </div>
-      <div class="sites-sec">
-        <div class="sites-head" id="ws-title">我搭建的网站</div>
-        <p class="sites-sub" id="ws-sub">个人站 + 在研 AI 游戏竞品分析工具</p>
-        <div class="sites-list">
-          <div class="site-row">
-            <div class="site-left">
-              <div class="site-ico live">🌐</div>
-              <div>
-                <div class="site-name"><span id="s0-name">个人站</span><span class="site-badge up" id="s0-badge">持续更新中</span></div>
-                <p class="site-desc" id="s0-desc">个人作品集主站，AI 游戏竞品分析助手等在研项目都已放上去，持续更新中。</p>
-                <div class="site-tags"><span class="tag">Portfolio</span><span class="tag">GitHub Pages</span></div>
-              </div>
-            </div>
-            <a class="btn-sm btn-sm-dark site-go" href="https://tianchunzhu.github.io/Profolio/" target="_blank" id="s0-btn">访问</a>
-          </div>
-          <div class="site-row">
-            <div class="site-left">
-              <div class="site-ico">🎬</div>
-              <div>
-                <div class="site-name"><span id="s1-name">YouTube Insight</span><span class="site-badge wip" id="s1-badge">在研</span></div>
-                <p class="site-desc" id="s1-desc">把「搜视频、看回放、翻评论、写总结」的半天工作压缩成 3 分钟自动化流程——提一个问题即生成深度竞品分析报告。底层用到自然语言理解、长文本总结、情感分析（embedding / tf-idf）与 AI 智能调度。</p>
-                <div class="site-tags"><span class="tag">Machine Learning</span><span class="tag">NLP</span><span class="tag" id="s1-tag3">情感分析</span><span class="tag" id="s1-tag4">AI 调度</span></div>
-              </div>
-            </div>
-            <a class="btn-sm btn-sm-dark site-go" href="https://web-production-2cc29.up.railway.app/" target="_blank" id="s1-btn">访问应用</a>
-          </div>
-          <div class="site-row">
-            <div class="site-left">
-              <div class="site-ico">🎮</div>
-              <div>
-                <div class="site-name"><span id="s2-name">GameVid Insight</span><span class="site-badge wip" id="s2-badge">在研</span></div>
-                <p class="site-desc" id="s2-desc">在 YouTube Insight 基础上加入视频画面分析：用 Claude API 解析 YouTube / TikTok 长短视频的画面内容、关键信息与传播亮点，并聚合全球游戏媒体资讯生成每日行业日报。</p>
-                <div class="site-tags"><span class="tag">Claude API</span><span class="tag" id="s2-tag2">视频画面分析</span><span class="tag" id="s2-tag3">行业日报</span></div>
-              </div>
-            </div>
-            <a class="btn-sm btn-sm-dark site-go" href="https://gamevid-insight-production.up.railway.app/" target="_blank" id="s2-btn">访问应用</a>
-          </div>
-        </div>
+        <article class="port-card" data-cat="ai" onclick="openModal('m-ytinsights')">
+          <div class="card-img"><span class="card-num">01</span><span class="project-code">SHIPPED / AI</span><img src="作品集pic/tool.png" alt="AI 游戏竞品分析助手" style="width:100%;height:100%;object-fit:cover;object-position:center"></div>
+          <div class="card-body"><div class="card-cat">AI 产品 · 独立开发</div><div class="card-name">AI 游戏竞品分析助手</div><p class="card-desc">整合视频、字幕、评论与游戏媒体资讯，通过 NLP、情感分析与多模态理解，把数小时竞品研究压缩到分钟级。</p><div class="card-capabilities"><span>PLAYER INSIGHT</span><span>MULTIMODAL AI</span><span>RESEARCH OPS</span></div><div class="card-btns"><button class="btn-sm btn-sm-dark" onclick="openModal('m-ytinsights');event.stopPropagation()">查看产品</button><a class="btn-sm btn-sm-ghost" href="https://web-production-2cc29.up.railway.app/" target="_blank" onclick="event.stopPropagation()">YouTube</a><a class="btn-sm btn-sm-ghost" href="https://gamevid-insight-production.up.railway.app/" target="_blank" onclick="event.stopPropagation()">GameVid</a></div></div>
+        </article>
+        <article class="port-card" data-cat="campaign" onclick="openModal('m-arkjojo')">
+          <div class="card-img"><span class="card-num">02</span><span class="project-code">COURSE / CONCEPT</span><img src="作品集pic/jojo crossover.png" alt="明日方舟与 JOJO 联动营销方案" style="width:100%;height:100%;object-fit:cover;object-position:center"></div>
+          <div class="card-body"><div class="card-cat">营销策划 · 非官方课程方案</div><div class="card-name">《明日方舟》× JOJO 联动整合营销方案</div><p class="card-desc">围绕“黄金意志，抵达泰拉”完成 IP 契合、联动内容、角色机制、预热 PV、KOL / KOC、线下挑战与上线后运营的完整策划。</p><div class="card-capabilities"><span>IP COLLAB</span><span>CAMPAIGN</span><span>LAUNCH PLAN</span></div><div class="card-btns"><button class="btn-sm btn-sm-dark" onclick="openModal('m-arkjojo');event.stopPropagation()">查看完整方案</button></div></div>
+        </article>
+        <article class="port-card" data-cat="ai" onclick="openModal('m-jojo-h5')">
+          <div class="card-img"><span class="card-num">03</span><span class="project-code">LIVE H5 / AI</span><img src="作品集pic/jojo h5.png" alt="JOJO 动作识别互动 H5" style="width:100%;height:100%;object-fit:cover;object-position:center"></div>
+          <div class="card-body"><div class="card-cat">AI 产品与互动工具 · 独立 Demo</div><div class="card-name">JOJO Pose 动作识别互动 H5</div><p class="card-desc">把联动方案中的 H5 单独产品化：动作匹配角色、职业判断、四人黄金小队与好友补位，形成可体验的传播增长链路。</p><div class="card-capabilities"><span>POSE MATCH</span><span>H5</span><span>VIRAL LOOP</span></div><div class="card-btns"><button class="btn-sm btn-sm-dark" onclick="openModal('m-jojo-h5');event.stopPropagation()">查看产品</button><a class="btn-sm btn-sm-ghost" href="https://tianchunzhu.github.io/arknights-x-JOJO-crossover/" target="_blank" onclick="event.stopPropagation()">体验 Demo</a></div></div>
+        </article>
+        <article class="port-card" data-cat="ai" onclick="openModal('m-bgaccess')">
+          <div class="card-img"><span class="card-num">04</span><span class="project-code">UCL × BG</span><img src="作品集pic/ucl x bg.png" alt="UCL 与 Baillie Gifford 合作项目" style="width:100%;height:100%;object-fit:cover;object-position:center"></div>
+          <div class="card-body"><div class="card-cat">AI 营销交互 Demo · 商业项目</div><div class="card-name">UCL × Baillie Gifford：Gen Z 投资路径</div><p class="card-desc">基于 91 位 Gen Z 的研究，将 Finfluencer 投放、平台广告与互动产品探索器组织成三段式营销体验。</p><div class="card-capabilities"><span>GEN Z</span><span>JOURNEY DESIGN</span><span>PROTOTYPE</span></div><div class="card-btns"><button class="btn-sm btn-sm-dark" onclick="openModal('m-bgaccess');event.stopPropagation()">查看研究</button><a class="btn-sm btn-sm-ghost" href="https://tianchunzhu.github.io/BG-ACCESS/" target="_blank" onclick="event.stopPropagation()">体验 Demo</a></div></div>
+        </article>
+        <article class="port-card" data-cat="research" onclick="openModal('m-clash')">
+          <div class="card-img"><span class="card-num">05</span><span class="project-code">CASE STUDY</span><img src="作品集pic/clash royale.png" alt="皇室战争 Copycats Welcome 营销案例" style="width:100%;height:100%;object-fit:cover;object-position:center"></div>
+          <div class="card-body"><div class="card-cat">市场研究与洞察 · 案例拆解</div><div class="card-name">《皇室战争》Copycats Welcome</div><p class="card-desc">核心不是打击山寨，而是补偿玩家在山寨游戏里的沉没成本：把流失阻力改写为回归官方的奖励许可。</p><div class="card-capabilities"><span>PLAYER BARRIER</span><span>REACTIVATION</span><span>FUNNEL</span></div><div class="card-btns"><button class="btn-sm btn-sm-dark" onclick="openModal('m-clash');event.stopPropagation()">查看拆解</button></div></div>
+        </article>
+        <article class="port-card" data-cat="research" onclick="openModal('m-oncehuman')">
+          <div class="card-img" style="background:#203a43"><span class="card-num">06</span><span class="project-code">NETEASE</span><img src="oncehuman.png" style="width:100%;height:100%;object-fit:cover;object-position:center top"/></div>
+          <div class="card-body"><div class="card-cat">市场研究与洞察 · 网易互娱</div><div class="card-name">《七日世界》手游版本营销拆解</div><p class="card-desc">复盘用户迁移、分层传播与 KOL 结构：前段洞察与声量成立，后段转化承接仍有优化空间。</p><div class="card-capabilities"><span>GO-TO-MARKET</span><span>KOL</span><span>FUNNEL</span></div><div class="card-btns"><button class="btn-sm btn-sm-dark">查看拆解</button></div></div>
+        </article>
+        <article class="port-card" data-cat="research" onclick="openModal('m-hd2')">
+          <div class="card-img" style="background:#1a0a0a"><span class="card-num">07</span><span class="project-code">COMPETITOR</span><img src="helldivers2.png" style="width:100%;height:100%;object-fit:cover;object-position:center 20%"/></div>
+          <div class="card-body"><div class="card-cat">市场研究与洞察 · 竞品调研</div><div class="card-name">《地狱潜兵2》版本营销调研</div><p class="card-desc">拆解悬念预热、KOL 内容结构、社区 UGC 与官方叙事如何共同放大版本热度。</p><div class="card-capabilities"><span>LAUNCH PLAN</span><span>CREATOR</span><span>COMMUNITY</span></div><div class="card-btns"><button class="btn-sm btn-sm-dark">查看报告</button></div></div>
+        </article>
+        <article class="port-card" data-cat="campaign" onclick="openModal('m-deltaforce')">
+          <div class="card-img" style="background:#050707"><span class="card-num">08</span><span class="project-code">CAMPAIGN</span><img src="delta force.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 30%"/></div>
+          <div class="card-body"><div class="card-cat">营销策划 · Mini Case</div><div class="card-name">《三角洲行动》×《碟中谍》</div><p class="card-desc">围绕 ONE SQUAD. ONE MISSION. NO BACKUP. 构建 PLAY / CONNECT / AMPLIFY 三线闭环与六周传播节奏。</p><div class="card-capabilities"><span>IP COLLAB</span><span>CAMPAIGN ARCHITECTURE</span></div><div class="card-btns"><button class="btn-sm btn-sm-dark">查看企划</button><a class="btn-sm btn-sm-ghost" href="https://tianchunzhu.github.io/Delta-Force-Mission-Impossible/" target="_blank" onclick="event.stopPropagation()">访问网站</a></div></div>
+        </article>
+        <article class="port-card" data-cat="campaign" onclick="openModal('m-shakeshare')">
+          <div class="card-img" style="background:#f5c842"><span class="card-num">09</span><span class="project-code">CUHK</span><img src="shake-share.png" style="width:100%;height:100%;object-fit:cover"/></div>
+          <div class="card-body"><div class="card-cat">营销策划 · 数字品牌</div><div class="card-name">Shake &amp; Share</div><p class="card-desc">面向香港都市白领的 DIY 鸡尾酒电商概念，从商业模式、用户场景到品牌官网完成闭环。</p><div class="card-capabilities"><span>BRAND</span><span>E-COMMERCE</span></div><div class="card-btns"><button class="btn-sm btn-sm-dark">查看项目</button></div></div>
+        </article>
+        <article class="port-card" data-cat="data" onclick="openModal('m-hema')">
+          <div class="card-img" style="background:#c8102e"><span class="card-num">10</span><span class="project-code">CUHK</span><img src="hema.png" style="width:100%;height:100%;object-fit:cover"/></div>
+          <div class="card-body"><div class="card-cat">数据与商业分析</div><div class="card-name">盒马鲜生业务分析与战略规划</div><p class="card-desc">基于 40+ 位客户访谈与三重底线框架，提出区域仓库模式，获 People's Choice Award。</p><div class="card-capabilities"><span>INTERVIEW</span><span>BUSINESS MODEL</span></div><div class="card-btns"><button class="btn-sm btn-sm-dark">查看报告</button></div></div>
+        </article>
+        <article class="port-card" data-cat="data" onclick="openModal('m-mlgroup')">
+          <div class="card-img" style="background:#1a1a2e"><span class="card-num">11</span><span class="project-code">UCL / ML</span><img src="ML.png" style="width:100%;height:100%;object-fit:cover;object-position:center 30%"/></div>
+          <div class="card-body"><div class="card-cat">数据与商业分析 · 机器学习</div><div class="card-name">销售机会预测与客户分群</div><p class="card-desc">基于 9,743 条 CRM 记录，比较五种监督学习模型并识别四类客户群体。</p><div class="card-capabilities"><span>PREDICTION</span><span>SEGMENTATION</span></div><div class="card-btns"><button class="btn-sm btn-sm-dark">查看报告</button></div></div>
+        </article>
+        <article class="port-card" data-cat="ai" onclick="openModal('m-promosci')">
+          <div class="card-img" style="background:#2e1a47"><span class="card-num">12</span><span class="project-code">UCL / ENGINE</span><img src="promosci.png" style="width:100%;height:100%;object-fit:cover"/></div>
+          <div class="card-body"><div class="card-cat">AI 产品与互动工具 · 经济学模型</div><div class="card-name">PromoSci 经济学优惠券引擎</div><p class="card-desc">以两级嵌套 Logit 模型把优惠券目标从兑换率重定义为增量利润；按要求置于 AI 工具序列末位。</p><div class="card-capabilities"><span>ECONOMICS</span><span>OPTIMISATION</span></div><div class="card-btns"><button class="btn-sm btn-sm-dark">查看项目</button></div></div>
+        </article>
       </div>
       <div class="files-sec">
-        <div class="files-head" id="f-title">可下载文件</div>
-        <p class="files-sub" id="f-sub">简历文件（PDF）</p>
-        <div class="file-list">
-          <div class="file-row"><div class="file-left"><span class="file-icon">📄</span><div><div class="file-name" id="f1-name">朱天纯 — 简历（中文版）</div><div class="file-meta">PDF · 简历</div></div></div><a class="btn-sm btn-sm-dark" href="https://1drv.ms/b/c/bad556a6b4985de8/IQDd5O_oOZiVRoZcCPEv4XitAbgHBakJ3Wpn-Wb3QRgMvcM?e=LdSQWA" target="_blank" id="f1-btn">下载</a></div>
-          <div class="file-row"><div class="file-left"><span class="file-icon">📄</span><div><div class="file-name" id="f2-name">TIANCHUN ZHU — Resume (EN)</div><div class="file-meta">PDF · Resume</div></div></div><a class="btn-sm btn-sm-dark" href="https://1drv.ms/b/c/bad556a6b4985de8/IQBrxcM5sD7LTKILn7AoHy6wAWJNxybJlxjtCUirlAHhft8?e=amgVi8" target="_blank" id="f2-btn">Download</a></div>
-        </div>
+        <div class="files-head">简历文件</div>
+        <p class="files-sub">中文版可直接下载；英文入口暂时隐藏，但文件与翻译内容仍保留。</p>
+        <div class="file-list"><div class="file-row"><div class="file-left"><span class="file-icon">CV</span><div><div class="file-name">朱天纯 — 简历（中文版）</div><div class="file-meta">PDF · Resume</div></div></div><a class="btn-sm btn-sm-dark" href="https://1drv.ms/b/c/bad556a6b4985de8/IQDd5O_oOZiVRoZcCPEv4XitAbgHBakJ3Wpn-Wb3QRgMvcM?e=LdSQWA" target="_blank">下载</a></div></div>
       </div>
+    </main>
+  </div>
+</div>
+<!-- ══ PRACTICAL WORK / ASSET LIBRARY ══ -->
+<div class="page" id="page-work">
+  <section class="work-hero">
+    <div class="work-lead">
+      <div><span class="sec-label">PRACTICAL OUTPUTS / 实战作品</span><h2 class="sec-title">发布过、投放过、真正进入市场的内容</h2></div>
+      <p>这里将独立收录实习期间的新闻稿、KV、PV、Pitch Deck、KOL Brief、投放素材与用户活动。现阶段先建立清晰框架，待素材脱敏与授权确认后逐步补齐。</p>
     </div>
+  </section>
+  <div class="work-grid">
+    <article class="work-module">
+      <button onclick="toggleWork(this)"><span class="work-preview"><img src="oncehuman.png" alt="PR 新闻稿示意预览"><b>01</b></span><span class="work-copy"><span class="work-title">PR 与新闻稿</span><small>发布稿件、媒体报道与本地化传播内容</small></span><span class="work-state">查看素材 +</span></button>
+      <div class="work-detail"><div class="asset-carousel"><div class="asset-viewport"><div class="asset-track"><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="oncehuman.png" alt="新闻稿素材占位"><div class="asset-card-body"><strong>全球版本新闻稿</strong><span>封面与链接待补充</span></div></a><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="helldivers2.png" alt="媒体报道素材占位"><div class="asset-card-body"><strong>媒体报道合集</strong><span>截图与发布链接待补充</span></div></a><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="once-human.png" alt="本地化稿件素材占位"><div class="asset-card-body"><strong>本地化传播稿</strong><span>Drive 链接待补充</span></div></a></div></div><div class="asset-nav"><button onclick="slideAssets(this,-1)" aria-label="上一组素材">←</button><button onclick="slideAssets(this,1)" aria-label="下一组素材">→</button></div></div></div>
+    </article>
+    <article class="work-module">
+      <button onclick="toggleWork(this)"><span class="work-preview"><img src="delta force.jpg" alt="KV 视觉资产示意预览"><b>02</b></span><span class="work-copy"><span class="work-title">KV 与视觉资产</span><small>主视觉、社媒延展与不同尺寸素材</small></span><span class="work-state">查看素材 +</span></button>
+      <div class="work-detail"><div class="asset-carousel"><div class="asset-viewport"><div class="asset-track"><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="delta force.jpg" alt="主视觉素材占位"><div class="asset-card-body"><strong>Campaign 主 KV</strong><span>原图链接待补充</span></div></a><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="oncehuman.png" alt="社媒视觉素材占位"><div class="asset-card-body"><strong>社媒延展视觉</strong><span>多尺寸素材待补充</span></div></a><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="promosci.png" alt="信息图素材占位"><div class="asset-card-body"><strong>信息图与数据卡</strong><span>Drive 链接待补充</span></div></a></div></div><div class="asset-nav"><button onclick="slideAssets(this,-1)" aria-label="上一组素材">←</button><button onclick="slideAssets(this,1)" aria-label="下一组素材">→</button></div></div></div>
+    </article>
+    <article class="work-module">
+      <button onclick="toggleWork(this)"><span class="work-preview"><img src="helldivers2.png" alt="PV 视频示意预览"><b>03</b></span><span class="work-copy"><span class="work-title">PV / Trailer / 视频</span><small>脚本、分镜与正式上线视频</small></span><span class="work-state">查看素材 +</span></button>
+      <div class="work-detail"><div class="asset-carousel"><div class="asset-viewport"><div class="asset-track"><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="helldivers2.png" alt="PV 素材占位"><div class="asset-card-body"><strong>版本 PV</strong><span>视频链接待补充</span></div></a><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="youtube.png" alt="视频脚本素材占位"><div class="asset-card-body"><strong>脚本与分镜</strong><span>文档链接待补充</span></div></a><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="oncehuman.png" alt="短视频素材占位"><div class="asset-card-body"><strong>社媒短视频</strong><span>发布链接待补充</span></div></a></div></div><div class="asset-nav"><button onclick="slideAssets(this,-1)" aria-label="上一组素材">←</button><button onclick="slideAssets(this,1)" aria-label="下一组素材">→</button></div></div></div>
+    </article>
+    <article class="work-module">
+      <button onclick="toggleWork(this)"><span class="work-preview"><img src="ML.png" alt="Pitch Deck 示意预览"><b>04</b></span><span class="work-copy"><span class="work-title">Pitch Deck / 营销提案</span><small>洞察、Big Idea、渠道策略与执行路线</small></span><span class="work-state">查看素材 +</span></button>
+      <div class="work-detail"><div class="asset-carousel"><div class="asset-viewport"><div class="asset-track"><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="ML.png" alt="策略提案素材占位"><div class="asset-card-body"><strong>策略提案 Deck</strong><span>Drive 链接待补充</span></div></a><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="hema.png" alt="用户洞察素材占位"><div class="asset-card-body"><strong>用户洞察章节</strong><span>可公开页面待补充</span></div></a><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="delta force.jpg" alt="创意策略素材占位"><div class="asset-card-body"><strong>创意与执行路线</strong><span>案例链接待补充</span></div></a></div></div><div class="asset-nav"><button onclick="slideAssets(this,-1)" aria-label="上一组素材">←</button><button onclick="slideAssets(this,1)" aria-label="下一组素材">→</button></div></div></div>
+    </article>
+    <article class="work-module">
+      <button onclick="toggleWork(this)"><span class="work-preview"><img src="youtube.png" alt="KOL 内容示意预览"><b>05</b></span><span class="work-copy"><span class="work-title">KOL Brief / Creator 内容</span><small>创作者策略、Brief 与上线内容样例</small></span><span class="work-state">查看素材 +</span></button>
+      <div class="work-detail"><div class="asset-carousel"><div class="asset-viewport"><div class="asset-track"><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="youtube.png" alt="KOL Brief 素材占位"><div class="asset-card-body"><strong>KOL 内容 Brief</strong><span>脱敏文档待补充</span></div></a><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="oncehuman.png" alt="创作者视频素材占位"><div class="asset-card-body"><strong>创作者视频案例</strong><span>发布链接待补充</span></div></a><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="helldivers2.png" alt="直播素材占位"><div class="asset-card-body"><strong>直播合作案例</strong><span>回放链接待补充</span></div></a></div></div><div class="asset-nav"><button onclick="slideAssets(this,-1)" aria-label="上一组素材">←</button><button onclick="slideAssets(this,1)" aria-label="下一组素材">→</button></div></div></div>
+    </article>
+    <article class="work-module">
+      <button onclick="toggleWork(this)"><span class="work-preview"><img src="promosci.png" alt="广告投放示意预览"><b>06</b></span><span class="work-copy"><span class="work-title">Media Buy / 投放</span><small>媒体版位、广告素材与效果复盘</small></span><span class="work-state">查看素材 +</span></button>
+      <div class="work-detail"><div class="asset-carousel"><div class="asset-viewport"><div class="asset-track"><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="promosci.png" alt="投放素材占位"><div class="asset-card-body"><strong>平台广告素材</strong><span>落地页链接待补充</span></div></a><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="ML.png" alt="投放数据素材占位"><div class="asset-card-body"><strong>投放数据复盘</strong><span>脱敏截图待补充</span></div></a><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="oncehuman.png" alt="媒体版位素材占位"><div class="asset-card-body"><strong>媒体版位样例</strong><span>发布链接待补充</span></div></a></div></div><div class="asset-nav"><button onclick="slideAssets(this,-1)" aria-label="上一组素材">←</button><button onclick="slideAssets(this,1)" aria-label="下一组素材">→</button></div></div></div>
+    </article>
+    <article class="work-module">
+      <button onclick="toggleWork(this)"><span class="work-preview"><img src="once-human.png" alt="H5 活动示意预览"><b>07</b></span><span class="work-copy"><span class="work-title">H5 / 社区活动 / 用户召回</span><small>互动路径、裂变机制与召回结果</small></span><span class="work-state">查看素材 +</span></button>
+      <div class="work-detail"><div class="asset-carousel"><div class="asset-viewport"><div class="asset-track"><a class="asset-card" href="https://tianchunzhu.github.io/arknights-x-JOJO-crossover/" target="_blank"><img src="once-human.png" alt="JOJO 互动 H5"><div class="asset-card-body"><strong>黄金同步测试 H5</strong><span>点击体验实际 Demo ↗</span></div></a><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="oncehuman.png" alt="用户召回 H5 素材占位"><div class="asset-card-body"><strong>用户召回 H5</strong><span>活动链接待补充</span></div></a><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="youtube.png" alt="社区活动素材占位"><div class="asset-card-body"><strong>Discord 社区活动</strong><span>截图与链接待补充</span></div></a></div></div><div class="asset-nav"><button onclick="slideAssets(this,-1)" aria-label="上一组素材">←</button><button onclick="slideAssets(this,1)" aria-label="下一组素材">→</button></div></div></div>
+    </article>
+    <article class="work-module">
+      <button onclick="toggleWork(this)"><span class="work-preview"><img src="shake-share.png" alt="其他素材示意预览"><b>08</b></span><span class="work-copy"><span class="work-title">其他已发布素材</span><small>活动页面、社媒内容与后续新增类型</small></span><span class="work-state">查看素材 +</span></button>
+      <div class="work-detail"><div class="asset-carousel"><div class="asset-viewport"><div class="asset-track"><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="shake-share.png" alt="活动页面素材占位"><div class="asset-card-body"><strong>活动页面</strong><span>实际链接待补充</span></div></a><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="hema.png" alt="社媒内容素材占位"><div class="asset-card-body"><strong>社媒内容</strong><span>实际链接待补充</span></div></a><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="photo.jpg" alt="其他作品素材占位"><div class="asset-card-body"><strong>后续作品槽位</strong><span>图片与链接待补充</span></div></a></div></div><div class="asset-nav"><button onclick="slideAssets(this,-1)" aria-label="上一组素材">←</button><button onclick="slideAssets(this,1)" aria-label="下一组素材">→</button></div></div></div>
+    </article>
   </div>
 </div>
 
@@ -1078,27 +1282,6 @@ body.cursor-view #cursor-ring{width:50px;height:50px;border-color:var(--accent);
   </div>
 </div>
 
-<!-- ══ CONTACT ══ -->
-<div class="page" id="page-contact">
-  <section class="section" style="position:relative;overflow:hidden">
-    <img src="illus5.jpg" class="illus-contact" alt="" onerror="this.style.display='none'"/>
-    <div class="contact-wrap">
-      <div class="fi">
-        <span class="sec-label" id="ct-label">保持联系</span>
-        <h2 class="sec-title" id="ct-title">联系我 ✦</h2>
-        <p class="contact-tagline" id="ct-sub">如果你对我的经历感兴趣，或有合适的机会，欢迎随时联系！</p>
-      </div>
-      <div class="contact-grid fi d1">
-        <a class="c-card" href="/cdn-cgi/l/email-protection#3c465449485f0e0c080a0a05040e0f097c0d0a0f125f5351"><span class="c-icon"><img src="logo-contact.png" style="width:36px;height:36px;object-fit:contain" onerror="this.outerHTML='✉️'"/></span><div class="c-label" id="ct1-l">电子邮件</div><div class="c-val"><span class="__cf_email__" data-cfemail="4a30223f3e29787a7e7c7c737278797f0a7b7c7964292527">[email&#160;protected]</span></div></a>
-        <div class="c-card" onclick="copyWechat()"><span class="c-icon"><img src="logo-wechat.png" style="width:36px;height:36px;object-fit:contain" onerror="this.outerHTML='💬'"/></span><div class="c-label">WeChat</div><div class="c-val" id="wc-val">18058164493</div></div>
-        <a class="c-card" href="https://www.linkedin.com/in/tianchun-zhu-7987423a1/" target="_blank"><span class="c-icon"><img src="logo-linkedin.png" style="width:36px;height:36px;object-fit:contain" onerror="this.outerHTML='💼'"/></span><div class="c-label">LinkedIn</div><div class="c-val" id="ct3-v">查看主页</div></a>
-        <a class="c-card" href="https://xhslink.com/m/A2JiiPZd2Ay" target="_blank"><span class="c-icon"><img src="logo-xiaohongshu.png" style="width:36px;height:36px;object-fit:contain" onerror="this.outerHTML='📕'"/></span><div class="c-label" id="ct4-l">小红书</div><div class="c-val" id="ct4-v">查看主页</div></a>
-      </div>
-    </div>
-  </section>
-  <footer id="footer-text">© 2025 朱天纯 · Tianchun Zhu · Made with ✦ &amp; ☕</footer>
-</div>
-
 <!-- ══ MODALS ══ -->
 <div class="modal-overlay" id="m-ucl">
   <div class="modal-box"><button class="modal-close" onclick="closeModal('m-ucl')">✕</button>
@@ -1145,11 +1328,11 @@ body.cursor-view #cursor-ring{width:50px;height:50px;border-color:var(--accent);
 
 <div class="modal-overlay" id="m-leihuo2">
   <div class="modal-box"><button class="modal-close" onclick="closeModal('m-leihuo2')">✕</button>
-    <div class="m-head"><img src="logo-netease.png" class="m-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="m-logo-text" style="display:none">NetEase</div><div><div class="m-org" id="ml2-org">网易雷火 · 杭州</div><div class="m-period-role" id="ml2-pr">2026 – 至今 · <span>《逆水寒》海外发行组</span></div></div></div>
+    <div class="m-head"><img src="logo-netease.png" class="m-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="m-logo-text" style="display:none">NetEase</div><div><div class="m-org" id="ml2-org">网易雷火 · 杭州</div><div class="m-period-role" id="ml2-pr">05/2026 – 至今 · <span>《逆水寒》海外市场营销实习生</span></div></div></div>
     <div class="m-body"><ul id="ml2-list">
-      <li id="ml2-li1"><strong>市场聚焦：</strong>主要面向海外市场，尤其港澳台相关区域，结合区域玩家偏好制定本地化发行策略。</li>
-      <li id="ml2-li2"><strong>版本内容：</strong>参与版本内容规划与宣发节奏排布，对齐研运与海外发行的传播时间线。</li>
-      <li id="ml2-li3"><strong>KOL 与传播：</strong>参与 KOL 沟通与本地化传播相关工作，推动内容在港澳台社媒与社区的落地。</li>
+      <li id="ml2-li1"><strong>KOL 与直播：</strong>负责港澳台及东南亚 KOL 策略，协作 50+ 位 KOL、产出 80+ 条内容；SEA v1.3.1 直播目标达成率 297%，较上期提升 364%。</li>
+      <li id="ml2-li2"><strong>PR 与广告投放：</strong>推进 20+ 广告位上线，累计获得 1.23M+ 曝光与 4,600+ 点击，CPM 约 2.7 美元。</li>
+      <li id="ml2-li3"><strong>增长与社区：</strong>“幸运星期四”H5 首日 UV 达基线 3.5×，沉默用户召回提升 40%；Discord 恋爱匹配 Bot 首日频道访问 4,000、参与 1,000+、完成 300+ 组配对。</li>
     </ul></div>
   </div>
 </div>
@@ -1411,29 +1594,32 @@ body.cursor-view #cursor-ring{width:50px;height:50px;border-color:var(--accent);
   </div>
 </div>
 
-<!-- ══ MODAL: YouTube Insights ══ -->
+<!-- ══ MODAL: AI GAME RESEARCH TOOLS ══ -->
 <div class="modal-overlay" id="m-ytinsights">
-  <div class="modal-box" style="padding-top:0"><button class="modal-close" onclick="closeModal('m-ytinsights')" style="top:10px;right:12px;background:rgba(255,255,255,.85)">✕</button>
-    <div style="margin:0;border-radius:14px 38px 0 0;overflow:hidden;height:180px;position:relative;background:linear-gradient(135deg,#0d1117,#1a2332,#0f3460);display:flex;align-items:center;justify-content:center">
-      <div style="text-align:center">
-        <div style="font-size:44px;color:#ff4e45;line-height:1">▶</div>
-        <div style="color:#ff4e45;font-weight:800;font-size:20px;letter-spacing:1px;margin-top:8px">YouTube</div>
-        <div style="color:#64b5f6;font-weight:700;font-size:13px;letter-spacing:4px;margin-top:3px">INSIGHTS</div>
+  <div class="modal-box project-modal ai-modal"><button class="modal-close" onclick="closeModal('m-ytinsights')">✕</button>
+    <div class="pm-cover"><img src="作品集pic/tool.png" alt="AI 游戏竞品分析助手"><div class="pm-cover-label">PRODUCT SYSTEM / INDEPENDENT BUILD / 2026</div></div>
+    <div class="pm-content">
+      <div class="pm-kicker">YOUTUBE INSIGHT × GAMEVID INSIGHT</div>
+      <h3 class="pm-title">把数小时竞品研究，压缩成分钟级工作流</h3>
+      <p class="pm-lead">项目源于海外游戏营销实习中的真实问题：视频、字幕、评论、画面与媒体报道分散在不同平台，人工检索和归纳占用大量时间。我把这条研究链路拆成两个互补产品，并独立完成产品设计、AI 能力编排与云端部署。</p>
+      <div class="case-panel active" id="ai-problem">
+        <div class="scroll-section-label"><b>01</b>问题与目标</div>
+        <div class="case-grid-3"><div class="case-box"><span class="case-chip">INPUT</span><strong>信息高度分散</strong><p>YouTube 视频、字幕、热门评论、TikTok 画面和游戏媒体资讯需要分别检索。</p></div><div class="case-box"><span class="case-chip">MANUAL COST</span><strong>数小时人工阅读</strong><p>重复打开链接、观看回放、翻阅评论并手动写出结构化结论。</p></div><div class="case-box"><span class="case-chip">OUTPUT GAP</span><strong>洞察难以快速复用</strong><p>报告生成慢，难以及时支持竞品追踪、PV 复盘和传播策略讨论。</p></div></div>
       </div>
-      <div style="position:absolute;bottom:12px;right:16px;display:flex;gap:6px">
-        <span style="background:rgba(255,78,69,.18);border:1px solid rgba(255,78,69,.4);color:#ff6b63;font-size:10px;font-weight:700;padding:3px 9px;border-radius:5px">AI-Powered</span>
-        <span style="background:rgba(100,181,246,.15);border:1px solid rgba(100,181,246,.3);color:#64b5f6;font-size:10px;font-weight:700;padding:3px 9px;border-radius:5px">FastAPI + Claude</span>
+      <div class="case-panel" id="ai-products">
+        <div class="scroll-section-label"><b>02</b>双产品能力</div>
+        <div class="tool-compare"><div class="tool-column"><h4>YouTube Insight</h4><ul><li>自然语言理解研究意图并生成检索词</li><li>抓取视频元数据、多语字幕与热门评论</li><li>提炼内容定位、玩家情绪与高频主题</li><li>输出可借鉴打法、风险点和结构化报告</li></ul></div><div class="tool-column"><h4>GameVid Insight</h4><ul><li>补充 YouTube / TikTok 长短视频画面解析</li><li>识别关键镜头、内容卖点与传播亮点</li><li>聚合全球游戏媒体资讯与行业动态</li><li>把文本反馈和视觉表达放进同一研究框架</li></ul></div></div>
       </div>
-    </div>
-    <div style="padding:0 32px 0">
-      <div class="m-head" style="margin-top:16px">
-        <div style="width:54px;height:54px;border-radius:10px;background:linear-gradient(135deg,#0f1923,#1a2332);border:1px solid rgba(100,181,246,.25);display:flex;align-items:center;justify-content:center;font-size:24px;color:#ff4e45;flex-shrink:0">▶</div>
-        <div>
-          <div class="m-org" id="yt-org">YouTube Insights — AI 竞品视频分析工具</div>
-          <div class="m-period-role">2026 · <span id="yt-role">Web App · 个人项目</span></div>
-        </div>
+      <div class="case-panel" id="ai-flow">
+        <div class="scroll-section-label"><b>03</b>分析工作流</div>
+        <div class="ai-pipeline"><span>01<br>描述研究问题</span><span>02<br>AI 拆解意图</span><span>03<br>搜索与抓取</span><span>04<br>文本 / 画面分析</span><span>05<br>生成洞察报告</span></div>
+        <div class="case-grid-2"><div class="case-box"><strong>透明进度</strong><p>SSE 流式反馈展示“理解问题—搜索—获取数据—生成报告”的每一步，避免等待过程成为黑箱。</p></div><div class="case-box"><strong>可回溯证据</strong><p>报告、字幕与评论分标签呈现，保留原始材料，方便研究者复核结论而不是只接受 AI 摘要。</p></div></div>
       </div>
-      <div id="yt-body" class="m-body"><!-- content set by applyLang() --></div>
+      <div class="case-panel" id="ai-tech">
+        <div class="scroll-section-label"><b>04</b>技术与交付</div>
+        <div class="case-grid-3"><div class="case-box"><span class="case-chip">FRONTEND</span><strong>Vanilla HTML / CSS / JS</strong><p>轻量前端、Markdown 报告渲染、历史记录与实时状态反馈。</p></div><div class="case-box"><span class="case-chip">BACKEND</span><strong>FastAPI / Async</strong><p>Python 异步任务与 Tool Use 循环，负责检索、抓取、缓存和模型调用。</p></div><div class="case-box"><span class="case-chip">AI & DATA</span><strong>Claude + YouTube API</strong><p>结合字幕接口、多模态理解和 Railway 部署；搜索与视频数据设置分层缓存。</p></div></div>
+      </div>
+      <div style="display:flex;gap:9px;flex-wrap:wrap;margin-top:22px"><a class="btn-sm btn-sm-dark" href="https://web-production-2cc29.up.railway.app/" target="_blank">访问 YouTube Insight ↗</a><a class="btn-sm btn-sm-dark" href="https://gamevid-insight-production.up.railway.app/" target="_blank">访问 GameVid Insight ↗</a></div>
     </div>
   </div>
 </div>
@@ -1593,25 +1779,128 @@ body.cursor-view #cursor-ring{width:50px;height:50px;border-color:var(--accent);
   </div>
 </div>
 
+<!-- ══ MODAL: ARKNIGHTS × JOJO CAMPAIGN ══ -->
+<div class="modal-overlay" id="m-arkjojo">
+  <div class="modal-box project-modal jojo-campaign"><button class="modal-close" onclick="closeModal('m-arkjojo')">✕</button>
+    <div class="pm-cover"><img src="作品集pic/jojo crossover.png" alt="明日方舟与 JOJO 联动营销方案"><div class="pm-cover-label">UNOFFICIAL COURSE PROPOSAL / INTEGRATED COLLABORATION</div></div>
+    <div class="pm-content">
+      <div class="pm-kicker">ARKNIGHTS × JOJO: GOLDEN WIND</div>
+      <h3 class="pm-title">黄金意志，抵达泰拉。</h3>
+      <p class="pm-lead">一份覆盖联动内容、预热、上线与长尾运营的整合营销作业。核心不是简单叠加两个 IP 的符号，而是把《黄金之风》的角色能力与小队精神，转译为《明日方舟》的剧情、职业和部署体验，再用参与式传播承接拉新、回流与活跃。</p>
+      <div class="case-panel active" id="jc-strategy">
+        <div class="scroll-section-label"><b>01</b>营销命题与核心创意</div>
+        <div class="campaign-thesis">共同母题不是“名场面”，而是四个不可替代的位置：不同能力只有被放在正确位置，才能改变既定结局。</div>
+        <div class="case-grid-2" style="margin-top:11px"><div class="case-box"><span class="case-chip">AUDIENCE TENSION</span><strong>两个圈层期待不同</strong><p>《明日方舟》玩家重视世界观、角色价值和机制深度；JOJO 受众更关注角色还原、经典能力与文化辨识度。</p></div><div class="case-box"><span class="case-chip">STRATEGIC ANSWER</span><strong>让罗德岛始终是主语</strong><p>以叙拉古承接意大利意象，由罗德岛负责调查与选择，JOJO 角色以“无法用源石技艺解释的合作档案”进入战术系统。</p></div></div>
+        <div class="campaign-goals"><span>跨圈拉新</span><span>沉默用户回流</span><span>联动期活跃</span><span>限定内容转化</span></div>
+      </div>
+      <div class="case-panel" id="jc-content">
+        <div class="scroll-section-label"><b>02</b>把 IP 认知转成游戏内容</div>
+        <p class="pm-lead"><strong>Side Story「黄金航路」：</strong>叙拉古出现生命造物、空间开口、弹道偏转与物质柔化等异常。罗德岛与四名异世界访客共同护送关键证人，在移动城市运输线上完成调查与作战。</p>
+        <div class="operator-grid" style="margin-top:15px"><div class="operator"><span>6★ 辅助</span><b>乔鲁诺</b><small>生命赋予、治疗阻挡、改变战场状态</small></div><div class="operator"><span>5★ 特种</span><b>布加拉提</b><small>连接地块、改变路径、转移单位</small></div><div class="operator"><span>5★ 狙击</span><b>米斯达</b><small>控制弹道、折射攻击、优先标记</small></div><div class="operator"><span>5★ 重装</span><b>特莉休</b><small>柔化区域、缓冲冲击、保护队友</small></div></div>
+        <div class="case-box" style="margin-top:11px"><strong>内容设计原则</strong><p>四名角色作为全新合作干员进入限定卡池，并配置完整试用关、首次十连五星合作干员保障与清晰保底说明；即使没有抽到角色，玩家也能在剧情中体验完整黄金小队。</p></div>
+      </div>
+      <div class="case-panel" id="jc-rollout">
+        <div class="scroll-section-label"><b>03</b>从悬念到机制证明</div>
+        <div class="case-flow"><span>T-14<br>第 11 秒悬念</span><span>T-12<br>双 IP 官宣</span><span>T-10/8<br>角色逐日公开</span><span>T-7<br>互动 H5</span><span>T-5/3<br>职业与机制 PV</span></div>
+        <div class="case-grid-2"><div class="case-box"><strong>先建立识别，再推动参与</strong><p>30 秒预热 PV 用“第 11 秒缺失的档案”制造讨论；官宣后逐日释放角色能力，但暂不公布职业，为 H5 竞猜预留问题。</p></div><div class="case-box"><strong>最终用玩法证明联动价值</strong><p>H5 将 IP 兴趣转成身体参与，随后由职业答案、技能演示、卡池说明和制作组直播证明联动不是换皮。</p></div></div>
+      </div>
+      <div class="case-panel" id="jc-growth">
+        <div class="scroll-section-label"><b>04</b>上线期渠道协同</div>
+        <div class="case-grid-3"><div class="case-box"><span class="case-chip">COS / VISUAL</span><strong>负责扩圈</strong><p>四人小队、经典动作和街头挑战建立统一视觉记忆，并为普通用户提供模仿模板。</p></div><div class="case-box"><span class="case-chip">GAMEPLAY / LIVE</span><strong>负责信任</strong><p>机制解析、Side Story、Boss 攻略和双厨联播证明内容质量，承接下载、回流与付费。</p></div><div class="case-box"><span class="case-chip">MEME / UGC</span><strong>负责铺量</strong><p>错误匹配、办公室与宿舍集体动作降低参与门槛，把失败结果也变成可传播素材。</p></div></div>
+        <div class="case-grid-2" style="margin-top:10px"><div class="case-box"><strong>线下：城市黄金小队</strong><p>四个实时识别站位把“每人占据一个不可替代的位置”变成真实组队体验，完成后生成漫画式合照并导回账号。</p></div><div class="case-box"><strong>社区：TO BE CONTINUED Chain</strong><p>玩家每人续写一句，由 Bot 负责位置锁定、审核、去重和阶段摘要，最终沉淀为可二次加工的社区共创内容。</p></div></div>
+      </div>
+      <div class="case-panel" id="jc-measurement">
+        <div class="scroll-section-label"><b>05</b>长尾运营与衡量</div>
+        <p class="pm-lead">D8–D21 通过黄金战术周、H5 数据图鉴、城市挑战回收、玩家混剪与社区共创制造第二波内容；末期再按“完成 H5 未进游戏、小队未满、沉默玩家”执行分层召回。</p>
+        <div class="campaign-metrics"><span>新注册与 H5→下载</span><span>沉默用户回流与留存</span><span>有效四人小队</span><span>活动参与天数</span><span>UGC 产量</span><span>卡池与周边转化</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ MODAL: JOJO AI H5 ══ -->
+<div class="modal-overlay" id="m-jojo-h5">
+  <div class="modal-box project-modal h5-modal"><button class="modal-close" onclick="closeModal('m-jojo-h5')">✕</button>
+    <div class="pm-cover"><img src="作品集pic/jojo h5.png" alt="JOJO 动作识别互动 H5"><div class="pm-cover-label">WORKING DEMO / POSE MATCH / SOCIAL GROWTH LOOP</div></div>
+    <div class="pm-content">
+      <div class="pm-kicker">罗德岛黄金精神同步测试</div><h3 class="pm-title">让玩家用身体进入联动，而不是做一套知识问答</h3>
+      <p class="pm-lead">JOJO 立是具有广泛识别度、几乎不要求剧情知识的传播资产。H5 将玩家从动作探索带入角色匹配，再通过职业判断进入《明日方舟》的战术语境，最后以四人小队完成社交裂变。</p>
+      <div class="h5-demo-panel active" id="h5-pose"><div class="scroll-section-label"><b>01</b>实时动作匹配</div><div class="case-grid-2"><div><span class="case-chip">BODY AS INPUT</span><h4>在未知图库中“试探”</h4><p>摄像头持续读取身体姿态，上方图库在四名 JOJO 角色动作与抱头、摊手、比心等表情包之间实时刷新。系统不提供角色按钮，玩家必须不断改变姿势直到稳定匹配。</p></div><div><span class="case-chip">FAILURE AS CONTENT</span><h4>错误匹配就是 UGC</h4><p>“当前精神状态：想下班”“检测到普通互联网精神波形”等反馈，把失败从退出节点变成截图、录屏与二创素材。</p></div></div></div>
+      <div class="h5-demo-panel" id="h5-class"><div class="scroll-section-label"><b>02</b>职业判断</div><div class="case-grid-2"><div><span class="case-chip">BRAND TRANSITION</span><h4>从 JOJO 进入罗德岛</h4><p>角色匹配完成后，视觉从夸张 Pose 和表情包切换为罗德岛档案界面；玩家从辅助、特种、狙击、重装中判断角色战术位置。</p></div><div><span class="case-chip">FEEDBACK LOOP</span><h4>能力线索代替“答错”</h4><p>错误答案不会重置动作识别，而是根据替身能力提供线索。答对后播放完整干员揭晓，让玩家理解“替身如何成为部署变量”。</p></div></div></div>
+      <div class="h5-demo-panel" id="h5-squad"><div class="scroll-section-label"><b>03</b>四人补位</div><p><strong>本人完成后先点亮 1/4：</strong>其余乔鲁诺 / 辅助、布加拉提 / 特种、米斯达 / 狙击、特莉休 / 重装位置等待好友补齐。好友完成完整 H5 后加入队伍，同时创建自己的新队伍继续邀请。</p><div class="reward-row"><span>1/4<br>档案卡 / 壁纸</span><span>2/4<br>资源 / 表情贴</span><span>3/4<br>名片 / 家具</span><span>4/4<br>寻访凭证 / 合影墙</span></div></div>
+      <div class="case-grid-3" style="margin-top:14px"><div class="case-box"><strong>首次完成 60–90 秒</strong><p>好友定向进入控制在 45–75 秒，降低补位成本。</p></div><div class="case-box"><strong>三次关键转换</strong><p>文化认知 → 身体参与 → 干员与编队关系。</p></div><div class="case-box"><strong>产品转化</strong><p>动作负责停留、问答负责教育、奖励与补位负责账号和回流。</p></div></div>
+      <a class="btn-sm btn-sm-dark" href="https://tianchunzhu.github.io/arknights-x-JOJO-crossover/" target="_blank" style="display:inline-block;margin-top:18px">体验互动 Demo ↗</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══ MODAL: UCL × BAILLIE GIFFORD ══ -->
+<div class="modal-overlay" id="m-bgaccess">
+  <div class="modal-box project-modal bg-modal"><button class="modal-close" onclick="closeModal('m-bgaccess')">✕</button>
+    <div class="pm-cover"><img src="作品集pic/ucl x bg.png" alt="UCL 与 Baillie Gifford 商业项目"><div class="pm-cover-label">EVIDENCE → HYPOTHESIS → PROTOTYPE → TEST</div></div>
+    <div class="pm-content">
+      <div class="pm-kicker">UCL SCHOOL OF MANAGEMENT × BAILLIE GIFFORD</div><h3 class="pm-title">Access：把 Gen Z 投资研究变成可测试的营销原型</h3>
+      <p class="pm-lead">项目整合 Access 文献综述、一次深度访谈、91 位 18–29 岁受访者调查，以及 Baillie Gifford 提供的五类数字分析工作簿。不同数据回答不同问题，因此采用主题证据拼接，不虚构用户级归因或因果关系。</p>
+      <div class="case-panel active" id="bg-evidence">
+        <div class="scroll-section-label"><b>01</b>研究证据</div>
+        <div class="evidence-strip"><div class="evidence-stat"><b>75.8%</b><span>使用至少一种数字发现路径</span></div><div class="evidence-stat"><b>62.8%</b><span>BG 流量来源浏览来自自然搜索</span></div><div class="evidence-stat"><b>64.8%</b><span>认为没有足够资金投资</span></div><div class="evidence-stat"><b>48.4%</b><span>认为投资知识不足</span></div></div>
+        <div class="case-grid-2"><div class="case-box"><strong>进入不等于拥有</strong><p>49.5% 拥有至少一种市场挂钩产品。数字触达说明入口存在，却不能证明用户已经完成投资转化。</p></div><div class="case-box"><strong>访谈用于解释机制</strong><p>家庭解释、小额早期投资、平台设计和人生阶段能够解释“如何进入”，但单个案例不用于估计普遍比例。</p></div></div>
+      </div>
+      <div class="case-panel" id="bg-hypotheses">
+        <div class="scroll-section-label"><b>02</b>五个假设</div>
+        <div class="hypothesis-row"><b>A1</b><p>数字搜索是进入投资旅程的主要入口。</p><span>SUPPORTED</span></div><div class="hypothesis-row"><b>A2</b><p>平台、家庭与职场系统共同决定用户看到的选项。</p><span>PARTIAL</span></div><div class="hypothesis-row"><b>A3</b><p>低摩擦入口仍无法解决资金、知识和选择负担。</p><span>SUPPORTED</span></div><div class="hypothesis-row"><b>A4</b><p>首份工资、养老金与现金/投资选择比泛促销更有效。</p><span>DIRECTIONAL</span></div><div class="hypothesis-row"><b>A5</b><p>简单、引导式、分散化的入口可降低首次投资摩擦。</p><span>DIRECTIONAL</span></div>
+        <p style="font-size:11px;color:#607086;margin-top:12px">结论来自文献、访谈、调查与 BG 聚合分析的交叉验证，不作为因果估计。</p>
+      </div>
+      <div class="case-panel" id="bg-prototypes">
+        <div class="scroll-section-label"><b>03</b>原型系统</div>
+        <div class="prototype-grid"><div class="prototype"><b>Access Compass</b><p>根据人生阶段、现金压力与知识准备度，先判断“现在适不适合投资”，再给出下一步。</p></div><div class="prototype"><b>Manager Lens</b><p>用直白语言解释基金经理、投资方法、费用与真实持仓，降低产品理解门槛。</p></div><div class="prototype"><b>Calm in 48</b><p>在市场下跌或焦虑新闻后的 48 小时提供解释、情境化提示与冷静行动路径。</p></div></div>
+        <div class="case-box" style="margin-top:12px"><strong>三段式营销 Demo</strong><p>Finfluencer 内容负责可信发现，平台广告按意图承接，互动产品探索器负责把兴趣转化为合适的下一步；Demo 让信息顺序和价值表达可以被真实体验。</p></div>
+      </div>
+      <div class="case-panel" id="bg-test">
+        <div class="scroll-section-label"><b>04</b>验证路线</div>
+        <div class="ai-pipeline"><span>W1–2<br>原型与埋点</span><span>W3–4<br>小样本可用性</span><span>W5–7<br>创意 / 入口测试</span><span>W8–10<br>行为证据</span><span>W11–12<br>结论与迭代</span></div>
+        <div class="case-grid-2"><div class="case-box"><strong>优先指标</strong><p>理解度、下一步点击、产品探索完成率、合适路径选择与回访，而非只看曝光或页面停留。</p></div><div class="case-box"><strong>证据边界</strong><p>BG 数据是聚合页面与渠道活动，没有年龄、用户或转化标识；测试必须补充事件级标签和实验设计。</p></div></div>
+      </div>
+      <a class="btn-sm btn-sm-dark" href="https://tianchunzhu.github.io/BG-ACCESS/" target="_blank" style="display:inline-block;margin-top:18px">体验交互 Demo ↗</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══ MODAL: CLASH ROYALE ══ -->
+<div class="modal-overlay" id="m-clash">
+  <div class="modal-box project-modal clash-modal"><button class="modal-close" onclick="closeModal('m-clash')">✕</button>
+    <div class="pm-cover"><img src="作品集pic/clash royale.png" alt="皇室战争 Copycats Welcome 案例"><div class="pm-cover-label">PLAYER REACTIVATION / COPYCATS WELCOME</div></div>
+    <div class="pm-content">
+      <div class="pm-kicker">CLASH ROYALE / MARKETING CASE STUDY</div><h3 class="pm-title">山寨也欢迎，但欢迎的是玩家。</h3>
+      <p class="pm-lead">案例没有把重点停留在“正版打击山寨”，而是重新定义问题：山寨游戏玩家真正不愿离开的，是已经投入的时间、等级、货币与成长进度。</p>
+      <div class="barrier-equation"><div class="barrier-side"><b>原始阻力</b><p>离开山寨意味着过去投入全部作废；法律行动无法自动消除迁移成本。</p></div><div class="barrier-arrow">→</div><div class="barrier-side"><b>创意解法</b><p>Leave the fake games. Keep the gains. 把山寨沉没成本兑换成正版奖励资格。</p></div></div>
+      <div class="m-sec">传播与产品闭环</div><div class="clash-funnel"><span>Hero Film<br>建立议题</span><span>山寨社区<br>精准定向</span><span>Microsite<br>提交进度</span><span>Supercell ID<br>领取奖励</span><span>正版游戏<br>激活与留存</span></div>
+      <div class="case-grid-2"><div class="case-box"><span class="case-chip">PLAYER FLOW</span><strong>不是领券，而是“带着过去回来”</strong><p>下载《皇室战争》并绑定 Supercell ID → 在页面申报游戏时长、每日战斗、等级或货币 → 系统匹配奖励 → 回到正版继续成长。</p></div><div class="case-box"><span class="case-chip">BEHAVIOURAL DESIGN</span><strong>承认投入，降低心理损失</strong><p>奖励不仅是经济激励，也向玩家传达：过去花掉的时间被看见，因此回归不再等于从零开始。</p></div></div>
+      <div class="m-sec">案例结果</div><div class="m-stats"><div class="m-stat-box"><div class="m-stat-n">2.3M</div><div class="m-stat-l">约 3–5 天进度兑换</div></div><div class="m-stat-box"><div class="m-stat-n">1.65M</div><div class="m-stat-l">新增账号</div></div><div class="m-stat-box"><div class="m-stat-n">5.4M</div><div class="m-stat-l">流失用户回归</div></div><div class="m-stat-box"><div class="m-stat-n">GP</div><div class="m-stat-l">Entertainment Lions for Gaming</div></div></div>
+      <div class="m-sec">我的营销结论</div><div class="learning-note">召回不能只回答“回来能拿什么”，还必须回答“为什么之前不回来”以及“怎样补偿错过或浪费的进度”。最强的福利设计，往往先解决玩家的心理账本。</div>
+    </div>
+  </div>
+</div>
+
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ── Language Data ── */
 const T={
   zh:{
-    'nl-home':'主页','nl-about':'关于','nl-portfolio':'作品集','nl-contact':'联系',
-    'h-pill':'海外游戏营销 · 市场营销科学',
-    'h-sub':'UCL管理学院市场营销科学硕士在读，专注于海外游戏营销与发行。曾参与网易互娱《七日世界》全球传播，实现1.4B+媒体曝光量。',
+    'nl-home':'主页','nl-about':'关于','nl-portfolio':'作品集','nl-work':'实战作品','nl-contact':'联系',
+    'h-pill':'海外游戏营销 · AI 驱动洞察',
+    'h-sub':'UCL 管理学院市场营销科学硕士在读，现于网易雷火负责《逆水寒》海外市场营销。经历覆盖 KOL、PR、H5 增长与社区运营，也独立开发 AI 工具，把玩家洞察转化为更快、更能落地的营销动作。',
     'h-btn1':'查看作品集','h-btn2':'联系我','h-scroll':'向下滚动',
-    'h-stat2-n':'300W+','h-stat2-l':'视频播放量',
+    'h-stat2-n':'297%','h-stat2-l':'直播目标达成率',
     'per-label':'认识我','per-title':'点击了解我的核心特质',
     'kw-entj':'MBTI · ENTJ','kw-multi':'多文化背景','kw-stress':'抗压能力强','kw-voice':'Power of Voice','kw-extro':'外向开朗',
     'tl-label':'经历','tl-title':'教育 &amp; 实习',
-    't0-badge':'实习','t0-period':'2026 – 至今','t0-org':'网易雷火 · 杭州','t0-role':'《逆水寒》海外发行组',
-    't0-desc':'面向海外市场，尤其港澳台相关区域，参与版本内容、宣发节奏、KOL 沟通与本地化传播相关工作。',
-    't0-tag1':'港澳台','t0-tag2':'本地化','t0-tag3':'宣发节奏','t0-hint':'✦ 点击查看详情',
-    'ml2-org':'网易雷火 · 杭州','ml2-pr':'2026 – 至今 · <span>《逆水寒》海外发行组</span>',
-    'ml2-li1':'<strong>市场聚焦：</strong>主要面向海外市场，尤其港澳台相关区域，结合区域玩家偏好制定本地化发行策略。',
-    'ml2-li2':'<strong>版本内容：</strong>参与版本内容规划与宣发节奏排布，对齐研运与海外发行的传播时间线。',
-    'ml2-li3':'<strong>KOL 与传播：</strong>参与 KOL 沟通与本地化传播相关工作，推动内容在港澳台社媒与社区的落地。',
+    't0-badge':'实习','t0-period':'05/2026 – 至今','t0-org':'网易雷火 · 杭州','t0-role':'《逆水寒》海外市场营销实习生',
+    't0-desc':'负责港澳台与东南亚 KOL、PR / Media Buy、H5 用户召回及 Discord 社交增长。版本直播目标达成率 297%，H5 首日 UV 达基线 3.5×。',
+    't0-tag1':'HMT & SEA','t0-tag2':'PR / Media Buy','t0-tag3':'H5 增长','t0-hint':'✦ 点击查看详情',
+    'ml2-org':'网易雷火 · 杭州','ml2-pr':'05/2026 – 至今 · <span>《逆水寒》海外市场营销实习生</span>',
+    'ml2-li1':'<strong>KOL 与直播：</strong>负责港澳台及东南亚 KOL 策略，协作 50+ 位 KOL、产出 80+ 条内容；SEA v1.3.1 直播目标达成率 297%，较上期提升 364%。',
+    'ml2-li2':'<strong>PR 与广告投放：</strong>推进 20+ 广告位上线，累计获得 1.23M+ 曝光与 4,600+ 点击，CPM 约 2.7 美元。',
+    'ml2-li3':'<strong>增长与社区：</strong>“幸运星期四”H5 首日 UV 达基线 3.5×，沉默用户召回提升 40%；Discord 恋爱匹配 Bot 首日频道访问 4,000、参与 1,000+、完成 300+ 组配对。',
     't1-badge':'实习','t1-org':'网易互娱 · 杭州','t1-role':'产品营销 — 海外公关传播实习生',
     't1-desc':'参与《七日世界》手游公测整合营销，带动社媒 IMP 100M+，转化欧美玩家 114.5K。年度 2.0 版本 PR 稿实现全球媒体曝光 627 条，阅读量达 1.4B，综合传播评级 A 级。',
     't1-tag1':'整合营销','t1-hint':'✦ 点击查看详情',
@@ -1627,7 +1916,7 @@ const T={
     't6-badge':'教育','t6-org':'立命馆亚洲太平洋大学（APU）','t6-role':'市场营销 · 学士（GPA 3.85/4，全系前 3%）',
     't6-desc':'荣誉毕业，获 30% 学费减免奖学金。Beta Gamma Sigma 国际荣誉商学会成员。','t6-tag':'荣誉毕业','t6-hint':'✦ 点击查看详情',
     'ab-label':'关于我','ab-title':'朱天纯其人',
-    'ab-bio':'我是一名<strong>游戏营销人</strong>，UCL 市场营销科学硕士在读，专注于<strong>海外游戏营销与发行</strong>。我相信好的营销不只是曝光，而是真正理解用户并用创意打动他们。<br><br>曾参与网易互娱《七日世界》全球传播，积累了从 PR 策略、媒体合作到用户洞察的完整经验链路；同时具备 Python、R、SQL 等数据分析能力，擅长将数据洞察转化为可落地的营销决策。',
+    'ab-bio':'我是一名<strong>游戏营销人</strong>，UCL 市场营销科学硕士在读，目前在网易雷火参与《逆水寒》海外市场营销。我的工作横跨<strong>玩家洞察、整合传播、KOL、PR、H5 增长与社区运营</strong>。<br><br>我也会把重复、耗时的调研流程产品化：用 AI 工具处理视频、评论与媒体资讯，让洞察更快进入策略和创意，而不是停在报告里。',
     's1-t':'整合营销传播','s1-d':'策略制定到落地执行，覆盖多平台全链路传播矩阵',
     's2-t':'游戏行业洞察','s2-d':'深度理解欧美游戏市场、玩家社区与竞品生态',
     's3-t':'数据驱动决策','s3-d':'运用 Python、R、SQL 进行市场分析与用户洞察',
@@ -1670,7 +1959,7 @@ const T={
     's1-name':'YouTube Insight','s1-badge':'在研','s1-desc':'把「搜视频、看回放、翻评论、写总结」的半天工作压缩成 3 分钟自动化流程——提一个问题即生成深度竞品分析报告。底层用到自然语言理解、长文本总结、情感分析（embedding / tf-idf）与 AI 智能调度。','s1-tag3':'情感分析','s1-tag4':'AI 调度','s1-btn':'访问应用',
     's2-name':'GameVid Insight','s2-badge':'在研','s2-desc':'在 YouTube Insight 基础上加入视频画面分析：用 Claude API 解析 YouTube / TikTok 长短视频的画面内容、关键信息与传播亮点，并聚合全球游戏媒体资讯生成每日行业日报。','s2-tag2':'视频画面分析','s2-tag3':'行业日报','s2-btn':'访问应用',
     'f1-name':'朱天纯 — 简历（中文版）','f1-btn':'下载','f2-btn':'下载',
-    'ct-label':'保持联系','ct-title':'联系我 ✦','ct-sub':'如果你对我的经历感兴趣，或有合适的机会，欢迎随时联系！',
+    'ct-label':'保持联系','ct-title':'一起聊聊游戏、创意与增长','ct-sub':'如果你对我的经历、项目或实战作品感兴趣，欢迎通过以下方式联系我。',
     'ct1-l':'电子邮件','ct3-v':'查看主页','ct4-l':'小红书','ct4-v':'查看主页',
     'footer-text':'© 2025 朱天纯 · Tianchun Zhu · Made with ✦ & ☕','wc-copy':'已复制！',
     'tc-entj-title':'指挥官 ENTJ ⚡','tc-entj-desc':'我具备典型的 ENTJ 人格特征，习惯于以结果为导向。在面对复杂局势时，我能够迅速理清逻辑权重，做出决定并推动项目落地。比起停留于方案的构思，我更倾向于通过高效的执行力将构想转化为实际成果。',
@@ -1682,8 +1971,8 @@ const T={
     'cyt-cat':'Web App · 独立项目','cyt-name':'YouTube Insights',
     'cyt-desc':'AI 驱动的竞品视频分析工具，自然语言输入，5 分钟生成结构化竞品分析报告，替代 3–5 小时人工流程。',
     'cyt-view':'查看详情','cyt-link':'访问应用',
-    'yt-org':'YouTube Insights — AI 竞品视频分析工具','yt-role':'Web App · 个人项目',
-    'yt-body':'<div class="m-sec">产品背景</div><p>源于游戏公司市场部实习期间的真实痛点：竞品 PV 分析需要逐一打开十几个 YouTube 链接、人工阅读数百条评论，一次完整分析耗时 <strong>3–5 小时</strong>。YouTube Insights 将这一流程压缩至 <strong>5 分钟内</strong>自动完成。</p><div class="m-sec">核心数据</div><div class="m-stats"><div class="m-stat-box"><div class="m-stat-n">5min</div><div class="m-stat-l">完成一次分析</div></div><div class="m-stat-box"><div class="m-stat-n">80%+</div><div class="m-stat-l">人工时间节省</div></div><div class="m-stat-box"><div class="m-stat-n">6</div><div class="m-stat-l">核心功能模块</div></div><div class="m-stat-box"><div class="m-stat-n">AI</div><div class="m-stat-l">Claude API 驱动</div></div></div><div class="m-sec">核心功能</div><div class="m-layers"><div class="m-layer"><div class="m-layer-num">①</div><div class="m-layer-body"><div class="m-layer-title">自然语言搜索分析</div><div class="m-layer-desc">用中文描述分析需求，AI 自动拆解意图、生成搜索词、筛选最相关 Top N 视频，无需手动搜索</div></div></div><div class="m-layer"><div class="m-layer-num">②</div><div class="m-layer-body"><div class="m-layer-title">多维数据抓取</div><div class="m-layer-desc">元数据 + 字幕全文（英/中/日/韩）+ Top 100 热门评论，一键全量获取；搜索缓存 24h，视频数据缓存 7 天</div></div></div><div class="m-layer"><div class="m-layer-num">③</div><div class="m-layer-body"><div class="m-layer-title">AI 结构化分析报告</div><div class="m-layer-desc">Claude AI 基于真实数据生成：数据总览 · 内容定位 · 用户情绪分布 · 高频讨论主题 Top 5 · 可借鉴策略与风险点</div></div></div><div class="m-layer"><div class="m-layer-num">④</div><div class="m-layer-body"><div class="m-layer-title">三标签页展示 + 历史记录</div><div class="m-layer-desc">分析报告 / 字幕原文 / 评论摘录三标签页；左侧边栏自动保存历史，支持快速回溯与删除</div></div></div><div class="m-layer"><div class="m-layer-num">⑤</div><div class="m-layer-body"><div class="m-layer-title">实时进度反馈</div><div class="m-layer-desc">SSE 流式传输，逐步展示：理解问题 → 搜索视频 → 获取数据 → 生成报告，全程透明可见</div></div></div></div><div class="m-sec">技术栈</div><div class="m-kol-grid"><div class="m-kol-card"><div class="m-kol-type">前端</div><div class="m-kol-desc">原生 HTML + CSS + JS，轻量无框架，SSE 实时进度流 + Markdown 渲染</div></div><div class="m-kol-card"><div class="m-kol-type">后端</div><div class="m-kol-desc">FastAPI (Python)，异步支持，Tool Use 循环驱动 Claude Agent</div></div><div class="m-kol-card"><div class="m-kol-type">AI & 数据</div><div class="m-kol-desc">Claude API · YouTube Data API v3 · youtube-transcript-api · Railway 部署</div></div></div><div class="m-verdict"><div class="m-verdict-box m-verdict-win"><div class="m-verdict-title">✅ 已实现</div><div class="m-verdict-item">✦ 自然语言 → 结构化报告全链路</div><div class="m-verdict-item">✦ SSE 实时进度反馈</div><div class="m-verdict-item">✦ 7 天数据缓存，减少 API 消耗</div><div class="m-verdict-item">✦ Railway 云端部署，99%+ 可用性</div></div><div class="m-verdict-box m-verdict-lose"><div class="m-verdict-title">⚡ 迭代方向</div><div class="m-verdict-item">✦ 接入数据库，历史记录持久化</div><div class="m-verdict-item">✦ 支持直接粘贴 YouTube 链接分析</div><div class="m-verdict-item">✦ 增加 B 站数据源</div><div class="m-verdict-item">✦ 报告导出为 PDF / Markdown</div></div></div><div style="display:flex;gap:10px;margin-top:20px;padding-bottom:8px"><a href="https://web-production-2cc29.up.railway.app/" target="_blank" class="btn-sm btn-sm-dark" style="text-decoration:none;flex:1;text-align:center;padding:10px 0">访问应用 ↗</a><a href="https://docs.qq.com/aio/DWnZpS29TQ1dRbWJL?no_promotion=1&amp;nlc=1&amp;p=IlMiDJ1IiCyuvPXDpq53Ud" target="_blank" class="btn-sm btn-sm-ghost" style="text-decoration:none;flex:1;text-align:center;padding:10px 0">查看 PRD ↗</a></div>',
+    'yt-org':'AI 游戏竞品分析助手','yt-role':'YouTube Insight × GameVid Insight · 独立开发',
+    'yt-body':'<div class="m-sec">产品起点</div><p>源于实习期竞品调研的真实痛点：视频、字幕、评论与媒体资讯分散，一次完整研究往往需要数小时。我独立开发 YouTube Insight 与 GameVid Insight，把信息获取、理解与结构化输出串成分钟级工作流。</p><div class="m-sec">双产品能力</div><div class="m-layers"><div class="m-layer"><div class="m-layer-num">01</div><div class="m-layer-body"><div class="m-layer-title">YouTube Insight · 玩家声音</div><div class="m-layer-desc">整合视频元数据、全文字幕与热门评论，利用 NLP 和情感分析提炼内容卖点、玩家反馈、讨论主题与风险点。</div></div></div><div class="m-layer"><div class="m-layer-num">02</div><div class="m-layer-body"><div class="m-layer-title">GameVid Insight · 画面与行业信息</div><div class="m-layer-desc">加入多模态视频理解，解析 YouTube / TikTok 的画面内容与传播亮点，并聚合全球游戏媒体资讯。</div></div></div><div class="m-layer"><div class="m-layer-num">03</div><div class="m-layer-body"><div class="m-layer-title">Research Ops · 从提问到报告</div><div class="m-layer-desc">以自然语言描述研究目标，系统自动搜索、抓取、分析并生成结构化洞察，支持快速回溯与迭代。</div></div></div></div><div class="m-sec">价值</div><div class="m-stats"><div class="m-stat-box"><div class="m-stat-n">分钟级</div><div class="m-stat-l">替代数小时人工流程</div></div><div class="m-stat-box"><div class="m-stat-n">4 类</div><div class="m-stat-l">视频 / 字幕 / 评论 / 媒体</div></div><div class="m-stat-box"><div class="m-stat-n">NLP</div><div class="m-stat-l">主题与情感提炼</div></div><div class="m-stat-box"><div class="m-stat-n">Vision</div><div class="m-stat-l">多模态视频理解</div></div></div><div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;padding-bottom:8px"><a href="https://web-production-2cc29.up.railway.app/" target="_blank" class="btn-sm btn-sm-dark" style="text-decoration:none">访问 YouTube Insight ↗</a><a href="https://gamevid-insight-production.up.railway.app/" target="_blank" class="btn-sm btn-sm-dark" style="text-decoration:none">访问 GameVid Insight ↗</a></div>',
   },
   en:{
     'nl-home':'Home','nl-about':'About','nl-portfolio':'Portfolio','nl-contact':'Contact',
@@ -1805,6 +2094,11 @@ function go(page){
   setTimeout(()=>{observe();animateBars();},80);
 }
 
+function goToContact(){
+  go('about');
+  setTimeout(()=>document.getElementById('about-contact')?.scrollIntoView({behavior:'smooth',block:'start'}),180);
+}
+
 /* ── Canvas Ripple System ── */
 const canvas=document.getElementById('ripple-canvas');
 const ctx=canvas.getContext('2d');
@@ -1899,10 +2193,51 @@ function filterPort(cat,el){
   el.classList.add('active');
   const cards=document.querySelectorAll('#port-grid .port-card');
   let count=0;
-  cards.forEach(card=>{const show=cat==='all'||card.dataset.cat.split(' ').includes(cat);card.classList.toggle('hidden',!show);if(show)count++;});
-  const m={zh:{all:'作品集',school:'学校项目 & 作业',internship:'实习内容',analysis:'营销拆解',webapp:'Web App',minicase:'Mini Case'},en:{all:'Portfolio',school:'Academic Projects',internship:'Internship Work',analysis:'Marketing Analysis',webapp:'Web App',minicase:'Mini Case'}};
+  cards.forEach((card,index)=>{
+    const show=cat==='all'||card.dataset.cat.split(' ').includes(cat);
+    card.classList.toggle('hidden',!show);
+    card.classList.remove('filter-enter');
+    if(show){
+      count++;
+      card.style.animationDelay=(count-1)*45+'ms';
+      requestAnimationFrame(()=>card.classList.add('filter-enter'));
+    }
+  });
+  const m={zh:{all:'全部作品',campaign:'营销策划',research:'市场研究与洞察',ai:'AI 产品与互动工具',data:'数据与商业分析'},en:{all:'Portfolio',campaign:'Campaign',research:'Research & Insight',ai:'AI Products & Interactive Tools',data:'Data & Business Analysis'}};
   document.getElementById('po-title').textContent=m[lang][cat];
   document.getElementById('port-showing').textContent='('+count+')';
+}
+
+function activateAdv(card){
+  document.querySelectorAll('.adv-card').forEach(item=>{
+    const active=item===card;
+    item.classList.toggle('active',active);
+    item.setAttribute('aria-expanded',active?'true':'false');
+  });
+}
+
+document.querySelectorAll('.adv-card').forEach(card=>card.addEventListener('keydown',event=>{
+  if(event.key==='Enter'||event.key===' '){event.preventDefault();activateAdv(card);}
+}));
+
+function showGames(group,btn){
+  document.querySelectorAll('.game-tab').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.game-panel').forEach(x=>x.classList.toggle('active',x.dataset.games===group));
+  btn.classList.add('active');
+}
+
+function toggleWork(btn){
+  const module=btn.closest('.work-module');
+  module.classList.toggle('open');
+  const state=module.querySelector('.work-state');
+  if(state)state.textContent=module.classList.contains('open')?'收起 −':'查看素材 +';
+}
+
+function slideAssets(btn,direction){
+  const track=btn.closest('.asset-carousel').querySelector('.asset-track');
+  const card=track.querySelector('.asset-card');
+  const distance=card?card.getBoundingClientRect().width+12:320;
+  track.scrollBy({left:distance*direction,behavior:'smooth'});
 }
 
 /* ── WeChat ── */
@@ -1913,16 +2248,6 @@ function copyWechat(){
     setTimeout(()=>el.textContent='18058164493',2200);
   });
 }
-
-/* ── Cursor ── */
-const cur=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
-(function animRing(){rx+=(mx-rx)*.22;ry+=(my-ry)*.22;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)})();
-document.querySelectorAll('a,button,.tl-card,.c-card,.port-card,.s-card').forEach(el=>{
-  el.addEventListener('mouseenter',()=>document.body.classList.add('cursor-grow'));
-  el.addEventListener('mouseleave',()=>document.body.classList.remove('cursor-grow'));
-});
 
 /* ── Magnetic Buttons ── */
 document.querySelectorAll('.magnet').forEach(btn=>{
@@ -1972,6 +2297,8 @@ document.querySelectorAll('.port-card,.tl-card').forEach(card=>{
     const r=card.getBoundingClientRect();
     const x=(e.clientX-r.left)/r.width-.5;
     const y=(e.clientY-r.top)/r.height-.5;
+    card.style.setProperty('--mx',((x+.5)*100)+'%');
+    card.style.setProperty('--my',((y+.5)*100)+'%');
     card.style.transform=`perspective(700px) rotateY(${x*9}deg) rotateX(${-y*9}deg) translateY(-4px)`;
     card.style.boxShadow=`${-x*12+6}px ${-y*12+6}px 24px rgba(154,191,201,.35)`;
   });
@@ -1980,7 +2307,7 @@ document.querySelectorAll('.port-card,.tl-card').forEach(card=>{
 
 /* ── Swipe Navigation (mobile) ── */
 let swipeX=0,swipeY=0;
-const pageOrder=['home','about','portfolio','vault','contact'];
+const pageOrder=['home','portfolio','work','about'];
 document.addEventListener('touchstart',e=>{swipeX=e.touches[0].clientX;swipeY=e.touches[0].clientY;},{passive:true});
 document.addEventListener('touchend',e=>{
   const dx=e.changedTouches[0].clientX-swipeX;
@@ -2008,12 +2335,12 @@ animateBars();
 /* ════════ ENHANCEMENT JS · Editorial Kinetic ════════ */
 /* New i18n strings (merged without touching the big dict) */
 Object.assign(T.zh,{
-  'im-label':'战绩 · By the Numbers','im-title':'用数据说话',
-  'im1-tag':'Once Human 2.0 · PR','im1-l':'年度版本 PR 稿全球媒体阅读量，综合传播评级 A 级',
-  'im2-l':'Discord 社区从 0 搭建<br>用户增长',
-  'im3-l':'网易互娱 · 综合传播评级<br><strong style="color:var(--ink)">最高 A 级</strong>',
-  'im4-tag':'Social IMP','im4-l':'移动公测社媒总曝光量',
-  'im5-tag':'Media','im5-l':'全球权威媒体刊例 · IGN/PC Gamer 等',
+  'im-label':'PROFILE SYSTEM · 06','im-title':'我的核心优势',
+  'im1-tag':'Creator Marketing','im1-l':'87 位创作者、120+ 视频与直播内容的累计播放',
+  'im2-l':'SEA v1.3.1 版本直播<br>目标达成率',
+  'im3-l':'用户召回活动 · 首日 UV<br><strong style="color:var(--ink)">达到基线 3.5×</strong>',
+  'im4-tag':'Media Buy','im4-l':'20+ 广告位带来的累计曝光',
+  'im5-tag':'Discord Social','im5-l':'恋爱匹配 Bot 首日完成配对',
   'im6-tag':'Conversion','im6-l':'欧美玩家精准转化',
   'im-logos-l':'协作 · 媒体'
 });
@@ -2086,20 +2413,6 @@ document.querySelectorAll('.imp-card,.impact-logos,.impact-head').forEach(el=>vO
   window.addEventListener('scroll',upd,{passive:true});
   window.addEventListener('resize',upd);
   upd();
-})();
-
-/* Cursor VIEW label */
-(function(){
-  const label=document.getElementById('cursor-label');
-  if(!label)return;
-  document.addEventListener('mousemove',e=>{label.style.left=e.clientX+'px';label.style.top=(e.clientY)+'px';},{passive:true});
-  function bind(sel,zh,en){
-    document.querySelectorAll(sel).forEach(el=>{
-      el.addEventListener('mouseenter',()=>{document.body.classList.add('cursor-view');label.textContent=lang==='en'?en:zh;});
-      el.addEventListener('mouseleave',()=>document.body.classList.remove('cursor-view'));
-    });
-  }
-  bind('.tl-card','查看详情 →','DETAILS →');
 })();
 
 /* Inject hover CTA chips on portfolio cards — removed to preserve original portfolio */
