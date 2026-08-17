@@ -623,7 +623,7 @@ nav{border-bottom:1px solid rgba(42,31,18,.12);backdrop-filter:blur(18px);backgr
 .work-copy{display:grid;gap:7px}
 .work-copy small{font-size:12px;color:var(--sub);line-height:1.5}
 .work-detail{max-height:0;overflow:hidden;transition:max-height .45s ease;padding:0 18px;color:var(--sub);font-size:13px;line-height:1.8;border-top:0 solid rgba(42,31,18,.12)}
-.work-module.open .work-detail{max-height:520px;padding:18px;border-top-width:1px}
+.work-module.open .work-detail{max-height:780px;padding:18px;border-top-width:1px}
 .work-module.open .work-state{color:var(--accent)}
 .asset-carousel{position:relative}
 .asset-viewport{overflow:hidden}
@@ -639,6 +639,29 @@ nav{border-bottom:1px solid rgba(42,31,18,.12);backdrop-filter:blur(18px);backgr
 .asset-nav{display:flex;justify-content:flex-end;gap:8px;margin-top:12px}
 .asset-nav button{width:38px;height:34px;border:1px solid rgba(42,31,18,.25);background:var(--cream);font-size:18px;color:var(--ink);cursor:pointer!important}
 .asset-nav button:hover{background:var(--ink);color:#fff}
+.wheel-carousel{max-width:980px;margin:0 auto}
+.wheel-carousel .asset-viewport{position:relative;height:clamp(300px,45vw,510px);overflow:hidden;background:linear-gradient(180deg,rgba(154,191,201,.1),rgba(232,180,168,.08));border:1px solid rgba(42,31,18,.14);isolation:isolate}
+.wheel-carousel .asset-track{display:block;position:absolute;inset:0;overflow:visible;padding:0}
+.wheel-carousel .asset-card{position:absolute;left:14%;top:50%;width:72%;display:block;flex:none;border:1px solid rgba(42,31,18,.18);background:#fff;color:var(--ink);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-50%) scale(.72);transition:transform .48s cubic-bezier(.2,.8,.2,1),opacity .35s,filter .35s;box-shadow:0 14px 34px rgba(42,31,18,.14)}
+.wheel-carousel .asset-card[data-slot="-1"],.wheel-carousel .asset-card[data-slot="1"]{opacity:.55;visibility:visible;filter:saturate(.68);z-index:1}
+.wheel-carousel .asset-card[data-slot="-1"]{transform:translate(-88%,-50%) scale(.82)}
+.wheel-carousel .asset-card[data-slot="1"]{transform:translate(88%,-50%) scale(.82)}
+.wheel-carousel .asset-card[data-slot="0"]{opacity:1;visibility:visible;pointer-events:auto;transform:translate(0,-50%) scale(1);filter:none;z-index:3}
+.wheel-carousel .asset-card:hover{box-shadow:0 18px 40px rgba(42,31,18,.18)}
+.wheel-carousel .asset-card img{width:100%;aspect-ratio:16/9;object-fit:contain;background:#15171d;display:block;transition:filter .35s;filter:saturate(.92)}
+.wheel-carousel .asset-card[data-slot="0"]:hover img{filter:saturate(1.06)}
+.video-carousel .asset-card iframe{display:block;width:100%;aspect-ratio:16/9;border:0;background:#15171d}
+.video-carousel .asset-card[data-slot="0"]{box-shadow:0 20px 46px rgba(42,31,18,.2)}
+.wheel-carousel .asset-card::after{content:attr(data-index);position:absolute;top:10px;right:10px;background:rgba(250,248,240,.92);border:1px solid rgba(42,31,18,.2);padding:6px 8px;font:800 9px/1 var(--font-display);letter-spacing:1px;color:var(--ink)}
+.wheel-carousel .asset-card-body{display:grid;grid-template-columns:1fr auto;align-items:end;gap:18px;padding:13px 15px 15px}
+.wheel-carousel .asset-card strong{font-size:15px;line-height:1.35;margin:0}
+.wheel-carousel .asset-card span{white-space:nowrap;text-align:right}
+.wheel-arrow{position:absolute;top:50%;z-index:6;width:44px;height:44px;border-radius:50%;border:1px solid rgba(42,31,18,.28);background:rgba(250,248,240,.94);color:var(--ink);font-size:22px;line-height:1;box-shadow:0 6px 18px rgba(42,31,18,.15);transform:translateY(-50%);cursor:pointer!important;transition:background .2s,color .2s,transform .2s}
+.wheel-arrow:hover{background:var(--ink);color:#fff;transform:translateY(-50%) scale(1.06)}
+.wheel-prev{left:10px}.wheel-next{right:10px}
+.wheel-status{display:flex;align-items:center;justify-content:space-between;margin-top:12px;font:800 9px/1 var(--font-display);letter-spacing:1.3px;color:var(--sub)}
+.wheel-dots{display:flex;gap:4px}.wheel-dots i{display:block;width:14px;height:3px;background:rgba(42,31,18,.16);transition:width .3s,background .3s}.wheel-dots i.active{width:28px;background:var(--accent)}.wheel-dots.many{gap:3px}.wheel-dots.many i{width:5px}.wheel-dots.many i.active{width:18px}
+@media(max-width:600px){.wheel-carousel .asset-viewport{height:clamp(260px,78vw,390px)}.wheel-carousel .asset-card{left:8%;width:84%}.wheel-carousel .asset-card[data-slot="-1"]{transform:translate(-94%,-50%) scale(.82)}.wheel-carousel .asset-card[data-slot="1"]{transform:translate(94%,-50%) scale(.82)}.wheel-carousel .asset-card-body{grid-template-columns:1fr;gap:4px;padding:10px 12px 12px}.wheel-carousel .asset-card span{text-align:left;white-space:normal}.wheel-arrow{width:38px;height:38px}.wheel-status>span:first-child{max-width:170px;line-height:1.35}}
 .contact-in-about{margin-top:76px;padding-top:54px;border-top:1px solid rgba(42,31,18,.15);position:relative}
 .contact-in-about .contact-wrap{max-width:none}
 .case-hero{padding:26px;background:linear-gradient(135deg,var(--ink),#35505b);color:#fff}
@@ -742,7 +765,7 @@ nav{border-bottom:1px solid rgba(42,31,18,.12);backdrop-filter:blur(18px);backgr
     <div class="hero-text">
       <div class="hero-pill"><span class="pulse-dot"></span><span id="h-pill">海外游戏营销 · AI 驱动洞察</span></div>
       <h1 id="h-name">朱天纯<em>TIANCHUN ZHU</em></h1>
-      <p class="hero-sub" id="h-sub">UCL 管理学院市场营销科学硕士在读，现于网易雷火负责《逆水寒》海外市场营销。经历覆盖 KOL、PR、H5 增长与社区运营，也独立开发 AI 工具，把玩家洞察转化为更快、更能落地的营销动作。</p>
+      <p class="hero-sub" id="h-sub">已毕业于 UCL 管理学院市场营销科学硕士项目，现任网易雷火《逆水寒》海外市场营销实习生。经历覆盖 KOL、PR、H5 增长与社区运营，也独立开发 AI 工具，将玩家洞察转化为更高效、更可落地的营销策略与执行。</p>
       <div class="hero-btns">
         <button class="btn btn-dark magnet" id="h-btn1" onclick="go('portfolio')">查看作品集</button>
         <button class="btn btn-ghost magnet" id="h-btn2" onclick="goToContact()">联系我</button>
@@ -1004,7 +1027,7 @@ nav{border-bottom:1px solid rgba(42,31,18,.12);backdrop-filter:blur(18px);backgr
     </div>
     <div class="about-grid">
       <div>
-        <p class="about-bio fi" id="ab-bio">我是一名<strong>游戏营销人</strong>，UCL 市场营销科学硕士在读，目前在网易雷火参与《逆水寒》海外市场营销。我的工作横跨<strong>玩家洞察、整合传播、KOL、PR、H5 增长与社区运营</strong>。<br><br>我也会把重复、耗时的调研流程产品化：用 AI 工具处理视频、评论与媒体资讯，让洞察更快进入策略和创意，而不是停在报告里。</p>
+        <p class="about-bio fi" id="ab-bio">我是一名<strong>游戏营销人</strong>，已毕业于 UCL 管理学院市场营销科学硕士项目，目前担任网易雷火《逆水寒》海外市场营销实习生。我的工作聚焦港澳台与东南亚市场，覆盖<strong>玩家洞察、KOL、PR / Media Buy、H5 增长与社区运营</strong>。<br><br>我也持续通过 AI Coding 将重复、耗时的调研流程产品化：整合视频、评论与媒体资讯，让玩家洞察更快进入营销策略、创意与实际执行。</p>
         <div class="strength-grid">
           <div class="s-card fi d1"><div class="s-icon">01</div><div class="s-title" id="s1-t">整合营销传播</div><p class="s-desc" id="s1-d">策略制定到落地执行，覆盖多平台全链路传播矩阵</p></div>
           <div class="s-card fi d2"><div class="s-icon">02</div><div class="s-title" id="s2-t">游戏行业洞察</div><p class="s-desc" id="s2-d">深度理解欧美游戏市场、玩家社区与竞品生态</p></div>
@@ -1130,7 +1153,7 @@ nav{border-bottom:1px solid rgba(42,31,18,.12);backdrop-filter:blur(18px);backgr
         </article>
         <article class="port-card" data-cat="campaign" onclick="openModal('m-arkjojo')">
           <div class="card-img"><span class="card-num">02</span><span class="project-code">COURSE / CONCEPT</span><img src="作品集pic/jojo crossover.png" alt="明日方舟与 JOJO 联动营销方案" style="width:100%;height:100%;object-fit:cover;object-position:center"></div>
-          <div class="card-body"><div class="card-cat">营销策划 · 非官方课程方案</div><div class="card-name">《明日方舟》× JOJO 联动整合营销方案</div><p class="card-desc">围绕“黄金意志，抵达泰拉”完成 IP 契合、联动内容、角色机制、预热 PV、KOL / KOC、线下挑战与上线后运营的完整策划。</p><div class="card-capabilities"><span>IP COLLAB</span><span>CAMPAIGN</span><span>LAUNCH PLAN</span></div><div class="card-btns"><button class="btn-sm btn-sm-dark" onclick="openModal('m-arkjojo');event.stopPropagation()">查看完整方案</button></div></div>
+          <div class="card-body"><div class="card-cat">营销策划 · 非官方课程方案</div><div class="card-name">《明日方舟》× JOJO 联动整合营销方案</div><p class="card-desc">围绕“黄金意志，抵达泰拉”完成 IP 契合、联动内容、角色机制、预热 PV、KOL / KOC、线下挑战与上线后运营的完整策划。</p><div class="card-capabilities"><span>IP COLLAB</span><span>CAMPAIGN</span><span>LAUNCH PLAN</span></div><div class="card-btns"><button class="btn-sm btn-sm-dark" onclick="openModal('m-arkjojo');event.stopPropagation()">查看方案</button><a class="btn-sm btn-sm-ghost" href="https://1drv.ms/b/c/bad556a6b4985de8/IQDAnOa_xh8CSIWC6sYk3zX_AZzDPIgZvAnvOPnmRsmWg4o?e=6jh6DP" target="_blank" rel="noopener" onclick="event.stopPropagation()">完整文件</a></div></div>
         </article>
         <article class="port-card" data-cat="ai" onclick="openModal('m-jojo-h5')">
           <div class="card-img"><span class="card-num">03</span><span class="project-code">LIVE H5 / AI</span><img src="作品集pic/jojo h5.png" alt="JOJO 动作识别互动 H5" style="width:100%;height:100%;object-fit:cover;object-position:center"></div>
@@ -1142,7 +1165,7 @@ nav{border-bottom:1px solid rgba(42,31,18,.12);backdrop-filter:blur(18px);backgr
         </article>
         <article class="port-card" data-cat="research" onclick="openModal('m-clash')">
           <div class="card-img"><span class="card-num">05</span><span class="project-code">CASE STUDY</span><img src="作品集pic/clash royale.png" alt="皇室战争 Copycats Welcome 营销案例" style="width:100%;height:100%;object-fit:cover;object-position:center"></div>
-          <div class="card-body"><div class="card-cat">市场研究与洞察 · 案例拆解</div><div class="card-name">《皇室战争》Copycats Welcome</div><p class="card-desc">核心不是打击山寨，而是补偿玩家在山寨游戏里的沉没成本：把流失阻力改写为回归官方的奖励许可。</p><div class="card-capabilities"><span>PLAYER BARRIER</span><span>REACTIVATION</span><span>FUNNEL</span></div><div class="card-btns"><button class="btn-sm btn-sm-dark" onclick="openModal('m-clash');event.stopPropagation()">查看拆解</button></div></div>
+          <div class="card-body"><div class="card-cat">市场研究与洞察 · 案例拆解</div><div class="card-name">《皇室战争》Copycats Welcome</div><p class="card-desc">核心不是打击山寨，而是补偿玩家在山寨游戏里的沉没成本：把流失阻力改写为回归官方的奖励许可。</p><div class="card-capabilities"><span>PLAYER BARRIER</span><span>REACTIVATION</span><span>FUNNEL</span></div><div class="card-btns"><button class="btn-sm btn-sm-dark" onclick="openModal('m-clash');event.stopPropagation()">查看拆解</button><a class="btn-sm btn-sm-ghost" href="https://1drv.ms/b/c/bad556a6b4985de8/IQAXbEfRrBj7Q5y7ic5EkteZATZQdmb29JpwkVb6kt7gRnU?e=YtXnqK" target="_blank" rel="noopener" onclick="event.stopPropagation()">完整文件</a></div></div>
         </article>
         <article class="port-card" data-cat="research" onclick="openModal('m-oncehuman')">
           <div class="card-img" style="background:#203a43"><span class="card-num">06</span><span class="project-code">NETEASE</span><img src="oncehuman.png" style="width:100%;height:100%;object-fit:cover;object-position:center top"/></div>
@@ -1154,7 +1177,7 @@ nav{border-bottom:1px solid rgba(42,31,18,.12);backdrop-filter:blur(18px);backgr
         </article>
         <article class="port-card" data-cat="campaign" onclick="openModal('m-deltaforce')">
           <div class="card-img" style="background:#050707"><span class="card-num">08</span><span class="project-code">CAMPAIGN</span><img src="delta force.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 30%"/></div>
-          <div class="card-body"><div class="card-cat">营销策划 · Mini Case</div><div class="card-name">《三角洲行动》×《碟中谍》</div><p class="card-desc">围绕 ONE SQUAD. ONE MISSION. NO BACKUP. 构建 PLAY / CONNECT / AMPLIFY 三线闭环与六周传播节奏。</p><div class="card-capabilities"><span>IP COLLAB</span><span>CAMPAIGN ARCHITECTURE</span></div><div class="card-btns"><button class="btn-sm btn-sm-dark">查看企划</button><a class="btn-sm btn-sm-ghost" href="https://tianchunzhu.github.io/Delta-Force-Mission-Impossible/" target="_blank" onclick="event.stopPropagation()">访问网站</a></div></div>
+          <div class="card-body"><div class="card-cat">营销策划 · Mini Case</div><div class="card-name">《三角洲行动》×《碟中谍》</div><p class="card-desc">围绕 ONE SQUAD. ONE MISSION. NO BACKUP. 构建 PLAY / CONNECT / AMPLIFY 三线闭环与六周传播节奏。</p><div class="card-capabilities"><span>IP COLLAB</span><span>CAMPAIGN ARCHITECTURE</span></div><div class="card-btns"><button class="btn-sm btn-sm-dark">查看企划</button><a class="btn-sm btn-sm-ghost" href="https://tianchunzhu.github.io/Delta-Force-Mission-Impossible/" target="_blank" rel="noopener" onclick="event.stopPropagation()">访问网站</a></div></div>
         </article>
         <article class="port-card" data-cat="campaign" onclick="openModal('m-shakeshare')">
           <div class="card-img" style="background:#f5c842"><span class="card-num">09</span><span class="project-code">CUHK</span><img src="shake-share.png" style="width:100%;height:100%;object-fit:cover"/></div>
@@ -1174,9 +1197,9 @@ nav{border-bottom:1px solid rgba(42,31,18,.12);backdrop-filter:blur(18px);backgr
         </article>
       </div>
       <div class="files-sec">
-        <div class="files-head">简历文件</div>
-        <p class="files-sub">中文版可直接下载；英文入口暂时隐藏，但文件与翻译内容仍保留。</p>
-        <div class="file-list"><div class="file-row"><div class="file-left"><span class="file-icon">CV</span><div><div class="file-name">朱天纯 — 简历（中文版）</div><div class="file-meta">PDF · Resume</div></div></div><a class="btn-sm btn-sm-dark" href="https://1drv.ms/b/c/bad556a6b4985de8/IQDd5O_oOZiVRoZcCPEv4XitAbgHBakJ3Wpn-Wb3QRgMvcM?e=LdSQWA" target="_blank">下载</a></div></div>
+        <div class="files-head" id="f-title">简历文件</div>
+        <p class="files-sub" id="f-sub">中英文版简历可直接查看与下载。</p>
+        <div class="file-list"><div class="file-row"><div class="file-left"><span class="file-icon">CV</span><div><div class="file-name" id="f1-name">朱天纯 — 简历（中英文版）</div><div class="file-meta">PDF · Chinese &amp; English Resume</div></div></div><a class="btn-sm btn-sm-dark" id="f1-btn" href="https://1drv.ms/b/c/bad556a6b4985de8/IQD8lj-NR8RgRYAbgoQHfflqAeccRhGdjvgAvymzYmBib9Q?e=2RoJrf" target="_blank" rel="noopener">下载</a></div></div>
       </div>
     </main>
   </div>
@@ -1186,41 +1209,58 @@ nav{border-bottom:1px solid rgba(42,31,18,.12);backdrop-filter:blur(18px);backgr
   <section class="work-hero">
     <div class="work-lead">
       <div><span class="sec-label">PRACTICAL OUTPUTS / 实战作品</span><h2 class="sec-title">发布过、投放过、真正进入市场的内容</h2></div>
-      <p>这里将独立收录实习期间的新闻稿、KV、PV、Pitch Deck、KOL Brief、投放素材与用户活动。现阶段先建立清晰框架，待素材脱敏与授权确认后逐步补齐。</p>
+      <p>这里收录实习期间真正发布上线的新闻稿、KV 视觉、PV 视频与 H5 活动页面，集中呈现从内容包装到市场落地的完整实战输出。</p>
     </div>
   </section>
   <div class="work-grid">
     <article class="work-module">
-      <button onclick="toggleWork(this)"><span class="work-preview"><img src="oncehuman.png" alt="PR 新闻稿示意预览"><b>01</b></span><span class="work-copy"><span class="work-title">PR 与新闻稿</span><small>发布稿件、媒体报道与本地化传播内容</small></span><span class="work-state">查看素材 +</span></button>
-      <div class="work-detail"><div class="asset-carousel"><div class="asset-viewport"><div class="asset-track"><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="oncehuman.png" alt="新闻稿素材占位"><div class="asset-card-body"><strong>全球版本新闻稿</strong><span>封面与链接待补充</span></div></a><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="helldivers2.png" alt="媒体报道素材占位"><div class="asset-card-body"><strong>媒体报道合集</strong><span>截图与发布链接待补充</span></div></a><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="once-human.png" alt="本地化稿件素材占位"><div class="asset-card-body"><strong>本地化传播稿</strong><span>Drive 链接待补充</span></div></a></div></div><div class="asset-nav"><button onclick="slideAssets(this,-1)" aria-label="上一组素材">←</button><button onclick="slideAssets(this,1)" aria-label="下一组素材">→</button></div></div></div>
+      <button onclick="toggleWork(this)"><span class="work-preview"><img src="实战pic/soj 1.3.1.jpg" alt="《逆水寒》Season 1.3.1 新闻稿预览"><b>01</b></span><span class="work-copy"><span class="work-title">PR 与新闻稿</span><small>已发布的海外版本新闻稿与游戏媒体报道</small></span><span class="work-state">查看素材 +</span></button>
+      <div class="work-detail"><div class="asset-carousel wheel-carousel" data-index="0" tabindex="0" aria-label="PR 与新闻稿轮播"><div class="asset-viewport"><div class="asset-track"><a class="asset-card" data-index="01 / 05" href="https://www.enduins.com/news/sword-of-justice-season-1-3-1-available-now-new-pve-raids-summer-beachwear-and-massive-rewards-await" target="_blank" rel="noopener"><img src="实战pic/soj 1.3.1.jpg" alt="《逆水寒》Season 1.3.1 夏日版本新闻稿"><div class="asset-card-body"><strong>《逆水寒》SEA Season 1.3.1 夏日版本新闻稿</strong><span>Enduins · 2026.07</span></div></a><a class="asset-card" data-index="02 / 05" href="https://www.neteasegames.com/news/OnceHuman/20250425/36928_1230790.html" target="_blank" rel="noopener"><img src="实战pic/OH mobile.jpg" alt="《七日世界》手游全球上线新闻稿"><div class="asset-card-body"><strong>《七日世界》手游全球上线新闻稿</strong><span>NetEase Games · 2025.04</span></div></a><a class="asset-card" data-index="03 / 05" href="https://www.neteasegames.com/news/OnceHuman/20250703/36928_1244891.html" target="_blank" rel="noopener"><img src="实战pic/OH endless dream.jpg" alt="《七日世界》年度版本 2.0 Endless Dream 新闻稿"><div class="asset-card-body"><strong>《七日世界》年度版本 2.0：Endless Dream</strong><span>NetEase Games · 2025.07</span></div></a><a class="asset-card" data-index="04 / 05" href="https://www.neteasegames.com/news/OnceHuman/20250620/36928_1242171.html" target="_blank" rel="noopener"><img src="实战pic/OH custom server.png" alt="《七日世界》自定义服务器上线新闻稿"><div class="asset-card-body"><strong>《七日世界》Custom Server 正式上线</strong><span>NetEase Games · 2025.06</span></div></a><a class="asset-card" data-index="05 / 05" href="https://www.enduins.com/pc-games/once-human-raidzone-officially-launches-now-survive-at-all-costs" target="_blank" rel="noopener"><img src="实战pic/oh raidzone.png" alt="Once Human RaidZone 正式上线新闻稿"><div class="asset-card-body"><strong>Once Human: RaidZone 正式上线</strong><span>Enduins · 2025.08</span></div></a></div><button class="wheel-arrow wheel-prev" onclick="slideAssets(this,-1)" aria-label="上一篇新闻稿">←</button><button class="wheel-arrow wheel-next" onclick="slideAssets(this,1)" aria-label="下一篇新闻稿">→</button></div><div class="wheel-status"><span>05 PUBLISHED ARTICLES · 点击主图阅读全文</span><span class="wheel-position">01 / 05</span><span class="wheel-dots" aria-hidden="true"></span></div></div></div>
     </article>
     <article class="work-module">
-      <button onclick="toggleWork(this)"><span class="work-preview"><img src="delta force.jpg" alt="KV 视觉资产示意预览"><b>02</b></span><span class="work-copy"><span class="work-title">KV 与视觉资产</span><small>主视觉、社媒延展与不同尺寸素材</small></span><span class="work-state">查看素材 +</span></button>
-      <div class="work-detail"><div class="asset-carousel"><div class="asset-viewport"><div class="asset-track"><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="delta force.jpg" alt="主视觉素材占位"><div class="asset-card-body"><strong>Campaign 主 KV</strong><span>原图链接待补充</span></div></a><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="oncehuman.png" alt="社媒视觉素材占位"><div class="asset-card-body"><strong>社媒延展视觉</strong><span>多尺寸素材待补充</span></div></a><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="promosci.png" alt="信息图素材占位"><div class="asset-card-body"><strong>信息图与数据卡</strong><span>Drive 链接待补充</span></div></a></div></div><div class="asset-nav"><button onclick="slideAssets(this,-1)" aria-label="上一组素材">←</button><button onclick="slideAssets(this,1)" aria-label="下一组素材">→</button></div></div></div>
+      <button onclick="toggleWork(this)"><span class="work-preview"><img src="实战pic/soj 3.png" alt="KV 与视觉资产预览"><b>02</b></span><span class="work-copy"><span class="work-title">KV 与视觉资产</span><small>版本主视觉、主题海报与海外传播素材</small></span><span class="work-state">查看素材 +</span></button>
+      <div class="work-detail"><div class="asset-carousel wheel-carousel" data-index="0" tabindex="0" aria-label="KV 与视觉资产轮播"><div class="asset-viewport"><div class="asset-track">
+        <div class="asset-card" data-index="01 / 21"><img src="实战pic/soj 3.png" alt="《逆水寒》角色视觉 03"><div class="asset-card-body"><strong>《逆水寒》角色视觉 03</strong><span>SWORD OF JUSTICE · VISUAL ASSET</span></div></div>
+        <div class="asset-card" data-index="02 / 21"><img src="实战pic/soj 2.png" alt="《逆水寒》角色视觉 02"><div class="asset-card-body"><strong>《逆水寒》角色视觉 02</strong><span>SWORD OF JUSTICE · VISUAL ASSET</span></div></div>
+        <div class="asset-card" data-index="03 / 21"><img src="实战pic/soj 1.png" alt="《逆水寒》角色视觉 01"><div class="asset-card-body"><strong>《逆水寒》角色视觉 01</strong><span>SWORD OF JUSTICE · VISUAL ASSET</span></div></div>
+        <div class="asset-card" data-index="04 / 21"><img src="实战pic/raidzone kv1.png" alt="Once Human RaidZone KV 01"><div class="asset-card-body"><strong>Once Human: RaidZone KV 01</strong><span>ONCE HUMAN · RAIDZONE</span></div></div>
+        <div class="asset-card" data-index="05 / 21"><img src="实战pic/radizone kv2.png" alt="Once Human RaidZone KV 02"><div class="asset-card-body"><strong>Once Human: RaidZone KV 02</strong><span>ONCE HUMAN · RAIDZONE</span></div></div>
+        <div class="asset-card" data-index="06 / 21"><img src="实战pic/radizone kv3.png" alt="Once Human RaidZone KV 03"><div class="asset-card-body"><strong>Once Human: RaidZone KV 03</strong><span>ONCE HUMAN · RAIDZONE</span></div></div>
+        <div class="asset-card" data-index="07 / 21"><img src="实战pic/raidzone kv4.png" alt="Once Human RaidZone KV 04"><div class="asset-card-body"><strong>Once Human: RaidZone KV 04</strong><span>ONCE HUMAN · RAIDZONE</span></div></div>
+        <div class="asset-card" data-index="08 / 21"><img src="实战pic/raidzone kv5.png" alt="Once Human RaidZone KV 05"><div class="asset-card-body"><strong>Once Human: RaidZone KV 05</strong><span>ONCE HUMAN · RAIDZONE</span></div></div>
+        <div class="asset-card" data-index="09 / 21"><img src="实战pic/oh raidzone.png" alt="Once Human RaidZone 上线 KV"><div class="asset-card-body"><strong>Once Human: RaidZone 上线 KV</strong><span>ONCE HUMAN · GLOBAL CAMPAIGN</span></div></div>
+        <div class="asset-card" data-index="10 / 21"><img src="实战pic/soj 1.3.1.jpg" alt="《逆水寒》SEA Season 1.3.1 KV"><div class="asset-card-body"><strong>《逆水寒》SEA Season 1.3.1 KV</strong><span>SWORD OF JUSTICE · VERSION CAMPAIGN</span></div></div>
+        <div class="asset-card" data-index="11 / 21"><img src="实战pic/OH mobile.jpg" alt="Once Human Mobile 全球上线 KV"><div class="asset-card-body"><strong>Once Human Mobile 全球上线 KV</strong><span>ONCE HUMAN · GLOBAL LAUNCH</span></div></div>
+        <div class="asset-card" data-index="12 / 21"><img src="实战pic/OH custom server.png" alt="Once Human Custom Server KV"><div class="asset-card-body"><strong>Once Human Custom Server KV</strong><span>ONCE HUMAN · FEATURE CAMPAIGN</span></div></div>
+        <div class="asset-card" data-index="13 / 21"><img src="实战pic/OH endless dream.jpg" alt="Once Human Endless Dream KV"><div class="asset-card-body"><strong>Once Human 2.0：Endless Dream KV</strong><span>ONCE HUMAN · ANNUAL VERSION</span></div></div>
+        <div class="asset-card" data-index="14 / 21"><img src="实战pic/lucky thursday.jpg" alt="Lucky Thursday 活动 KV"><div class="asset-card-body"><strong>Lucky Thursday 活动 KV</strong><span>SWORD OF JUSTICE · SOCIAL CAMPAIGN</span></div></div>
+        <div class="asset-card" data-index="15 / 21"><img src="实战pic/swim suite lucky thursday.jpg" alt="泳装主题 Lucky Thursday KV"><div class="asset-card-body"><strong>泳装主题 Lucky Thursday KV</strong><span>SWORD OF JUSTICE · SOCIAL CAMPAIGN</span></div></div>
+        <div class="asset-card" data-index="16 / 21"><img src="实战pic/泳装主题-悬念海报英文.jpg" alt="泳装主题英文悬念海报"><div class="asset-card-body"><strong>泳装主题英文悬念海报</strong><span>SWORD OF JUSTICE · TEASER POSTER</span></div></div>
+        <div class="asset-card" data-index="17 / 21"><img src="实战pic/疯狂星期四-情人节氛围海报-英语.jpg" alt="疯狂星期四情人节英文氛围海报"><div class="asset-card-body"><strong>疯狂星期四 · 情人节英文氛围海报</strong><span>SWORD OF JUSTICE · SOCIAL POSTER</span></div></div>
+        <div class="asset-card" data-index="18 / 21"><img src="实战pic/1.2.4版本KV（NA）_1920x1080-英文.jpg" alt="1.2.4 版本北美英文 KV"><div class="asset-card-body"><strong>1.2.4 版本北美英文 KV</strong><span>SWORD OF JUSTICE · VERSION CAMPAIGN</span></div></div>
+        <div class="asset-card" data-index="19 / 21"><img src="实战pic/A50-英语.png" alt="A50 英文传播视觉"><div class="asset-card-body"><strong>A50 英文传播视觉</strong><span>SWORD OF JUSTICE · GLOBAL ASSET</span></div></div>
+        <div class="asset-card" data-index="20 / 21"><img src="实战pic/夏日烟花kv-漫天烟花版(1).jpg" alt="夏日烟花主题 KV"><div class="asset-card-body"><strong>夏日烟花主题 KV</strong><span>SWORD OF JUSTICE · SEASONAL CAMPAIGN</span></div></div>
+        <div class="asset-card" data-index="21 / 21"><img src="实战pic/永夜-英文.jpg" alt="永夜主题英文 KV"><div class="asset-card-body"><strong>永夜主题英文 KV</strong><span>SWORD OF JUSTICE · GLOBAL CAMPAIGN</span></div></div>
+      </div><button class="wheel-arrow wheel-prev" onclick="slideAssets(this,-1)" aria-label="上一张视觉资产">←</button><button class="wheel-arrow wheel-next" onclick="slideAssets(this,1)" aria-label="下一张视觉资产">→</button></div><div class="wheel-status"><span>21 VISUAL ASSETS · 仅展示</span><span class="wheel-position">01 / 21</span><span class="wheel-dots" aria-hidden="true"></span></div></div></div>
     </article>
     <article class="work-module">
-      <button onclick="toggleWork(this)"><span class="work-preview"><img src="helldivers2.png" alt="PV 视频示意预览"><b>03</b></span><span class="work-copy"><span class="work-title">PV / Trailer / 视频</span><small>脚本、分镜与正式上线视频</small></span><span class="work-state">查看素材 +</span></button>
-      <div class="work-detail"><div class="asset-carousel"><div class="asset-viewport"><div class="asset-track"><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="helldivers2.png" alt="PV 素材占位"><div class="asset-card-body"><strong>版本 PV</strong><span>视频链接待补充</span></div></a><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="youtube.png" alt="视频脚本素材占位"><div class="asset-card-body"><strong>脚本与分镜</strong><span>文档链接待补充</span></div></a><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="oncehuman.png" alt="短视频素材占位"><div class="asset-card-body"><strong>社媒短视频</strong><span>发布链接待补充</span></div></a></div></div><div class="asset-nav"><button onclick="slideAssets(this,-1)" aria-label="上一组素材">←</button><button onclick="slideAssets(this,1)" aria-label="下一组素材">→</button></div></div></div>
+      <button onclick="toggleWork(this)"><span class="work-preview"><img src="实战pic/OH mobile.jpg" alt="《七日世界》移动端全球公测视频预览"><b>03</b></span><span class="work-copy"><span class="work-title">PV / Trailer / 视频</span><small>版本宣传片、全球上线视频与品牌内容</small></span><span class="work-state">查看素材 +</span></button>
+      <div class="work-detail"><div class="asset-carousel wheel-carousel video-carousel" data-index="0" tabindex="0" aria-label="PV 与宣传视频轮播"><div class="asset-viewport"><div class="asset-track">
+        <div class="asset-card" data-index="01 / 05"><iframe src="https://player.bilibili.com/player.html?bvid=BV1E2LbzBE2N&amp;page=1&amp;high_quality=1&amp;danmaku=0" title="《七日世界》移动端现已公测" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe><div class="asset-card-body"><strong>《七日世界》移动端现已公测！荒野之王德爷带你挑战末日生存！</strong><span>BILIBILI · MOBILE LAUNCH</span></div></div>
+        <div class="asset-card" data-index="02 / 05"><iframe src="https://player.bilibili.com/player.html?bvid=BV1AF34ztENB&amp;page=1&amp;high_quality=1&amp;danmaku=0" title="全新 PVE 剧本《无尽长梦》今日上线" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe><div class="asset-card-body"><strong>欢迎来到噩梦的世界！全新 PVE 剧本《无尽长梦》今日上线！</strong><span>BILIBILI · VERSION PV</span></div></div>
+        <div class="asset-card" data-index="03 / 05"><iframe src="https://player.bilibili.com/player.html?bvid=BV1W2E9zxE9p&amp;page=1&amp;high_quality=1&amp;danmaku=0" title="全新模式《七日世界：禁区》首曝" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe><div class="asset-card-body"><strong>全新模式《七日世界：禁区》首曝！无限对抗生存之战即将爆发！</strong><span>BILIBILI · GLOBAL REVEAL</span></div></div>
+        <div class="asset-card" data-index="04 / 05"><iframe src="https://player.bilibili.com/player.html?bvid=BV17yhWzbEzL&amp;page=1&amp;high_quality=1&amp;danmaku=0" title="《七日世界：禁区》现已上线" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe><div class="asset-card-body"><strong>全面混战，一触即发！《七日世界：禁区》现已上线</strong><span>BILIBILI · LAUNCH PV</span></div></div>
+        <div class="asset-card" data-index="05 / 05"><iframe src="https://player.bilibili.com/player.html?bvid=BV1y752ztEmF&amp;page=1&amp;high_quality=1&amp;danmaku=0" title="篝火重燃，故事该续写了" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe><div class="asset-card-body"><strong>篝火重燃，故事该续写了！幸存者们，欢迎回家</strong><span>BILIBILI · BRAND VIDEO</span></div></div>
+      </div><button class="wheel-arrow wheel-prev" onclick="slideAssets(this,-1)" aria-label="上一个视频">←</button><button class="wheel-arrow wheel-next" onclick="slideAssets(this,1)" aria-label="下一个视频">→</button></div><div class="wheel-status"><span>05 VIDEOS · 中央视频可直接播放</span><span class="wheel-position">01 / 05</span><span class="wheel-dots" aria-hidden="true"></span></div></div></div>
     </article>
     <article class="work-module">
-      <button onclick="toggleWork(this)"><span class="work-preview"><img src="ML.png" alt="Pitch Deck 示意预览"><b>04</b></span><span class="work-copy"><span class="work-title">Pitch Deck / 营销提案</span><small>洞察、Big Idea、渠道策略与执行路线</small></span><span class="work-state">查看素材 +</span></button>
-      <div class="work-detail"><div class="asset-carousel"><div class="asset-viewport"><div class="asset-track"><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="ML.png" alt="策略提案素材占位"><div class="asset-card-body"><strong>策略提案 Deck</strong><span>Drive 链接待补充</span></div></a><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="hema.png" alt="用户洞察素材占位"><div class="asset-card-body"><strong>用户洞察章节</strong><span>可公开页面待补充</span></div></a><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="delta force.jpg" alt="创意策略素材占位"><div class="asset-card-body"><strong>创意与执行路线</strong><span>案例链接待补充</span></div></a></div></div><div class="asset-nav"><button onclick="slideAssets(this,-1)" aria-label="上一组素材">←</button><button onclick="slideAssets(this,1)" aria-label="下一组素材">→</button></div></div></div>
-    </article>
-    <article class="work-module">
-      <button onclick="toggleWork(this)"><span class="work-preview"><img src="youtube.png" alt="KOL 内容示意预览"><b>05</b></span><span class="work-copy"><span class="work-title">KOL Brief / Creator 内容</span><small>创作者策略、Brief 与上线内容样例</small></span><span class="work-state">查看素材 +</span></button>
-      <div class="work-detail"><div class="asset-carousel"><div class="asset-viewport"><div class="asset-track"><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="youtube.png" alt="KOL Brief 素材占位"><div class="asset-card-body"><strong>KOL 内容 Brief</strong><span>脱敏文档待补充</span></div></a><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="oncehuman.png" alt="创作者视频素材占位"><div class="asset-card-body"><strong>创作者视频案例</strong><span>发布链接待补充</span></div></a><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="helldivers2.png" alt="直播素材占位"><div class="asset-card-body"><strong>直播合作案例</strong><span>回放链接待补充</span></div></a></div></div><div class="asset-nav"><button onclick="slideAssets(this,-1)" aria-label="上一组素材">←</button><button onclick="slideAssets(this,1)" aria-label="下一组素材">→</button></div></div></div>
-    </article>
-    <article class="work-module">
-      <button onclick="toggleWork(this)"><span class="work-preview"><img src="promosci.png" alt="广告投放示意预览"><b>06</b></span><span class="work-copy"><span class="work-title">Media Buy / 投放</span><small>媒体版位、广告素材与效果复盘</small></span><span class="work-state">查看素材 +</span></button>
-      <div class="work-detail"><div class="asset-carousel"><div class="asset-viewport"><div class="asset-track"><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="promosci.png" alt="投放素材占位"><div class="asset-card-body"><strong>平台广告素材</strong><span>落地页链接待补充</span></div></a><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="ML.png" alt="投放数据素材占位"><div class="asset-card-body"><strong>投放数据复盘</strong><span>脱敏截图待补充</span></div></a><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="oncehuman.png" alt="媒体版位素材占位"><div class="asset-card-body"><strong>媒体版位样例</strong><span>发布链接待补充</span></div></a></div></div><div class="asset-nav"><button onclick="slideAssets(this,-1)" aria-label="上一组素材">←</button><button onclick="slideAssets(this,1)" aria-label="下一组素材">→</button></div></div></div>
-    </article>
-    <article class="work-module">
-      <button onclick="toggleWork(this)"><span class="work-preview"><img src="once-human.png" alt="H5 活动示意预览"><b>07</b></span><span class="work-copy"><span class="work-title">H5 / 社区活动 / 用户召回</span><small>互动路径、裂变机制与召回结果</small></span><span class="work-state">查看素材 +</span></button>
-      <div class="work-detail"><div class="asset-carousel"><div class="asset-viewport"><div class="asset-track"><a class="asset-card" href="https://tianchunzhu.github.io/arknights-x-JOJO-crossover/" target="_blank"><img src="once-human.png" alt="JOJO 互动 H5"><div class="asset-card-body"><strong>黄金同步测试 H5</strong><span>点击体验实际 Demo ↗</span></div></a><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="oncehuman.png" alt="用户召回 H5 素材占位"><div class="asset-card-body"><strong>用户召回 H5</strong><span>活动链接待补充</span></div></a><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="youtube.png" alt="社区活动素材占位"><div class="asset-card-body"><strong>Discord 社区活动</strong><span>截图与链接待补充</span></div></a></div></div><div class="asset-nav"><button onclick="slideAssets(this,-1)" aria-label="上一组素材">←</button><button onclick="slideAssets(this,1)" aria-label="下一组素材">→</button></div></div></div>
-    </article>
-    <article class="work-module">
-      <button onclick="toggleWork(this)"><span class="work-preview"><img src="shake-share.png" alt="其他素材示意预览"><b>08</b></span><span class="work-copy"><span class="work-title">其他已发布素材</span><small>活动页面、社媒内容与后续新增类型</small></span><span class="work-state">查看素材 +</span></button>
-      <div class="work-detail"><div class="asset-carousel"><div class="asset-viewport"><div class="asset-track"><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="shake-share.png" alt="活动页面素材占位"><div class="asset-card-body"><strong>活动页面</strong><span>实际链接待补充</span></div></a><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="hema.png" alt="社媒内容素材占位"><div class="asset-card-body"><strong>社媒内容</strong><span>实际链接待补充</span></div></a><a class="asset-card is-placeholder" href="#" onclick="event.preventDefault()"><img src="photo.jpg" alt="其他作品素材占位"><div class="asset-card-body"><strong>后续作品槽位</strong><span>图片与链接待补充</span></div></a></div></div><div class="asset-nav"><button onclick="slideAssets(this,-1)" aria-label="上一组素材">←</button><button onclick="slideAssets(this,1)" aria-label="下一组素材">→</button></div></div></div>
+      <button onclick="toggleWork(this)"><span class="work-preview"><img src="实战pic/H5 1.png" alt="心愿 H5 活动预览"><b>04</b></span><span class="work-copy"><span class="work-title">H5 / 活动页面</span><small>面向不同区域与营销节点的互动活动页面</small></span><span class="work-state">查看素材 +</span></button>
+      <div class="work-detail"><div class="asset-carousel wheel-carousel" data-index="0" tabindex="0" aria-label="H5 活动页面轮播"><div class="asset-viewport"><div class="asset-track">
+        <a class="asset-card" data-index="01 / 04" href="https://www.swordofjustice.com/h5/20260814/xyhdzh-cht/" target="_blank" rel="noopener"><img src="实战pic/H5 1.png" alt="心愿 H5"><div class="asset-card-body"><strong>心愿 H5</strong><span>活动页面 · 点击体验 ↗</span></div></a>
+        <a class="asset-card" data-index="02 / 04" href="https://www.swordofjustice.com/h5/20260722/officialwebfasthmt/" target="_blank" rel="noopener"><img src="实战pic/h5 3.jpg" alt="港澳台周三小确幸 H5"><div class="asset-card-body"><strong>港澳台 · 周三小确幸</strong><span>区域活动 · 点击体验 ↗</span></div></a>
+        <a class="asset-card" data-index="03 / 04" href="https://www.swordofjustice.com/h5/20260731/zdxfsea/" target="_blank" rel="noopener"><img src="实战pic/1.png" alt="东南亚组队消费 H5"><div class="asset-card-body"><strong>东南亚 · 组队消费</strong><span>组队活动 · 点击体验 ↗</span></div></a>
+        <a class="asset-card" data-index="04 / 04" href="https://pay.neteasegames.com/swordofjustice/topup" target="_blank" rel="noopener"><img src="实战pic/h5 2.jpg" alt="东南亚幸运星期四活动页面"><div class="asset-card-body"><strong>东南亚 · 幸运星期四</strong><span>充值活动 · 点击体验 ↗</span></div></a>
+      </div><button class="wheel-arrow wheel-prev" onclick="slideAssets(this,-1)" aria-label="上一个 H5">←</button><button class="wheel-arrow wheel-next" onclick="slideAssets(this,1)" aria-label="下一个 H5">→</button></div><div class="wheel-status"><span>04 LIVE H5 EXPERIENCES · 点击主图打开</span><span class="wheel-position">01 / 04</span><span class="wheel-dots" aria-hidden="true"></span></div></div></div>
     </article>
   </div>
 </div>
@@ -1770,7 +1810,7 @@ nav{border-bottom:1px solid rgba(42,31,18,.12);backdrop-filter:blur(18px);backgr
         </div>
 
         <div style="margin-top:22px;padding-top:16px;border-top:1.5px solid var(--border);display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-          <a href="https://tianchunzhu.github.io/Delta-Force-Mission-Impossible/" target="_blank" class="btn btn-dark" style="display:inline-flex;align-items:center;gap:8px;font-size:14px">🌐 访问完整策划网站</a>
+          <a href="https://tianchunzhu.github.io/Delta-Force-Mission-Impossible/" target="_blank" rel="noopener" class="btn btn-dark" style="display:inline-flex;align-items:center;gap:8px;font-size:14px">🌐 访问完整策划网站</a>
           <a href="https://github.com/TianchunZhu/Delta-Force-Mission-Impossible" target="_blank" class="btn" style="display:inline-flex;align-items:center;gap:8px;font-size:14px;border:2px solid var(--border)">⌥ GitHub 源码</a>
         </div>
 
@@ -1814,6 +1854,7 @@ nav{border-bottom:1px solid rgba(42,31,18,.12);backdrop-filter:blur(18px);backgr
         <p class="pm-lead">D8–D21 通过黄金战术周、H5 数据图鉴、城市挑战回收、玩家混剪与社区共创制造第二波内容；末期再按“完成 H5 未进游戏、小队未满、沉默玩家”执行分层召回。</p>
         <div class="campaign-metrics"><span>新注册与 H5→下载</span><span>沉默用户回流与留存</span><span>有效四人小队</span><span>活动参与天数</span><span>UGC 产量</span><span>卡池与周边转化</span></div>
       </div>
+      <div style="margin-top:22px;padding-top:16px;border-top:1.5px solid var(--border);text-align:center"><a href="https://1drv.ms/b/c/bad556a6b4985de8/IQDAnOa_xh8CSIWC6sYk3zX_AZzDPIgZvAnvOPnmRsmWg4o?e=6jh6DP" target="_blank" rel="noopener" class="btn btn-dark" style="display:inline-flex;align-items:center;gap:8px;font-size:14px">查看完整联动方案 ↗</a></div>
     </div>
   </div>
 </div>
@@ -1878,6 +1919,7 @@ nav{border-bottom:1px solid rgba(42,31,18,.12);backdrop-filter:blur(18px);backgr
       <div class="case-grid-2"><div class="case-box"><span class="case-chip">PLAYER FLOW</span><strong>不是领券，而是“带着过去回来”</strong><p>下载《皇室战争》并绑定 Supercell ID → 在页面申报游戏时长、每日战斗、等级或货币 → 系统匹配奖励 → 回到正版继续成长。</p></div><div class="case-box"><span class="case-chip">BEHAVIOURAL DESIGN</span><strong>承认投入，降低心理损失</strong><p>奖励不仅是经济激励，也向玩家传达：过去花掉的时间被看见，因此回归不再等于从零开始。</p></div></div>
       <div class="m-sec">案例结果</div><div class="m-stats"><div class="m-stat-box"><div class="m-stat-n">2.3M</div><div class="m-stat-l">约 3–5 天进度兑换</div></div><div class="m-stat-box"><div class="m-stat-n">1.65M</div><div class="m-stat-l">新增账号</div></div><div class="m-stat-box"><div class="m-stat-n">5.4M</div><div class="m-stat-l">流失用户回归</div></div><div class="m-stat-box"><div class="m-stat-n">GP</div><div class="m-stat-l">Entertainment Lions for Gaming</div></div></div>
       <div class="m-sec">我的营销结论</div><div class="learning-note">召回不能只回答“回来能拿什么”，还必须回答“为什么之前不回来”以及“怎样补偿错过或浪费的进度”。最强的福利设计，往往先解决玩家的心理账本。</div>
+      <div style="margin-top:22px;padding-top:16px;border-top:1.5px solid var(--border);text-align:center"><a href="https://1drv.ms/b/c/bad556a6b4985de8/IQAXbEfRrBj7Q5y7ic5EkteZATZQdmb29JpwkVb6kt7gRnU?e=YtXnqK" target="_blank" rel="noopener" class="btn btn-dark" style="display:inline-flex;align-items:center;gap:8px;font-size:14px">查看完整案例文件 ↗</a></div>
     </div>
   </div>
 </div>
@@ -1888,7 +1930,7 @@ const T={
   zh:{
     'nl-home':'主页','nl-about':'关于','nl-portfolio':'作品集','nl-work':'实战作品','nl-contact':'联系',
     'h-pill':'海外游戏营销 · AI 驱动洞察',
-    'h-sub':'UCL 管理学院市场营销科学硕士在读，现于网易雷火负责《逆水寒》海外市场营销。经历覆盖 KOL、PR、H5 增长与社区运营，也独立开发 AI 工具，把玩家洞察转化为更快、更能落地的营销动作。',
+    'h-sub':'已毕业于 UCL 管理学院市场营销科学硕士项目，现任网易雷火《逆水寒》海外市场营销实习生。经历覆盖 KOL、PR、H5 增长与社区运营，也独立开发 AI 工具，将玩家洞察转化为更高效、更可落地的营销策略与执行。',
     'h-btn1':'查看作品集','h-btn2':'联系我','h-scroll':'向下滚动',
     'h-stat2-n':'297%','h-stat2-l':'直播目标达成率',
     'per-label':'认识我','per-title':'点击了解我的核心特质',
@@ -1916,7 +1958,7 @@ const T={
     't6-badge':'教育','t6-org':'立命馆亚洲太平洋大学（APU）','t6-role':'市场营销 · 学士（GPA 3.85/4，全系前 3%）',
     't6-desc':'荣誉毕业，获 30% 学费减免奖学金。Beta Gamma Sigma 国际荣誉商学会成员。','t6-tag':'荣誉毕业','t6-hint':'✦ 点击查看详情',
     'ab-label':'关于我','ab-title':'朱天纯其人',
-    'ab-bio':'我是一名<strong>游戏营销人</strong>，UCL 市场营销科学硕士在读，目前在网易雷火参与《逆水寒》海外市场营销。我的工作横跨<strong>玩家洞察、整合传播、KOL、PR、H5 增长与社区运营</strong>。<br><br>我也会把重复、耗时的调研流程产品化：用 AI 工具处理视频、评论与媒体资讯，让洞察更快进入策略和创意，而不是停在报告里。',
+    'ab-bio':'我是一名<strong>游戏营销人</strong>，已毕业于 UCL 管理学院市场营销科学硕士项目，目前担任网易雷火《逆水寒》海外市场营销实习生。我的工作聚焦港澳台与东南亚市场，覆盖<strong>玩家洞察、KOL、PR / Media Buy、H5 增长与社区运营</strong>。<br><br>我也持续通过 AI Coding 将重复、耗时的调研流程产品化：整合视频、评论与媒体资讯，让玩家洞察更快进入营销策略、创意与实际执行。',
     's1-t':'整合营销传播','s1-d':'策略制定到落地执行，覆盖多平台全链路传播矩阵',
     's2-t':'游戏行业洞察','s2-d':'深度理解欧美游戏市场、玩家社区与竞品生态',
     's3-t':'数据驱动决策','s3-d':'运用 Python、R、SQL 进行市场分析与用户洞察',
@@ -1953,12 +1995,12 @@ const T={
     'c7-cat':'经济学建模 · UCL MSIN0306','c7-name':'PromoSci：经济学驱动的优惠券优化引擎',
     'c7-desc':'构建两级嵌套 Logit 需求模型，对比四种促销策略，将优化目标从兑换率重定义为增量利润，实现优惠券效率 1.55 增量单位/£，周利润较无差别折扣提升 +£220。','c7-view':'查看项目',
     'ps-body':'<div class="m-sec">项目概述</div><p>MSIN0306 经济学与营销策略课程小组作业（UCL 25/26 学年）。核心问题：传统优惠券策略要么无差别发放（浪费补贴于忠诚用户），要么用机器学习优化兑换率而非真实利润。PromoSci 以结构经济模型解决这一问题。</p><p style="font-size:12px;color:var(--sub);margin-top:4px">合作成员：Ahana Singh、Enze Liu、Hy Ly、Tianchun Zhu、Viktoria Luise Blanke</p><div class="m-sec">核心结果</div><div class="m-stats"><div class="m-stat-box"><div class="m-stat-n">+£220</div><div class="m-stat-l">vs. 无差别折扣 /周</div></div><div class="m-stat-box"><div class="m-stat-n">1.55</div><div class="m-stat-l">增量单位/£（效率最高）</div></div><div class="m-stat-box"><div class="m-stat-n">37.1%</div><div class="m-stat-l">渠道侵蚀率（最低）</div></div><div class="m-stat-box"><div class="m-stat-n">£27.93</div><div class="m-stat-l">每£优惠券花费的利润</div></div></div><div class="m-sec">方法核心：两级嵌套 Logit 需求模型</div><p>标准 Logit 存在 IIA 缺陷——可口可乐降价时，模型预测需求会从百事和麦片等比例流入，现实中并不成立。嵌套 Logit 引入"巢"结构（类别→品牌）：消费者先选类别，再选品牌，同类替代效应远强于跨类。</p><div class="m-code"><span class="cm"># σ ∈ (0,1] 控制巢内相关性 | σ→0：强替代 | σ=1：退化为标准 Logit (IIA)</span><br><span class="kw">for</span> cat, brands <span class="kw">in</span> categories.items():<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">for</span> brand, attrs <span class="kw">in</span> brands.items():<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V = loyalty * attrs[<span class="st">&quot;base_utility&quot;</span>] + alpha * effective_price<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># 下级：巢内品牌概率</span><br>&nbsp;&nbsp;&nbsp;&nbsp;exp_v = {b: np.exp((v - max_v) / sigma) <span class="kw">for</span> b, v <span class="kw">in</span> utilities.items()}<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># 上级：类别包含值（logsum）</span><br>&nbsp;&nbsp;&nbsp;&nbsp;nest_logsum[cat] = sigma * (np.log(sum_exp) + max_v / sigma)</div><div class="m-sec">囤货效应建模</div><p>深度折扣诱导消费者超前购买——将未来消费提前，并非真实增量。PromoSci 显式量化这一损失：囤货单位侵蚀未来全价销售利润。</p><div class="m-code"><span class="kw">def</span> <span class="fn">compute_stockpiling_effect</span>(discount_pct, stockpile_rate):<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># 囤货随折扣深度非线性增长</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> stockpile_rate * (1 - np.exp(-3 * discount_pct))<br><br>stockpile_loss = stockpiled * (base_price - cost)<br><span class="cm"># 中期利润 = 本期利润 - (未来损失 x 3.5周 / 4周规划期)</span><br>medium_term_profit = net_profit - (future_loss * 3.5 / 4)</div><div class="m-sec">四种策略对比</div><div class="m-layers"><div class="m-layer"><div class="m-layer-num" style="background:var(--ink)">①</div><div class="m-layer-body"><div class="m-layer-title">无优惠券（基准）£6,524/周</div><div class="m-layer-desc">建立反事实基准，所有策略均与此对比。</div></div></div><div class="m-layer"><div class="m-layer-num" style="background:#b55">②</div><div class="m-layer-body"><div class="m-layer-title">无差别折扣 £6,408/周 ↓</div><div class="m-layer-desc">所有用户统一 35p 折扣。比不发还差——补贴忠诚用户，触发大量囤货。</div></div></div><div class="m-layer"><div class="m-layer-num" style="background:#9333FF">③</div><div class="m-layer-body"><div class="m-layer-title">ML 精准投放 £6,507/周</div><div class="m-layer-desc">细分优化折扣，但目标函数是兑换率，无法量化渠道侵蚀与囤货损失。</div></div></div><div class="m-layer"><div class="m-layer-num" style="background:linear-gradient(135deg,#9333FF,#2e1a47)">④</div><div class="m-layer-body"><div class="m-layer-title">PromoSci 经济模型 £6,628/周 ✦</div><div class="m-layer-desc">结构模型 + 贪心搜索 + 坐标下降，£2,000 预算约束下最大化中期增量利润。</div></div></div></div><div class="m-sec">优化算法：贪心 + 坐标下降</div><div class="m-code"><span class="cm"># 第一轮：逐品牌贪心网格搜索最优折扣力度</span><br><span class="kw">for</span> brand <span class="kw">in</span> all_brands:<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">for</span> ps_disc <span class="kw">in</span> [0, 0.05, 0.10, 0.15, 0.20, 0.25, 0.30]:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">if</span> test_summary[<span class="st">&quot;coupon_cost&quot;</span>] &gt; MAX_PROMO_BUDGET: <span class="kw">continue</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">if</span> improvement &gt; best_improvement: best_disc = ...<br><br><span class="cm"># 第二轮：坐标下降修正跨品牌替代效应</span><br><span class="cm"># 固定其他品牌，对每个品牌 ±0.05 扰动，接受改进</span><br><span class="cm"># 结果：额外提升 £19.76/周（贪心因忽略跨品牌效应而低估最优解）</span></div><div class="m-verdict" style="margin-top:16px"><div class="m-verdict-box m-verdict-win"><div class="m-verdict-title">✅ 经济模型的核心优势</div><div class="m-verdict-item">✦ 捕捉因果结构，而非相关性</div><div class="m-verdict-item">✦ 显式建模囤货与渠道侵蚀</div><div class="m-verdict-item">✦ 反事实推断：若停止折扣会怎样？</div><div class="m-verdict-item">✦ 预算约束下最大化增量利润</div></div><div class="m-verdict-box m-verdict-lose"><div class="m-verdict-title">⚡ 模型局限性</div><div class="m-verdict-item">✦ 参数来自文献标定，非真实数据估计</div><div class="m-verdict-item">✦ 贪心搜索不保证全局最优</div><div class="m-verdict-item">✦ 价格内生性问题需工具变量解决</div><div class="m-verdict-item">✦ 生产部署需忠诚卡数据做 MLE 估计</div></div></div><div style="display:flex;gap:10px;margin-top:20px;padding-bottom:8px"><a href="https://1drv.ms/f/c/bad556a6b4985de8/IgCUzDjjVBvIRaFIvvx6sMsPAQWZSnbyAl252Xr4ee4gc4U?e=euNdof" target="_blank" class="btn-sm btn-sm-dark" style="text-decoration:none;flex:1;text-align:center;padding:10px 0">查看作业文件 ↗</a><a href="https://luxury-eclair-82496d.netlify.app/" target="_blank" class="btn-sm" style="text-decoration:none;flex:1;text-align:center;padding:10px 0;background:linear-gradient(135deg,#2e1a47,#9333FF);color:#fff;border:none">访问 PromoSci 官网 ↗</a></div>',
-    'f-title':'可下载文件','f-sub':'简历文件（PDF）',
+    'f-title':'简历文件','f-sub':'中英文版简历可直接查看与下载。',
     'ws-title':'我搭建的网站','ws-sub':'个人站 + 在研 AI 游戏竞品分析工具',
     's0-name':'个人站','s0-badge':'持续更新中','s0-desc':'个人作品集主站，AI 游戏竞品分析助手等在研项目都已放上去，持续更新中。','s0-btn':'访问',
     's1-name':'YouTube Insight','s1-badge':'在研','s1-desc':'把「搜视频、看回放、翻评论、写总结」的半天工作压缩成 3 分钟自动化流程——提一个问题即生成深度竞品分析报告。底层用到自然语言理解、长文本总结、情感分析（embedding / tf-idf）与 AI 智能调度。','s1-tag3':'情感分析','s1-tag4':'AI 调度','s1-btn':'访问应用',
     's2-name':'GameVid Insight','s2-badge':'在研','s2-desc':'在 YouTube Insight 基础上加入视频画面分析：用 Claude API 解析 YouTube / TikTok 长短视频的画面内容、关键信息与传播亮点，并聚合全球游戏媒体资讯生成每日行业日报。','s2-tag2':'视频画面分析','s2-tag3':'行业日报','s2-btn':'访问应用',
-    'f1-name':'朱天纯 — 简历（中文版）','f1-btn':'下载','f2-btn':'下载',
+    'f1-name':'朱天纯 — 简历（中英文版）','f1-btn':'下载','f2-btn':'下载',
     'ct-label':'保持联系','ct-title':'一起聊聊游戏、创意与增长','ct-sub':'如果你对我的经历、项目或实战作品感兴趣，欢迎通过以下方式联系我。',
     'ct1-l':'电子邮件','ct3-v':'查看主页','ct4-l':'小红书','ct4-v':'查看主页',
     'footer-text':'© 2025 朱天纯 · Tianchun Zhu · Made with ✦ & ☕','wc-copy':'已复制！',
@@ -1977,7 +2019,7 @@ const T={
   en:{
     'nl-home':'Home','nl-about':'About','nl-portfolio':'Portfolio','nl-contact':'Contact',
     'h-pill':'Overseas Game Marketing · Marketing Science',
-    'h-sub':'MSc Marketing Science at UCL, specializing in overseas game marketing & publishing. Contributed to NetEase\'s "Once Human" global communications, achieving 1.4B+ media readership.',
+    'h-sub':'Graduated from UCL School of Management with an MSc in Marketing Science. I am currently an Overseas Marketing Intern for Sword of Justice at NetEase ThunderFire, working across KOL, PR, H5 growth, community operations, and AI-powered player insight.',
     'h-btn1':'View Portfolio','h-btn2':'Get in Touch','h-scroll':'Scroll Down',
     'h-stat2-n':'3M+','h-stat2-l':'Video Views',
     'per-label':'Get to Know Me','per-title':'Click to explore my core traits',
@@ -2007,7 +2049,7 @@ const T={
     't6-desc':'Graduated with Honours, 30% tuition scholarship. Beta Gamma Sigma International Honor Society member.',
     't6-tag':'Graduated with Honours','t6-hint':'✦ Click for details',
     'ab-label':'About Me','ab-title':'Who I Am',
-    'ab-bio':'I\'m a <strong>game marketer</strong> pursuing my MSc in Marketing Science at UCL, focused on <strong>overseas game marketing & publishing</strong>. I believe great marketing isn\'t just broadcasting — it\'s genuinely understanding users and moving them with creativity.<br><br>I contributed to NetEase\'s global communications for "Once Human", gaining experience from PR strategy to media partnerships to user research, alongside skills in Python, R, and SQL.',
+    'ab-bio':'I\'m a <strong>game marketer</strong> who graduated from UCL School of Management with an MSc in Marketing Science. I am currently an Overseas Marketing Intern for <strong>Sword of Justice</strong> at NetEase ThunderFire, focusing on HMT and Southeast Asian markets across player insight, KOL, PR / media buying, H5 growth, and community operations.<br><br>I also use AI coding to productise repetitive research workflows, turning videos, comments, and media coverage into faster, execution-ready marketing insight.',
     's1-t':'Integrated Marketing','s1-d':'End-to-end strategy and execution across multi-platform communication matrices',
     's2-t':'Gaming Industry Insight','s2-d':'Deep expertise in Western gaming markets, player communities & competitive landscape',
     's3-t':'Data-Driven Decisions','s3-d':'Market analysis and user insights using Python, R, SQL, and Tableau',
@@ -2044,12 +2086,12 @@ const T={
     'c7-cat':'Economic Modelling · UCL MSIN0306','c7-name':'PromoSci: Economics-Informed Coupon Optimisation Engine',
     'c7-desc':'Built a two-level nested Logit demand model and benchmarked four promotion strategies, reframing the objective from redemption rate to incremental profit — achieving coupon efficiency of 1.55 incremental units/£ and +£220 weekly profit vs. blanket discounting.','c7-view':'View Project',
     'ps-body':'<div class="m-sec">Project Overview</div><p>Group assignment for MSIN0306 Economics &amp; Marketing Strategy (UCL 25/26). Core problem: traditional coupon strategies either apply blanket discounts (wasting spend on loyal users) or use ML to optimise redemption rate — not actual profit. PromoSci addresses this with structural economic modelling.</p><p style="font-size:12px;color:var(--sub);margin-top:4px">Team: Ahana Singh, Enze Liu, Hy Ly, Tianchun Zhu, Viktoria Luise Blanke</p><div class="m-sec">Key Results</div><div class="m-stats"><div class="m-stat-box"><div class="m-stat-n">+£220</div><div class="m-stat-l">vs. blanket discount /week</div></div><div class="m-stat-box"><div class="m-stat-n">1.55</div><div class="m-stat-l">incremental units/£ (peak efficiency)</div></div><div class="m-stat-box"><div class="m-stat-n">37.1%</div><div class="m-stat-l">cannibalisation rate (lowest)</div></div><div class="m-stat-box"><div class="m-stat-n">£27.93</div><div class="m-stat-l">profit per £ of coupon spend</div></div></div><div class="m-sec">Core Method: Two-Level Nested Logit Demand Model</div><p>Standard Logit suffers from IIA — it predicts that a Coca-Cola price cut steals demand equally from Pepsi and cereal, which is unrealistic. Nested Logit adds a "nest" structure (category → brand): consumers first choose a category, then a brand, so within-category substitution is far stronger than cross-category.</p><div class="m-code"><span class="cm"># σ ∈ (0,1] controls within-nest correlation | σ→0: strong substitution | σ=1: collapses to standard Logit (IIA)</span><br><span class="kw">for</span> cat, brands <span class="kw">in</span> categories.items():<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">for</span> brand, attrs <span class="kw">in</span> brands.items():<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V = loyalty * attrs[<span class="st">"base_utility"</span>] + alpha * effective_price<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># Lower-level: within-nest brand probability</span><br>&nbsp;&nbsp;&nbsp;&nbsp;exp_v = {b: np.exp((v - max_v) / sigma) <span class="kw">for</span> b, v <span class="kw">in</span> utilities.items()}<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># Upper-level: nest inclusive value (logsum)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;nest_logsum[cat] = sigma * (np.log(sum_exp) + max_v / sigma)</div><div class="m-sec">Modelling Stockpiling</div><p>Deep discounts induce consumers to buy ahead — pulling forward future consumption rather than generating true incremental demand. PromoSci explicitly quantifies this loss: stockpiled units erode future full-price sales margins.</p><div class="m-code"><span class="kw">def</span> <span class="fn">compute_stockpiling_effect</span>(discount_pct, stockpile_rate):<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># Stockpiling grows non-linearly with discount depth</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> stockpile_rate * (1 - np.exp(-3 * discount_pct))<br><br>stockpile_loss = stockpiled * (base_price - cost)<br><span class="cm"># Medium-term profit = current profit − (future loss × 3.5 weeks / 4-week planning horizon)</span><br>medium_term_profit = net_profit - (future_loss * 3.5 / 4)</div><div class="m-sec">Four Strategy Comparison</div><div class="m-layers"><div class="m-layer"><div class="m-layer-num" style="background:var(--ink)">①</div><div class="m-layer-body"><div class="m-layer-title">No Coupon (Baseline) £6,524/week</div><div class="m-layer-desc">Establishes the counterfactual baseline; all strategies benchmarked against this.</div></div></div><div class="m-layer"><div class="m-layer-num" style="background:#b55">②</div><div class="m-layer-body"><div class="m-layer-title">Blanket Discount £6,408/week ↓</div><div class="m-layer-desc">Uniform 35p discount for all users. Performs worse than no coupon — subsidises loyal buyers and triggers heavy stockpiling.</div></div></div><div class="m-layer"><div class="m-layer-num" style="background:#9333FF">③</div><div class="m-layer-body"><div class="m-layer-title">ML Targeting £6,507/week</div><div class="m-layer-desc">Segment-optimised discounts, but the objective is redemption rate — cannot quantify cannibalisation or stockpiling losses.</div></div></div><div class="m-layer"><div class="m-layer-num" style="background:linear-gradient(135deg,#9333FF,#2e1a47)">④</div><div class="m-layer-body"><div class="m-layer-title">PromoSci Economic Model £6,628/week ✦</div><div class="m-layer-desc">Structural model + greedy search + coordinate descent, maximising medium-term incremental profit under a £2,000 budget constraint.</div></div></div></div><div class="m-sec">Optimisation Algorithm: Greedy + Coordinate Descent</div><div class="m-code"><span class="cm"># Round 1: greedy grid search for optimal discount per brand</span><br><span class="kw">for</span> brand <span class="kw">in</span> all_brands:<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">for</span> ps_disc <span class="kw">in</span> [0, 0.05, 0.10, 0.15, 0.20, 0.25, 0.30]:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">if</span> test_summary[<span class="st">"coupon_cost"</span>] > MAX_PROMO_BUDGET: <span class="kw">continue</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">if</span> improvement > best_improvement: best_disc = ...<br><br><span class="cm"># Round 2: coordinate descent to correct cross-brand substitution effects</span><br><span class="cm"># Hold other brands fixed; perturb each brand ±0.05; accept improvements</span><br><span class="cm"># Result: additional +£19.76/week (greedy underestimates optimum by ignoring cross-brand effects)</span></div><div class="m-verdict" style="margin-top:16px"><div class="m-verdict-box m-verdict-win"><div class="m-verdict-title">✅ Why Economic Modelling Wins</div><div class="m-verdict-item">✦ Captures causal structure, not just correlation</div><div class="m-verdict-item">✦ Explicitly models stockpiling &amp; cannibalisation</div><div class="m-verdict-item">✦ Counterfactual reasoning: "what if we stop discounting?"</div><div class="m-verdict-item">✦ Maximises incremental profit under budget constraint</div></div><div class="m-verdict-box m-verdict-lose"><div class="m-verdict-title">⚡ Model Limitations</div><div class="m-verdict-item">✦ Parameters calibrated from literature, not estimated from real data</div><div class="m-verdict-item">✦ Greedy search does not guarantee global optimum</div><div class="m-verdict-item">✦ Price endogeneity requires instrumental variables</div><div class="m-verdict-item">✦ Production deployment needs loyalty card data for MLE estimation</div></div></div><div style="display:flex;gap:10px;margin-top:20px;padding-bottom:8px"><a href="https://1drv.ms/f/c/bad556a6b4985de8/IgCUzDjjVBvIRaFIvvx6sMsPAQWZSnbyAl252Xr4ee4gc4U?e=euNdof" target="_blank" class="btn-sm btn-sm-dark" style="text-decoration:none;flex:1;text-align:center;padding:10px 0">View Assignment ↗</a><a href="https://luxury-eclair-82496d.netlify.app/" target="_blank" class="btn-sm" style="text-decoration:none;flex:1;text-align:center;padding:10px 0;background:linear-gradient(135deg,#2e1a47,#9333FF);color:#fff;border:none">Visit PromoSci Website ↗</a></div>',
-    'f-title':'Downloadable Files','f-sub':'Resume files (PDF)',
+    'f-title':'Resume','f-sub':'The bilingual Chinese–English resume is available to view or download.',
     'ws-title':'Sites I’ve Built','ws-sub':'Personal site + in-progress AI game-intel tools',
     's0-name':'Personal Site','s0-badge':'Continuously Updated','s0-desc':'My personal portfolio hub — home to in-progress projects like the AI game-competitive-analysis tools. Continuously updated.','s0-btn':'Visit',
     's1-name':'YouTube Insight','s1-badge':'In Progress','s1-desc':'Compresses the half-day grind of “search videos, rewatch, read comments, summarize” into a 3-minute automated flow — ask one question, get a deep competitive-analysis report. Powered by NLU, long-text summarization, sentiment analysis (embeddings / tf-idf) and AI orchestration.','s1-tag3':'Sentiment','s1-tag4':'AI Orchestration','s1-btn':'Visit App',
     's2-name':'GameVid Insight','s2-badge':'In Progress','s2-desc':'Builds on YouTube Insight with on-screen visual analysis: uses the Claude API to parse the visuals, key info and viral highlights of YouTube / TikTok videos, and aggregates global game-media news into a daily industry digest.','s2-tag2':'Visual Analysis','s2-tag3':'Daily Digest','s2-btn':'Visit App',
-    'f1-name':'朱天纯 — Resume (Chinese)','f1-btn':'Download','f2-btn':'Download',
+    'f1-name':'Tianchun Zhu — Bilingual Resume','f1-btn':'Download','f2-btn':'Download',
     'ct-label':'Get in Touch','ct-title':'Contact Me ✦','ct-sub':'If you\'re interested in my background or have an exciting opportunity, feel free to reach out!',
     'ct1-l':'Email','ct3-v':'View Profile','ct4-l':'Xiaohongshu','ct4-v':'View Profile',
     'footer-text':'© 2025 Tianchun Zhu · Made with ✦ & ☕','wc-copy':'Copied!',
@@ -2229,16 +2271,81 @@ function showGames(group,btn){
 function toggleWork(btn){
   const module=btn.closest('.work-module');
   module.classList.toggle('open');
+  const isOpen=module.classList.contains('open');
+  if(!isOpen)module.querySelectorAll('.video-carousel').forEach(stopCarouselVideos);
   const state=module.querySelector('.work-state');
-  if(state)state.textContent=module.classList.contains('open')?'收起 −':'查看素材 +';
+  if(state)state.textContent=isOpen?'收起 −':'查看素材 +';
+}
+
+function stopCarouselVideos(scope){
+  scope.querySelectorAll('iframe').forEach(frame=>{
+    const source=frame.getAttribute('src');
+    if(source&&source!=='about:blank'){
+      frame.setAttribute('src','about:blank');
+      requestAnimationFrame(()=>frame.setAttribute('src',source));
+    }
+  });
+}
+
+function renderWheelCarousel(carousel){
+  const cards=[...carousel.querySelectorAll('.asset-card')];
+  const total=cards.length;
+  if(!total)return;
+  let current=Number(carousel.dataset.index||0);
+  current=((current%total)+total)%total;
+  carousel.dataset.index=current;
+  cards.forEach((card,index)=>{
+    const forward=(index-current+total)%total;
+    let slot='hidden';
+    if(forward===0)slot='0';
+    else if(forward===1)slot='1';
+    else if(forward===total-1)slot='-1';
+    card.dataset.slot=slot;
+    card.classList.toggle('is-active',slot==='0');
+    card.setAttribute('aria-hidden',slot==='0'?'false':'true');
+    if(card.tagName==='A')card.tabIndex=slot==='0'?0:-1;
+  });
+  const position=carousel.querySelector('.wheel-position');
+  if(position)position.textContent=String(current+1).padStart(2,'0')+' / '+String(total).padStart(2,'0');
+  const dots=carousel.querySelector('.wheel-dots');
+  if(dots){
+    dots.classList.toggle('many',total>9);
+    dots.innerHTML=cards.map((_,index)=>`<i class="${index===current?'active':''}"></i>`).join('');
+  }
+}
+
+function moveWheelCarousel(carousel,direction){
+  const total=carousel.querySelectorAll('.asset-card').length;
+  if(!total)return;
+  if(carousel.classList.contains('video-carousel')){
+    const active=carousel.querySelector('.asset-card[data-slot="0"]');
+    if(active)stopCarouselVideos(active);
+  }
+  carousel.dataset.index=(Number(carousel.dataset.index||0)+direction+total)%total;
+  renderWheelCarousel(carousel);
 }
 
 function slideAssets(btn,direction){
-  const track=btn.closest('.asset-carousel').querySelector('.asset-track');
+  const carousel=btn.closest('.asset-carousel');
+  if(carousel.classList.contains('wheel-carousel')){
+    moveWheelCarousel(carousel,direction);
+    return;
+  }
+  const track=carousel.querySelector('.asset-track');
   const card=track.querySelector('.asset-card');
   const distance=card?card.getBoundingClientRect().width+12:320;
   track.scrollBy({left:distance*direction,behavior:'smooth'});
 }
+
+document.querySelectorAll('.wheel-carousel').forEach(carousel=>{
+  renderWheelCarousel(carousel);
+  carousel.addEventListener('keydown',event=>{
+    if(event.key==='ArrowLeft'||event.key==='ArrowRight'){
+      event.preventDefault();
+      moveWheelCarousel(carousel,event.key==='ArrowLeft'?-1:1);
+    }
+  });
+});
 
 /* ── WeChat ── */
 function copyWechat(){
